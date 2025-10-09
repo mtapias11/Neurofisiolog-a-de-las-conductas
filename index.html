@@ -1,333 +1,106 @@
-import React, { useState } from "react";
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neurofisiología — Conductas Biológicas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Neurofisiología de las conductas: Ingesta, Sexual y Sueño</h1>
+    <p>
+      Página educativa e interactiva sobre las bases biológicas del sueño,
+      la conducta alimentaria y sexual/reproductiva.
+    </p>
+  </header>
 
-// NeurofisiologiaPage.jsx
-// Página React de una sola componente. Usa Tailwind CSS para estilos.
-// Export por defecto para vista previa.
+  <nav class="menu">
+    <button onclick="mostrarSeccion('sueno')">Sueño</button>
+    <button onclick="mostrarSeccion('ingesta')">Ingesta</button>
+    <button onclick="mostrarSeccion('sexual')">Conducta Sexual</button>
+    <button onclick="mostrarSeccion('integracion')">Integración</button>
+  </nav>
 
-export default function NeurofisiologiaPage() {
-  const [tab, setTab] = useState("suenio");
-  const [glossaryOpen, setGlossaryOpen] = useState(false);
-  const [quizResult, setQuizResult] = useState(null);
-  const [answers, setAnswers] = useState({ q1: "", q2: "" });
+  <main>
+    <!-- SUEÑO -->
+    <section id="sueno" class="contenido visible">
+      <h2>💤 Sueño como estado funcional</h2>
+      <p>
+        El sueño es un estado fisiológico activo que involucra redes
+        neuronales del hipotálamo, tronco encefálico y tálamo. Hormonas como
+        la <strong>melatonina</strong> y neurotransmisores como el
+        <strong>GABA</strong> y la <strong>adenosina</strong> regulan los
+        ciclos de sueño y vigilia.
+      </p>
+      <ul>
+        <li>El VLPO promueve el sueño NREM.</li>
+        <li>Las orexinas mantienen la vigilia.</li>
+        <li>La melatonina sincroniza el reloj biológico.</li>
+      </ul>
+    </section>
 
-  const handleQuiz = () => {
-    let score = 0;
-    if (answers.q1 === "hipotalamo") score += 1;
-    if (answers.q2 === "melatonina") score += 1;
-    setQuizResult({ score, total: 2 });
-  };
+    <!-- INGESTA -->
+    <section id="ingesta" class="contenido">
+      <h2>🍎 Conducta de Ingesta</h2>
+      <p>
+        La ingesta está controlada por el <strong>hipotálamo</strong> y el
+        sistema límbico, que integran señales de hambre y saciedad. Hormonas
+        como la <strong>leptina</strong> y la <strong>grelina</strong>
+        regulan el apetito y el balance energético.
+      </p>
+      <ul>
+        <li>Leptina: indica saciedad.</li>
+        <li>Grelina: estimula el hambre.</li>
+        <li>El sistema de recompensa dopaminérgico motiva la búsqueda de alimento.</li>
+      </ul>
+    </section>
 
-  const regions = {
-    hipotalamo: {
-      title: "Hipotálamo",
-      desc:
-        "Centro clave para la regulación de la ingesta (núcleo arqueado, VMH, LHA), la termorregulación, y componentes del sueño y la agresividad sexual. Integra señales hormonales (leptina, grelina, estrógenos) y neurotransmisores." ,
-    },
-    tronco: {
-      title: "Tronco encefálico",
-      desc:
-        "Incluye núcleos que regulan los ciclos sueño-vigilia (formación reticular, locus coeruleus, núcleo del rafe), y controla arousals, ritmo respiratorio y respuestas autonómicas durante la ingesta y el sexo.",
-    },
-    sistemaLimbico: {
-      title: "Sistema límbico",
-      desc:
-        "Amígdala, núcleo accumbens e hipocampo participan en el componente motivacional y emocional de la conducta sexual y la búsqueda de alimento; modulan recompensa y memoria asociativa.",
-    },
-  };
+    <!-- CONDUCTA SEXUAL -->
+    <section id="sexual" class="contenido">
+      <h2>❤️ Conducta Sexual y Reproductiva</h2>
+      <p>
+        Las conductas sexuales están moduladas por el
+        <strong>hipotálamo medial</strong>, la <strong>amígdala</strong> y el
+        <strong>núcleo accumbens</strong>. Hormonas como la testosterona y
+        los estrógenos activan estos circuitos.
+      </p>
+      <ul>
+        <li>Eje HPG (hipotálamo–hipófisis–gónadas) regula libido y fertilidad.</li>
+        <li>La dopamina potencia la motivación sexual.</li>
+        <li>El sistema límbico integra emoción y recompensa.</li>
+      </ul>
+    </section>
 
-  return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 p-4 md:p-8">
-      <header className="max-w-5xl mx-auto mb-6">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl md:text-3xl font-semibold">Neurofisiología de las conductas: ingesta, sexual/reproductiva y sueño</h1>
-          <div className="flex gap-2 items-center">
-            <button
-              onClick={() => document.documentElement.classList.toggle("dark")}
-              className="px-3 py-1 rounded-lg border bg-white/60 dark:bg-slate-800/60"
-            >
-              Alternar modo
-            </button>
-            <button
-              onClick={() => setGlossaryOpen(true)}
-              className="px-3 py-1 rounded-lg border bg-indigo-50 dark:bg-indigo-900/30"
-            >
-              Glosario
-            </button>
-          </div>
-        </div>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-300 max-w-4xl">
-          Página interactiva y responsiva que identifica las bases biológicas implicadas en el sueño, la ingesta y la conducta sexual/reproductiva. Selecciona una pestaña para explorar cada tema, interactúa con el diagrama cerebral y realiza el mini-quiz.
-        </p>
-      </header>
+    <!-- INTEGRACIÓN -->
+    <section id="integracion" class="contenido">
+      <h2>🔄 Integración de los sistemas</h2>
+      <p>
+        Sueño, ingesta y sexualidad están interrelacionados. La falta de sueño
+        altera el apetito y la libido; el déficit energético puede inhibir la
+        reproducción. Los sistemas de recompensa participan en todos estos procesos.
+      </p>
+      <table class="tabla">
+        <tr><th>Relación</th><th>Efecto</th></tr>
+        <tr><td>Sueño ↔ Ingesta</td><td>Privación de sueño aumenta apetito.</td></tr>
+        <tr><td>Ingesta ↔ Sexualidad</td><td>Déficit energético reduce fertilidad.</td></tr>
+        <tr><td>Sueño ↔ Sexualidad</td><td>Descanso adecuado mejora la función hormonal.</td></tr>
+      </table>
+    </section>
+  </main>
 
-      <main className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        <nav className="col-span-1 md:col-span-1 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-sm">
-          <h2 className="font-semibold mb-3">Secciones</h2>
-          <ul className="space-y-2">
-            <li>
-              <button
-                onClick={() => setTab("suenio")}
-                className={`w-full text-left px-3 py-2 rounded-lg ${tab === "suenio" ? "bg-indigo-600 text-white" : "bg-transparent"}`}
-              >
-                Sueño como estado funcional
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => setTab("ingesta")}
-                className={`w-full text-left px-3 py-2 rounded-lg ${tab === "ingesta" ? "bg-indigo-600 text-white" : "bg-transparent"}`}
-              >
-                Conducta de ingesta
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => setTab("sexual")}
-                className={`w-full text-left px-3 py-2 rounded-lg ${tab === "sexual" ? "bg-indigo-600 text-white" : "bg-transparent"}`}
-              >
-                Conducta sexual y reproductiva
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => setTab("integracion")}
-                className={`w-full text-left px-3 py-2 rounded-lg ${tab === "integracion" ? "bg-indigo-600 text-white" : "bg-transparent"}`}
-              >
-                Integración: cómo se interconectan
-              </button>
-            </li>
-          </ul>
-        </nav>
+  <footer class="footer">
+    <p>
+      🌿 Material educativo sobre neurofisiología de las conductas humanas.
+      Elaborado con fines didácticos.
+    </p>
+  </footer>
 
-        <section className="col-span-2 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm">
-          {/* Content area */}
-          {tab === "suenio" && (
-            <article>
-              <h3 className="text-xl font-semibold mb-2">Sueño como estado funcional</h3>
-              <p className="mb-3 text-slate-600 dark:text-slate-300">
-                El sueño es un estado permeable y activo regulado por redes neuronales que incluyen al hipotálamo (núcleo ventrolateral preóptico), el tronco encefálico (formación reticular, locus coeruleus, núcleo del rafe), y estructuras talámicas. Hormonas (melatonina) y neurotransmisores (GABA, adenosina, orexina/hypocretina, serotonina, noradrenalina) determinan la alternancia sueño-vigilia y microestructuras del sueño (REM y NREM).
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-3 border rounded-lg">
-                  <h4 className="font-semibold">Mecanismos clave</h4>
-                  <ul className="list-disc pl-5 mt-2 text-sm text-slate-600 dark:text-slate-300">
-                    <li>VLPO (GABAérgico): promueve sueño NREM inhibiendo núcleos arousal.</li>
-                    <li>Orexinas: mantienen vigilia y estado de alerta; deficit se asocia con narcolepsia.</li>
-                    <li>Adenosina: acumulación durante vigilia aumenta presión del sueño.</li>
-                    <li>Melatonina: señal circadiana producida por la glándula pineal.</li>
-                  </ul>
-                </div>
-
-                <div className="p-3 border rounded-lg">
-                  <h4 className="font-semibold">Consecuencias funcionales</h4>
-                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-                    El sueño restaura procesos metabólicos, consolida memoria (NREM y REM desempeñan roles complementarios) y regula energía y apetito mediante interacción con señales hipotalámicas.
-                  </p>
-                </div>
-              </div>
-
-              <hr className="my-4" />
-
-              <h4 className="font-semibold mb-2">Diagrama interactivo (haz clic en una región)</h4>
-              <InteractiveBrain regions={regions} />
-            </article>
-          )}
-
-          {tab === "ingesta" && (
-            <article>
-              <h3 className="text-xl font-semibold mb-2">Conducta de ingesta</h3>
-              <p className="mb-3 text-slate-600 dark:text-slate-300">
-                La ingesta está regulada por circuitos homeostáticos en el hipotálamo (núcleos VMH, LHA, núcleo arcuato) y sistemas hedónicos (vía dopaminérgica en el núcleo accumbens). Hormonas periferales como la leptina (señal de saciedad), grelina (hambre) e insulina informan sobre el estado energético.
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <Card title="Señales hormonales" content="Leptina, grelina, insulina, péptido YY. Informan al hipotálamo sobre reservas y necesidad energética." />
-                <Card title="Núcleos hipotalámicos" content="Arcuato (POMC/NPY), LHA (orexinas), VMH (saciedad)" />
-                <Card title="Sistema de recompensa" content="Dopamina en mesolímbico: motiva búsqueda de alimentos palatables; interacción con amígdala y corteza orbitofrontal." />
-              </div>
-
-              <hr className="my-4" />
-
-              <h4 className="font-semibold">Interacciones con sueño</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-300">
-                Privación de sueño altera leptina/grelina, aumenta apetito y preferencia por alimentos altos en calorías. Por otro lado, el estado metabólico impacta la arquitectura del sueño.
-              </p>
-            </article>
-          )}
-
-          {tab === "sexual" && (
-            <article>
-              <h3 className="text-xl font-semibold mb-2">Conducta sexual y reproductiva</h3>
-              <p className="mb-3 text-slate-600 dark:text-slate-300">
-                La conducta sexual y reproductiva integra señales hormonales (gonadotrofinas, testosterona, estrógenos, progesterona), núcleos hipotalámicos (núcleo preóptico medial — importante en comportamiento sexual masculino— y el núcleo ventromedial en hembras para conducta receptiva), estructuras límbicas y vías dopaminérgicas de recompensa.
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-3 border rounded-lg">
-                  <h4 className="font-semibold">Bases hormonales</h4>
-                  <p className="text-sm mt-2 text-slate-600 dark:text-slate-300">Hormonas sexuales organizan y activan circuitos neurales: la interacción entre Eje HPG y neurotransmisores modula libido, copulación y conductas parentales.</p>
-                </div>
-
-                <div className="p-3 border rounded-lg">
-                  <h4 className="font-semibold">Circuitos</h4>
-                  <p className="text-sm mt-2 text-slate-600 dark:text-slate-300">Núcleo preóptico, hipotálamo medial, amígdala y núcleo accumbens forman una red que integra reconocimiento de señales sexuales, motivación y ejecución conductual.</p>
-                </div>
-              </div>
-            </article>
-          )}
-
-          {tab === "integracion" && (
-            <article>
-              <h3 className="text-xl font-semibold mb-2">Integración: cómo se interconectan</h3>
-              <p className="text-slate-600 dark:text-slate-300 mb-3">
-                Sueño, ingesta y conducta sexual se cruzan en múltiples niveles: hormonas, estados motivacionales y sistemas de recompensa. Ejemplos: privación de sueño altera apetito y libido; estados energéticos (hambruna) suprimen reproducción; señales de recompensa modulan tanto apetito como motivación sexual.
-              </p>
-
-              <h4 className="font-semibold mt-3">Mapa simplificado de interacciones</h4>
-              <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
-                <InteractionMap />
-              </div>
-
-              <hr className="my-4" />
-
-              <h4 className="font-semibold">Mini-quiz</h4>
-              <div className="mt-3">
-                <p className="text-sm">1) ¿Qué estructura es central para integrar señales hormonales de saciedad y hambre?</p>
-                <div className="mt-2">
-                  <label className="mr-3"><input type="radio" name="q1" onChange={() => setAnswers(a=>({...a,q1:"hipotalamo"}))} /> Hipotálamo</label>
-                  <label className="mr-3"><input type="radio" name="q1" onChange={() => setAnswers(a=>({...a,q1:"amigdala"}))} /> Amígdala</label>
-                  <label><input type="radio" name="q1" onChange={() => setAnswers(a=>({...a,q1:"talamo"}))} /> Tálamo</label>
-                </div>
-
-                <p className="text-sm mt-3">2) ¿Qué hormona participa en la señalización circadiana del sueño?</p>
-                <div className="mt-2">
-                  <label className="mr-3"><input type="radio" name="q2" onChange={() => setAnswers(a=>({...a,q2:"melatonina"}))} /> Melatonina</label>
-                  <label className="mr-3"><input type="radio" name="q2" onChange={() => setAnswers(a=>({...a,q2:"insulina"}))} /> Insulina</label>
-                  <label><input type="radio" name="q2" onChange={() => setAnswers(a=>({...a,q2:"leptina"}))} /> Leptina</label>
-                </div>
-
-                <div className="mt-3 flex gap-3">
-                  <button onClick={handleQuiz} className="px-4 py-2 rounded-lg bg-indigo-600 text-white">Enviar</button>
-                  <button onClick={() => { setAnswers({ q1: "", q2: "" }); setQuizResult(null); }} className="px-4 py-2 rounded-lg border">Reiniciar</button>
-                </div>
-
-                {quizResult && (
-                  <div className="mt-3 p-3 bg-slate-100 dark:bg-slate-700 rounded-lg">
-                    <strong>Resultado:</strong> {quizResult.score} / {quizResult.total}
-                  </div>
-                )}
-
-              </div>
-            </article>
-          )}
-
-        </section>
-      </main>
-
-      <footer className="max-w-5xl mx-auto mt-6 text-sm text-slate-500 dark:text-slate-400">
-        <p>Diseñado para apoyo educativo — no reemplaza literatura científica ni la práctica clínica. Contenidos generales sobre bases biológicas y circuitos neurales.</p>
-      </footer>
-
-      {/* Glosario modal */}
-      {glossaryOpen && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 max-w-2xl w-full">
-            <div className="flex justify-between items-center">
-              <h3 className="text-lg font-semibold">Glosario breve</h3>
-              <button onClick={() => setGlossaryOpen(false)} className="px-3 py-1 rounded-lg border">Cerrar</button>
-            </div>
-            <dl className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-700 dark:text-slate-200">
-              <div>
-                <dt className="font-semibold">Orexina</dt>
-                <dd>Neurotransmisor hipotalámico implicado en la vigilia y motivación por la recompensa.</dd>
-              </div>
-              <div>
-                <dt className="font-semibold">VLPO</dt>
-                <dd>Núcleo ventrolateral preóptico que promueve el sueño NREM vía GABAérgicos.</dd>
-              </div>
-              <div>
-                <dt className="font-semibold">Leptina</dt>
-                <dd>Hormona producida por tejido adiposo que señala saciedad al hipotálamo.</dd>
-              </div>
-              <div>
-                <dt className="font-semibold">Melatonina</dt>
-                <dd>Hormona circadiana producida por la glándula pineal que modula el ritmo sueño-vigilia.</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
-
-function Card({ title, content }) {
-  return (
-    <div className="p-3 border rounded-lg">
-      <h5 className="font-semibold">{title}</h5>
-      <p className="text-sm mt-1 text-slate-600 dark:text-slate-300">{content}</p>
-    </div>
-  );
-}
-
-function InteractiveBrain({ regions }) {
-  const [open, setOpen] = useState(null);
-  return (
-    <div className="flex flex-col md:flex-row gap-4">
-      <div className="w-full md:w-1/2 flex items-center justify-center">
-        {/* Simplified SVG brain with 3 clickable regions */}
-        <svg viewBox="0 0 400 240" className="w-full max-w-md" preserveAspectRatio="xMidYMid meet">
-          <defs>
-            <style>{`.region{cursor:pointer;stroke:#111;stroke-width:1;}`}</style>
-          </defs>
-
-          <g onClick={() => setOpen(null)}>
-            <rect x="0" y="0" width="400" height="240" fill="none" />
-
-            <ellipse className="region" cx="200" cy="90" rx="90" ry="55" fill="#eef2ff" onClick={(e)=>{e.stopPropagation(); setOpen('hipotalamo')}} />
-            <text x="200" y="95" textAnchor="middle" fontSize="12" fill="#0f172a">Hipotálamo</text>
-
-            <ellipse className="region" cx="120" cy="160" rx="70" ry="40" fill="#ecfdf5" onClick={(e)=>{e.stopPropagation(); setOpen('sistemaLimbico')}} />
-            <text x="120" y="165" textAnchor="middle" fontSize="12" fill="#064e3b">Sistema límbico</text>
-
-            <ellipse className="region" cx="280" cy="160" rx="70" ry="40" fill="#fff7ed" onClick={(e)=>{e.stopPropagation(); setOpen('tronco')}} />
-            <text x="280" y="165" textAnchor="middle" fontSize="12" fill="#92400e">Tronco encefálico</text>
-          </g>
-        </svg>
-      </div>
-
-      <div className="w-full md:w-1/2">
-        <div className="p-3 border rounded-lg min-h-[120px]">
-          {open ? (
-            <>
-              <h5 className="font-semibold">{regions[open].title}</h5>
-              <p className="text-sm mt-1 text-slate-600 dark:text-slate-300">{regions[open].desc}</p>
-            </>
-          ) : (
-            <p className="text-sm text-slate-600 dark:text-slate-300">Haz clic en una región del diagrama para ver su papel en sueño, ingesta y conducta sexual.</p>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function InteractionMap() {
-  const items = [
-    { title: "Sueño ↔ Ingesta", text: "Privación de sueño altera hormonas del apetito y preferencias alimentarias." },
-    { title: "Eje HPG ↔ Energía", text: "Estados energéticos bajos inhiben función reproductiva: ahorro energético para supervivencia." },
-    { title: "Recompensa", text: "Dopamina modula motivación tanto para alimento como para conducta sexual." },
-  ];
-  return (
-    <>
-      {items.map((it, i) => (
-        <div key={i} className="p-3 border rounded-lg">
-          <h6 className="font-semibold">{it.title}</h6>
-          <p className="text-sm mt-1 text-slate-600 dark:text-slate-300">{it.text}</p>
-        </div>
-      ))}
-    </>
-  );
-}
+  <script>
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.contenido').forEach(sec => sec.classList.remove('visible'));
+      document.getElementById(id).classList.add('visible');
+    }
+  </script>
+</body>
+</html>
