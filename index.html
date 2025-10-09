@@ -2,27 +2,39 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Neurofisiología de las Conductas</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #f0f8ff, #e6e6fa);
+      background: linear-gradient(to right, #ffe4e1, #e0ffff);
       color: #333;
     }
     header {
-      background-color: #6a5acd;
+      background-color: #ff69b4;
       color: white;
-      padding: 1.5em;
+      padding: 2em;
       text-align: center;
+    }
+    nav {
+      background-color: #ffb6c1;
+      padding: 1em;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1em;
+      color: #4b0082;
+      font-weight: bold;
+      text-decoration: none;
     }
     section {
       padding: 2em;
+      border-bottom: 2px dashed #dda0dd;
     }
     h2 {
-      color: #4b0082;
+      color: #8a2be2;
     }
     table {
       width: 100%;
@@ -35,11 +47,23 @@
       text-align: center;
     }
     th {
-      background-color: #9370db;
+      background-color: #ff7f50;
       color: white;
     }
     tr:nth-child(even) {
-      background-color: #f3f3f3;
+      background-color: #f0f8ff;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1em;
+      border: 3px solid #ff69b4;
+    }
+    footer {
+      background-color: #ff69b4;
+      color: white;
+      text-align: center;
+      padding: 1em;
     }
     @media (max-width: 600px) {
       body {
@@ -55,18 +79,23 @@
 
   <header>
     <h1>Neurofisiología de las Conductas</h1>
-    <p>Ingesta • Sexual • Sueño • Reproducción</p>
+    <p>Explorando la Ingesta, Sexualidad, Sueño y Reproducción</p>
   </header>
 
-  <section>
+  <nav>
+    <a href="#ingesta">Ingesta</a>
+    <a href="#sexual">Sexual</a>
+    <a href="#sueno">Sueño</a>
+    <a href="#reproduccion">Reproducción</a>
+  </nav>
+
+  <section id="ingesta">
     <h2>Conducta de Ingesta</h2>
     <p>Regulada por el hipotálamo, con participación de hormonas como la grelina (estimula el apetito) y la leptina (reduce el apetito).</p>
+    <img src="ingesta.jpg" alt="Ilustración de conducta de ingesta">
     <table>
       <thead>
-        <tr>
-          <th>Elemento</th>
-          <th>Función</th>
-        </tr>
+        <tr><th>Elemento</th><th>Función</th></tr>
       </thead>
       <tbody>
         <tr><td>Hipotálamo lateral</td><td>Estimula el hambre</td></tr>
@@ -77,15 +106,13 @@
     </table>
   </section>
 
-  <section>
+  <section id="sexual">
     <h2>Conducta Sexual</h2>
     <p>Influencia hormonal (testosterona, estrógeno) y cerebral (hipotálamo, sistema límbico).</p>
+    <img src="sexual.jpg" alt="Ilustración de conducta sexual">
     <table>
       <thead>
-        <tr>
-          <th>Elemento</th>
-          <th>Función</th>
-        </tr>
+        <tr><th>Elemento</th><th>Función</th></tr>
       </thead>
       <tbody>
         <tr><td>Testosterona</td><td>Estimula el deseo sexual</td></tr>
@@ -96,15 +123,13 @@
     </table>
   </section>
 
-  <section>
+  <section id="sueno">
     <h2>Conducta de Sueño</h2>
     <p>Regulada por el núcleo supraquiasmático y la melatonina. Incluye fases REM y no-REM.</p>
+    <img src="sueno.jpg" alt="Ilustración de conducta de sueño">
     <table>
       <thead>
-        <tr>
-          <th>Elemento</th>
-          <th>Función</th>
-        </tr>
+        <tr><th>Elemento</th><th>Función</th></tr>
       </thead>
       <tbody>
         <tr><td>Núcleo supraquiasmático</td><td>Regula el ritmo circadiano</td></tr>
@@ -115,15 +140,13 @@
     </table>
   </section>
 
-  <section>
+  <section id="reproduccion">
     <h2>Conducta de Reproducción</h2>
     <p>Controlada por el eje hipotálamo-hipófisis-gónadas, que regula hormonas y gametos.</p>
+    <img src="reproduccion.jpg" alt="Ilustración de conducta de reproducción">
     <table>
       <thead>
-        <tr>
-          <th>Elemento</th>
-          <th>Función</th>
-        </tr>
+        <tr><th>Elemento</th><th>Función</th></tr>
       </thead>
       <tbody>
         <tr><td>Hipotálamo</td><td>Libera GnRH</td></tr>
@@ -133,6 +156,10 @@
       </tbody>
     </table>
   </section>
+
+  <footer>
+    <p>&copy; 2024 Neurofisiología Educativa</p>
+  </footer>
 
 </body>
 </html>
