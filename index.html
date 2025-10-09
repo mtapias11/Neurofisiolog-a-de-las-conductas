@@ -1,124 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neurofisiología — Conductas Biológicas</title>
-  style.css
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neurofisiología de las Conductas</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #f0f8ff, #e6e6fa);
+      color: #333;
+    }
+    header {
+      background-color: #6a5acd;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    section {
+      padding: 2em;
+    }
+    h2 {
+      color: #4b0082;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.75em;
+      text-align: center;
+    }
+    th {
+      background-color: #9370db;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f3f3f3;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 14px;
+      }
+      table, th, td {
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <h1>Neurofisiología de las conductas: Ingesta, Sexual y Sueño</h1>
-    <p>
-      Página educativa e interactiva sobre las bases biológicas del sueño,
-      la conducta alimentaria y sexual/reproductiva.
-    </p>
+
+  <header>
+    <h1>Neurofisiología de las Conductas</h1>
+    <p>Ingesta • Sexual • Sueño • Reproducción</p>
   </header>
 
-  <nav class="menu">
-   </button>
-    <button onclick="mostrarSeccion('ingesta')">Ingesta</button>
-    <button onclick="mostrarSeccion('sexual')">Conducta Sexual</button>
-    <button onclick="mostrarSeccion('integracion')">Integración</button>
-  </nav>
+  <section>
+    <h2>Conducta de Ingesta</h2>
+    <p>Regulada por el hipotálamo, con participación de hormonas como la grelina (estimula el apetito) y la leptina (reduce el apetito).</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Elemento</th>
+          <th>Función</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Hipotálamo lateral</td><td>Estimula el hambre</td></tr>
+        <tr><td>Núcleo ventromedial</td><td>Induce saciedad</td></tr>
+        <tr><td>Grelina</td><td>Hormona que estimula el apetito</td></tr>
+        <tr><td>Leptina</td><td>Hormona que reduce el apetito</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-  <main>
-    <!-- SUEÑO -->
-    <section id="sueno" class="contenido visible">
-      <h2>💤 Sueño como estado funcional</h2>
-      <p>
-        El sueño es un estado fisiológico activo que involucra redes
-        neuronales del hipotálamo, tronco encefálico y tálamo. Hormonas como
-        la <strong>melatonina</strong> y neurotransmisores como el
-        <strong>GABA</strong> y la <strong>adenosina</strong> regulan los
-        ciclos de sueño y vigilia.
-      </p>
-      <ul>
-        <li>El VLPO promueve el sueño NREM.</li>
-        <li>Las orexinas mantienen la vigilia.</li>
-        <li>La melatonina sincroniza el reloj biológico.</li>
-      </ul>
-      <table class="tabla">
-        <tr><th>Elemento</th><th>Función</th></tr>
-        <tr><td>VLPO</td><td>Induce sueño profundo (NREM)</td></tr>
-        <tr><td>Orexinas</td><td>Favorecen el estado de alerta</td></tr>
-        <tr><td>Melatonina</td><td>Regula el ritmo circadiano</td></tr>
-      </table>
-    </section>
+  <section>
+    <h2>Conducta Sexual</h2>
+    <p>Influencia hormonal (testosterona, estrógeno) y cerebral (hipotálamo, sistema límbico).</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Elemento</th>
+          <th>Función</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Testosterona</td><td>Estimula el deseo sexual</td></tr>
+        <tr><td>Estrógeno</td><td>Modula la receptividad sexual</td></tr>
+        <tr><td>Hipotálamo</td><td>Regula la conducta sexual</td></tr>
+        <tr><td>Sistema límbico</td><td>Procesa emociones sexuales</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-    <!-- INGESTA -->
-    <section id="ingesta" class="contenido">
-      <h2>🍎 Conducta de Ingesta</h2>
-      <p>
-        La ingesta está controlada por el <strong>hipotálamo</strong> y el
-        sistema límbico, que integran señales de hambre y saciedad. Hormonas
-        como la <strong>leptina</strong> y la <strong>grelina</strong>
-        regulan el apetito y el balance energético.
-      </p>
-      <ul>
-        <li>Leptina: indica saciedad.</li>
-        <li>Grelina: estimula el hambre.</li>
-        <li>El sistema de recompensa dopaminérgico motiva la búsqueda de alimento.</li>
-      </ul>
-      <table class="tabla">
-        <tr><th>Hormona</th><th>Origen</th><th>Función</th></tr>
-        <tr><td>Leptina</td><td>Tejido adiposo</td><td>Reduce el apetito</td></tr>
-        <tr><td>Grelina</td><td>Estómago</td><td>Estimula el hambre</td></tr>
-        <tr><td>Dopamina</td><td>Cerebro</td><td>Motivación para comer</td></tr>
-      </table>
-    </section>
+  <section>
+    <h2>Conducta de Sueño</h2>
+    <p>Regulada por el núcleo supraquiasmático y la melatonina. Incluye fases REM y no-REM.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Elemento</th>
+          <th>Función</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Núcleo supraquiasmático</td><td>Regula el ritmo circadiano</td></tr>
+        <tr><td>Melatonina</td><td>Induce el sueño</td></tr>
+        <tr><td>Sueño REM</td><td>Asociado con sueños vívidos</td></tr>
+        <tr><td>Sueño no-REM</td><td>Fase de descanso profundo</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-    <!-- CONDUCTA SEXUAL -->
-    <section id="sexual" class="contenido">
-      <h2>❤️ Conducta Sexual y Reproductiva</h2>
-      <p>
-        Las conductas sexuales están moduladas por el
-        <strong>hipotálamo medial</strong>, la <strong>amígdala</strong> y el
-        <strong>núcleo accumbens</strong>. Hormonas como la testosterona y
-        los estrógenos activan estos circuitos.
-      </p>
-      <ul>
-        <li>Eje HPG (hipotálamo–hipófisis–gónadas) regula libido y fertilidad.</li>
-        <li>La dopamina potencia la motivación sexual.</li>
-        <li>El sistema límbico integra emoción y recompensa.</li>
-      </ul>
-      <table class="tabla">
-        <tr><th>Componente</th><th>Rol en la conducta sexual</th></tr>
-        <tr><td>Hipotálamo</td><td>Regulación hormonal</td></tr>
-        <tr><td>Amígdala</td><td>Procesamiento emocional</td></tr>
-        <tr><td>Dopamina</td><td>Motivación y placer</td></tr>
-      </table>
-    </section>
+  <section>
+    <h2>Conducta de Reproducción</h2>
+    <p>Controlada por el eje hipotálamo-hipófisis-gónadas, que regula hormonas y gametos.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Elemento</th>
+          <th>Función</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Hipotálamo</td><td>Libera GnRH</td></tr>
+        <tr><td>Hipófisis</td><td>Libera LH y FSH</td></tr>
+        <tr><td>Gónadas</td><td>Producen gametos y hormonas sexuales</td></tr>
+        <tr><td>Hormonas sexuales</td><td>Regulan el ciclo reproductivo</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-    <!-- INTEGRACIÓN -->
-    <section id="integracion" class="contenido">
-      <h2>🔄 Integración de los sistemas</h2>
-      <p>
-        Sueño, ingesta y sexualidad están interrelacionados. La falta de sueño
-        altera el apetito y la libido; el déficit energético puede inhibir la
-        reproducción. Los sistemas de recompensa participan en todos estos procesos.
-      </p>
-      <table class="tabla">
-        <tr><th>Relación</th><th>Efecto</th></tr>
-        <tr><td>Sueño ↔ Ingesta</td><td>Privación de sueño aumenta apetito.</td></tr>
-        <tr><td>Ingesta ↔ Sexualidad</td><td>Déficit energético reduce fertilidad.</td></tr>
-        <tr><td>Sueño ↔ Sexualidad</td><td>Descanso adecuado mejora la función hormonal.</td></tr>
-      </table>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>
-      🌿 Material educativo sobre neurofisiología de las conductas humanas.
-      Elaborado con fines didácticos.
-    </p>
-  </footer>
-
-  <script>
-    function mostrarSeccion(id) {
-      document.querySelectorAll('.contenido').forEach(sec => sec.classList.remove('visible'));
-      document.getElementById(id).classList.add('visible');
-    }
-  </script>
 </body>
 </html>
