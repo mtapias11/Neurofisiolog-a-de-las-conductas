@@ -6,6 +6,7 @@
   <title>Bases Biológicas de Procesos Básicos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
+    /* Reset and base styles */
     * {
       margin: 0;
       padding: 0;
@@ -14,23 +15,25 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fffaf4; /* pastel peach */
+      background: 
+        linear-gradient(rgba(255, 250, 244, 0.85), rgba(255, 250, 244, 0.85)),
+        url('imagenes/vecteezy_ai-generated-abstract-3d-image-of-digital-waves-in-shades-of_35977605.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #333;
       line-height: 1.6;
       padding: 20px;
     }
 
-    /* Sticky Header with Shadow */
+    /* Banner no fijo */
     header.custom-banner {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background-color: #f7c8e0; /* pastel rose */
+      position: static;
+      background-color: #F274DD; /* pastel rose */
       color: white;
       text-align: center;
       padding: 20px;
       border-radius: 0 0 10px 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: auto;
     }
 
     /* Navigation links pastel colors */
@@ -45,7 +48,7 @@
     }
 
     header.custom-banner nav a[href*="Sueño"] {
-      background-color: #c5e1a5; /* pastel green */
+      background-color: #c5e1a5e7; /* pastel green */
       color: #2e7d32;
     }
 
@@ -63,13 +66,44 @@
       opacity: 0.85;
     }
 
-    /* Main container */
-    .container {
+    /* Main container flex setup */
+    .main-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
       max-width: 1200px;
-      margin: auto;
-      padding: 20px;
-      background-color: #ffffff;
+      margin: 2rem auto 0;
+    }
+
+    main.content-area {
+      flex: 1 1 65%;
+      background-color: #ffffffcc; /* blanco translúcido para contraste */
       border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    aside.sidebar {
+      position: sticky;
+      top: 110px;
+      max-width: 300px;
+      background: #f7fbe9; /* pastel very light green */
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(197, 225, 165, 0.6);
+      padding: 1rem;
+      height: fit-content;
+      font-size: 0.95rem;
+    }
+
+    aside.sidebar h5 {
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: #558b2f;
+      text-align: center;
+    }
+
+    aside.sidebar .card {
+      margin-bottom: 1rem;
     }
 
     /* Section spacing */
@@ -255,13 +289,26 @@
       font-weight: 600;
       user-select: none;
     }
+
+    /* Footer no fijo */
+    footer {
+      position: static;
+      background-color: #f7c8e0;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px 10px 0 0;
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 3rem;
+      z-index: auto;
+    }
   </style>
 </head>
 <body>
   <!-- Banner principal -->
   <header class="custom-banner">
-    <h1>Bases Biológicas de Procesos Básicos</h1>
-    <p>Neurofisiología del Comportamiento</p>
+    <h1>Bienvenidos a Mi Página Web</h1>
+    <p>Guía 1</p>
     <nav>
       <a href="#Sueño" class="text-white">Sueño</a>
       <a href="#Ingesta" class="text-white">Ingesta</a>
@@ -269,90 +316,117 @@
     </nav>
   </header>
 
-  <!-- Sueño: Línea de tiempo -->
-  <section id="Sueño" class="container mb-5">
-    <h2 class="mb-4 text-center">Sueño: Fases y Cambios Neuronales y Fisiológicos</h2>
-    <div class="image-container" role="img" aria-label="Infografía del ciclo de sueño con fases y actividades neuronales">
-      <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/8e609d48-c1b7-4cc1-bac0-23c9d920964e.png" alt="Infografía del ciclo de sueño" class="img-fluid" />
-    </div>
-    <div class="timeline" aria-label="Línea de tiempo de fases del sueño">
-      <article class="timeline-item left" tabindex="0" aria-describedby="desc-nrem1">
-        <h3>NREM Fase 1</h3>
-        <p>Conductas: Estado de somnolencia ligera, inicio del sueño.</p>
-        <p id="desc-nrem1">Actividad neuronal: Disminución del ritmo alfa, aparición de ritmos theta.</p>
-        <p>Fisiología: Relajación muscular, disminución del ritmo cardíaco y respiratorio.</p>
-      </article>
-      <article class="timeline-item right" tabindex="0" aria-describedby="desc-nrem2">
-        <h3>NREM Fase 2</h3>
-        <p>Conductas: Sueño ligero, preparación para sueño profundo.</p>
-        <p id="desc-nrem2">Actividad neuronal: Aparición de husos de sueño y complejos K.</p>
-        <p>Fisiología: Temperatura corporal comienza a disminuir.</p>
-      </article>
-      <article class="timeline-item left" tabindex="0" aria-describedby="desc-nrem3">
-        <h3>NREM Fase 3 (Sueño Profundo)</h3>
-        <p>Conductas: Sueño profundo, difícil de despertar.</p>
-        <p id="desc-nrem3">Actividad neuronal: Ondas delta predominantes.</p>
-        <p>Fisiología: Recuperación muscular, secreción hormonal, disminución máxima del ritmo cardíaco.</p>
-      </article>
-      <article class="timeline-item right" tabindex="0" aria-describedby="desc-rem">
-        <h3>REM</h3>
-        <p>Conductas: Sueño con movimientos oculares rápidos, sueños vívidos.</p>
-        <p id="desc-rem">Actividad neuronal: Actividad cerebral similar a vigilia, ondas beta y alfa.</p>
-        <p>Fisiología: Paralisis muscular, aumento de la frecuencia cardíaca y respiratoria.</p>
-      </article>
-    </div>
-  </section>
+  <div class="main-container">
+    <main class="content-area">
+      <!-- Sueño: Línea de tiempo -->
+      <section id="Sueño">
+        <h2 class="mb-4 text-center">Sueño: Fases y Cambios Neuronales y Fisiológicos</h2>
+        <div class="image-container" role="img" aria-label="Infografía del ciclo de sueño con fases y actividades neuronales">
+          <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/8e609d48-c1b7-4cc1-bac0-23c9d920964e.png" alt="Infografía del ciclo de sueño" class="img-fluid" />
+        </div>
+        <div class="timeline" aria-label="Línea de tiempo de fases del sueño">
+          <article class="timeline-item left" tabindex="0" aria-describedby="desc-nrem1">
+            <h3>NREM Fase 1</h3>
+            <p>Conductas: Estado de somnolencia ligera, inicio del sueño.</p>
+            <p id="desc-nrem1">Actividad neuronal: Disminución del ritmo alfa, aparición de ritmos theta.</p>
+            <p>Fisiología: Relajación muscular, disminución del ritmo cardíaco y respiratorio.</p>
+          </article>
+          <article class="timeline-item right" tabindex="0" aria-describedby="desc-nrem2">
+            <h3>NREM Fase 2</h3>
+            <p>Conductas: Sueño ligero, preparación para sueño profundo.</p>
+            <p id="desc-nrem2">Actividad neuronal: Aparición de husos de sueño y complejos K.</p>
+            <p>Fisiología: Temperatura corporal comienza a disminuir.</p>
+          </article>
+          <article class="timeline-item left" tabindex="0" aria-describedby="desc-nrem3">
+            <h3>NREM Fase 3 (Sueño Profundo)</h3>
+            <p>Conductas: Sueño profundo, difícil de despertar.</p>
+            <p id="desc-nrem3">Actividad neuronal: Ondas delta predominantes.</p>
+            <p>Fisiología: Recuperación muscular, secreción hormonal, disminución máxima del ritmo cardíaco.</p>
+          </article>
+          <article class="timeline-item right" tabindex="0" aria-describedby="desc-rem">
+            <h3>REM</h3>
+            <p>Conductas: Sueño con movimientos oculares rápidos, sueños vívidos.</p>
+            <p id="desc-rem">Actividad neuronal: Actividad cerebral similar a vigilia, ondas beta y alfa.</p>
+            <p>Fisiología: Paralisis muscular, aumento de la frecuencia cardíaca y respiratoria.</p>
+          </article>
+        </div>
+      </section>
 
-  <!-- Ingesta: Mapa conceptual interactivo -->
-  <section id="Ingesta" class="concept-map" aria-label="Mapa conceptual interactivo sobre ingesta">
-    <h2 class="text-center mb-4">Ingesta: Sustancias en Privación, Búsqueda, Absorción y Saciedad</h2>
-    <div class="image-container" role="img" aria-label="Mapa conceptual de sustancias en procesos de ingesta">
-      <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/4c682064-8bc4-4181-94e1-688416a8154c.png" alt="Mapa conceptual de ingesta" class="img-fluid" />
-    </div>
-    <div>
-      <div class="concept-node" tabindex="0" data-desc="La privación genera señales en el hipotálamo que activan el hambre. Sustancias clave: grelina aumenta el apetito, leptina disminuye el hambre.">Privación</div>
-      <div class="concept-node" tabindex="0" data-desc="La búsqueda de alimento está mediada por la dopamina y neuropeptidos que incentivan la conducta alimentaria.">Búsqueda</div>
-      <div class="concept-node" tabindex="0" data-desc="En la absorción, las sustancias como la insulina regulan el metabolismo y almacén de nutrientes.">Absorción</div>
-      <div class="concept-node" tabindex="0" data-desc="La saciedad es controlada por señales de leptina, colecistoquinina y péptidos YY que inhiben el apetito.">Saciedad</div>
-    </div>
-    <p class="concept-description" id="concept-desc" tabindex="0">Haz clic o selecciona un nodo para ver la descripción aquí.</p>
-  </section>
+      <!-- Ingesta: Mapa conceptual interactivo -->
+      <section id="Ingesta" class="concept-map" aria-label="Mapa conceptual interactivo sobre ingesta">
+        <h2 class="text-center mb-4">Ingesta: Sustancias en Privación, Búsqueda, Absorción y Saciedad</h2>
+        <div class="image-container" role="img" aria-label="Mapa conceptual de sustancias en procesos de ingesta">
+          <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/4c682064-8bc4-4181-94e1-688416a8154c.png" alt="Mapa conceptual de ingesta" class="img-fluid" />
+        </div>
+        <div>
+          <div class="concept-node" tabindex="0" data-desc="La privación genera señales en el hipotálamo que activan el hambre. Sustancias clave: grelina aumenta el apetito, leptina disminuye el hambre.">Privación</div>
+          <div class="concept-node" tabindex="0" data-desc="La búsqueda de alimento está mediada por la dopamina y neuropeptidos que incentivan la conducta alimentaria.">Búsqueda</div>
+          <div class="concept-node" tabindex="0" data-desc="En la absorción, las sustancias como la insulina regulan el metabolismo y almacén de nutrientes.">Absorción</div>
+          <div class="concept-node" tabindex="0" data-desc="La saciedad es controlada por señales de leptina, colecistoquinina y péptidos YY que inhiben el apetito.">Saciedad</div>
+        </div>
+        <p class="concept-description" id="concept-desc" tabindex="0">Haz clic o selecciona un nodo para ver la descripción aquí.</p>
+      </section>
 
-  <!-- Conducta Sexual: Presentación creativa -->
-  <section id="linea-tiempo" class="hormones-section" aria-label="Efectos de hormonas sexuales en maduración y sistema nervioso">
-    <h2>Efectos de Hormonas Sexuales</h2>
-    <div class="image-container" role="img" aria-label="Ilustración de hormonas sexuales y desarrollo del sistema nervioso">
-      <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/ea4396ab-7251-4bb6-ab8b-532814205a35.png" alt="Ilustración de efectos de hormonas sexuales" class="img-fluid" />
-    </div>
-    <p class="text-center mb-4">Haz clic en cada hormona para ver su función en la maduración y desarrollo del sistema nervioso.</p>
-    <div class="hormones-cards">
-      <article class="hormone-card" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-estrogeno">
-        <h3 class="hormone-title">Estrógenos</h3>
-        <p id="desc-estrogeno" class="hormone-info">
-          Promueven la maduración sexual femenina y modulan la plasticidad neuronal y sináptica. Influyen en el desarrollo de áreas cerebrales relacionadas con el comportamiento social y reproductivo.
-        </p>
-      </article>
-      <article class="hormone-card" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-testosterona">
-        <h3 class="hormone-title">Testosterona</h3>
-        <p id="desc-testosterona" class="hormone-info">
-          Regula la maduración sexual masculina, influencia el desarrollo del sistema nervioso central, aumentando ciertas áreas relacionadas con la conducta agresiva y sexual.
-        </p>
-      </article>
-      <article class="hormone-card" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-progesterona">
-        <h3 class="hormone-title">Progesterona</h3>
-        <p id="desc-progesterona" class="hormone-info">
-          Apoya la regulación del ciclo reproductivo, tiene efectos neuroprotectores y modula la respuesta emocional y el comportamiento sexual.
-        </p>
-      </article>
-    </div>
-  </section>
+      <!-- Conducta Sexual: Presentación creativa -->
+      <section id="linea-tiempo" class="hormones-section" aria-label="Efectos de hormonas sexuales en maduración y sistema nervioso">
+        <h2>Efectos de Hormonas Sexuales</h2>
+        <div class="image-container" role="img" aria-label="Ilustración de hormonas sexuales y desarrollo del sistema nervioso">
+          <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/ea4396ab-7251-4bb6-ab8b-532814205a35.png" alt="Ilustración de efectos de hormonas sexuales" class="img-fluid" />
+        </div>
+        <p class="text-center mb-4">Haz clic en cada hormona para ver su función en la maduración y desarrollo del sistema nervioso.</p>
+        <div class="hormones-cards">
+          <article class="hormone-card" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-estrogeno">
+            <h3 class="hormone-title">Estrógenos</h3>
+            <p id="desc-estrogeno" class="hormone-info">
+              Promueven la maduración sexual femenina y modulan la plasticidad neuronal y sináptica. Influyen en el desarrollo de áreas cerebrales relacionadas con el comportamiento social y reproductivo.
+            </p>
+          </article>
+          <article class="hormone-card" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-testosterona">
+            <h3 class="hormone-title">Testosterona</h3>
+            <p id="desc-testosterona" class="hormone-info">
+              Regula la maduración sexual masculina, influencia el desarrollo del sistema nervioso central, aumentando ciertas áreas relacionadas con la conducta agresiva y sexual.
+            </p>
+          </article>
+          <article class="hormone-card" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-progesterona">
+            <h3 class="hormone-title">Progesterona</h3>
+            <p id="desc-progesterona" class="hormone-info">
+              Apoya la regulación del ciclo reproductivo, tiene efectos neuroprotectores y modula la respuesta emocional y el comportamiento sexual.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
 
-<footer class="text-center mt-5 py-4" style="background-color: #f7c8e0; color: #01292b; border-radius: 10px 10px 0 0; box-shadow: 0 -4px 6px rgba(35, 176, 195, 0.779);">
-  <div class="container">
-    <p class="mb-1"><strong>Autores:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ, GABRIELA RODRÍGUEZ BUSTOS, MARÍA JOSE TAPIAS ORTIZ</p>
-    <p class="mb-0">Universidad EAN - 2025 </p>
+    <!-- Sidebar con fichas de aprendizaje -->
+    <aside class="sidebar" aria-label="Fichas de aprendizaje">
+      <h5>Fichas de Aprendizaje</h5>
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Bases del Sueño</h6>
+          <p class="card-text">Fases del sueño, actividades neuronales y fisiológicas, importancia del REM.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Sustancias en Ingesta</h6>
+          <p class="card-text">Roles de grelina, leptina, insulina y otros en el control del apetito y saciedad.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Hormonas Sexuales</h6>
+          <p class="card-text">Efectos de estrógenos, progesterona y testosterona en maduración y sistema nervioso.</p>
+        </div>
+      </div>
+    </aside>
   </div>
-</footer>
+
+  <footer>
+    <div class="container">
+      <p class="mb-1"><strong>Autores:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ, GABRIELA RODRÍGUEZ BUSTOS, MARÍA JOSE TAPIAS ORTIZ</p>
+      <p class="mb-0">Universidad EAN - Neurofisiología del Comportamiento</p>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
