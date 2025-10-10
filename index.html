@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Infografía: Bases biológicas del sueño, la ingesta y la conducta sexual</title>
+  
+<link rel="stylesheet" href="styles.css">
+
   <style>
     :root{--bg:#f6f8fb;--card:#ffffff;--accent:#2b6cb0;--muted:#6b7280;--glass: rgba(255,255,255,0.7)}
     body{font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg,#eef2f7 0%,var(--bg) 100%); color:#0f172a}
@@ -14,6 +17,8 @@
     main{max-width:1100px;margin:28px auto;padding:0 18px 80px}
     .grid{display:grid;grid-template-columns:1fr 420px;gap:22px}
     .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(12,38,63,0.06)}
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;600&family=Merriweather:wght@300;700&display=swap');
 
     /* --- Timeline (Sueño) --- */
     .timeline{padding:14px}
@@ -57,3 +62,227 @@
     footer{max-width:1100px;margin:20px auto;color:var(--muted);font-size:13px;text-align:center}
 
     /* responsive */
+    @media(max-width:980px){.grid{grid-template-columns:1fr;}.horm-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.horm-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">BB</div>
+  <div>
+    <h1>Infografía: Bases biológicas del sueño, la ingesta y la conducta sexual</h1>
+    <p class="lead">Resumen visual y didáctico de conductas, actividad neuronal, señales químicas y efectos hormonales.</p>
+  </div>
+</header>
+
+<main>
+  <div class="grid">
+    <section class="card">
+      <h2>Sueño — Línea de tiempo y fases</h2>
+      <p style="color:var(--muted);margin-top:6px">Descripción de conductas, actividad neuronal y cambios fisiológicos a lo largo del ciclo.</p>
+
+      <div class="timeline">
+        <div class="timeline-visual" id="timelineVisual">
+          <div class="stage n1" title="N1 - Adormecimiento">
+            <div class="title">N1</div>
+            <div class="sub">Transición: somnolencia, ondas theta</div>
+          </div>
+          <div class="stage n2" title="N2 - Sueño ligero">
+            <div class="title">N2</div>
+            <div class="sub">Fusos & K-complex, disminuye tono muscular</div>
+          </div>
+          <div class="stage n3" title="N3 - Sueño profundo (SWS)">
+            <div class="title">N3</div>
+            <div class="sub">Ondas delta, restauración, baja frecuencia cardíaca</div>
+          </div>
+          <div class="stage rem" title="REM - Sueño paradójico">
+            <div class="title">REM</div>
+            <div class="sub">Sueños; actividad cortical alta, atonía muscular</div>
+          </div>
+        </div>
+
+        <div class="timeline-plot">
+          <div class="plot-line" id="plotLine"></div>
+          <div class="plot-annot">
+            <div class="legend">
+              <div class="item"><span class="swatch"></span> Actividad cortical</div>
+              <div class="item"><strong style="margin-left:6px">N1</strong> Adormecimiento</div>
+              <div class="item"><strong>N2</strong> Sueño ligero</div>
+              <div class="item"><strong>N3</strong> Sueño profundo</div>
+              <div class="item"><strong>REM</strong> Sueño paradójico</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px;color:var(--muted);font-size:14px">
+          <strong>Conductas típicas</strong>: cierre de ojos, reducción del movimiento, movimientos oculares breves (N1), movimientos oculares lentos (N2), casi sin movimientos en N3, movimientos rápidos en REM.
+        </div>
+
+        <ul style="margin-top:12px;color:var(--muted);line-height:1.55">
+          <li><strong>Actividad neuronal</strong>: N1 (theta), N2 (fusos, K-complex), N3 (delta sincronizado) y REM (actividad desincronizada tipo beta-alfa en corteza).</li>
+          <li><strong>Fisiología</strong>: variaciones en frecuencia cardíaca, tono muscular, respuesta autonómica y liberación hormonal (ej. GH en N3).</li>
+        </ul>
+
+        <p style="margin-top:8px;color:var(--muted)"><em>Usa el control inferior para simular un ciclo típico de ~90 minutos.</em></p>
+        <input type="range" min="0" max="100" value="0" id="cycleSlider" style="width:100%">
+      </div>
+    </section>
+
+    <aside class="card">
+      <h3>Ingesta — Mapa conceptual</h3>
+      <p style="color:var(--muted);margin-top:6px">Sustancias y señales en privación, búsqueda, absorción y saciedad.</p>
+
+      <div class="concept-map">
+        <div class="map">
+          <div class="node">
+            <h4>Privación</h4>
+            <p><strong>Sistema</strong>: hipotálamo lateral, orexina (hipocretina)</p>
+            <p><strong>Señales</strong>: baja glucosa, ghrelina ↑, leptina ↓</p>
+          </div>
+
+          <div class="node">
+            <h4>Búsqueda</h4>
+            <p><strong>Neurotransmisores</strong>: dopamina (VTA → NAc)</p>
+            <p><strong>Conducta</strong>: motivación, orientación, aprendizaje de recompensas</p>
+          </div>
+
+          <div class="node">
+            <h4>Absorción</h4>
+            <p><strong>Sistemas</strong>: vago → NST (núcleo del tracto solitario)</p>
+            <p><strong>Sustancias</strong>: insulina, péptidos intestinales (CCK, GLP-1)</p>
+          </div>
+
+          <div class="node">
+            <h4>Saciedad</h4>
+            <p><strong>Hormonas</strong>: leptina, PYY, colecistoquinina</p>
+            <p><strong>Efecto</strong>: inhibición del hambre, aumento de sensación de plenitud</p>
+          </div>
+        </div>
+
+        <svg class="map-svg" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+          <!-- Simple arrows showing flow: Privación -> Búsqueda -> Absorción -> Saciedad -->
+          <defs>
+            <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 z" fill="#2b6cb0" />
+            </marker>
+          </defs>
+          <line x1="10" y1="10" x2="30" y2="10" stroke="#2b6cb0" stroke-width="0.6" marker-end="url(#arrow)" />
+          <line x1="40" y1="10" x2="60" y2="10" stroke="#2b6cb0" stroke-width="0.6" marker-end="url(#arrow)" />
+          <line x1="70" y1="10" x2="90" y2="10" stroke="#2b6cb0" stroke-width="0.6" marker-end="url(#arrow)" />
+
+          <!-- labels -->
+          <text x="8" y="6" font-size="2.6" fill="#0f172a">Privación</text>
+          <text x="34" y="6" font-size="2.6" fill="#0f172a">Búsqueda</text>
+          <text x="64" y="6" font-size="2.6" fill="#0f172a">Absorción</text>
+          <text x="88" y="6" font-size="2.6" fill="#0f172a">Saciedad</text>
+        </svg>
+
+        <div style="margin-top:10px;color:var(--muted)">Consejos breves: la ghrelina estimula el apetito; la leptina y el PYY informan al hipotálamo sobre reservas y plenitud. El vago transmite señales mecánicas e intestino-liberadas modulan la saciedad.</div>
+      </div>
+    </aside>
+  </div>
+
+  <section class="card" style="margin-top:18px">
+    <h2>Conducta sexual — Hormonas y desarrollo</h2>
+    <p style="color:var(--muted);margin-top:6px">Efectos de las hormonas sexuales durante la maduración y el desarrollo del sistema nervioso. Estrategia visual: tarjetas comparativas + tabla interactiva.</p>
+
+    <div class="horm-grid" style="margin-top:12px">
+      <div class="horm-card">
+        <h4>Testosterona</h4>
+        <p><strong>Maduración</strong>: desarrollo de características sexuales secundarias, aumento de masa muscular y anabolismo.</p>
+        <p><strong>Sistema nervioso</strong>: organizadora en periodo perinatal (masculinización); moduladora en pubertad (influye en conducta sexual y agresión).</p>
+      </div>
+
+      <div class="horm-card">
+        <h4>Estrógenos</h4>
+        <p><strong>Maduración</strong>: desarrollo de tejido mamario, distribución de grasa corporal, ciclo ovárico.</p>
+        <p><strong>Sistema nervioso</strong>: afectan la plasticidad sináptica, modulan neurotransmisores (serotonina, dopamina) y circuitos de recompensa.</p>
+      </div>
+
+      <div class="horm-card">
+        <h4>Progesterona</h4>
+        <p><strong>Maduración</strong>: rol en el ciclo reproductor y embarazo.</p>
+        <p><strong>Sistema nervioso</strong>: neuromodulador GABAérgico (efecto ansiolítico/sedante en ciertos contextos).</p>
+      </div>
+    </div>
+
+    <div class="toggle-section">
+      <label style="display:block;margin-bottom:8px;color:var(--muted)"><strong>Ver enfoque:</strong></label>
+      <select id="viewSelect">
+        <option value="maturation">Efectos en maduración</option>
+        <option value="neurodev">Efectos en desarrollo neural</option>
+        <option value="behavior">Efectos en conducta y circuitos</option>
+      </select>
+
+      <div id="detailBox" style="margin-top:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(12,38,63,0.04)">
+        <!-- Content populated by JS -->
+      </div>
+    </div>
+
+    <details style="margin-top:12px">
+      <summary style="font-weight:700">Recursos visuales alternativos</summary>
+      <p style="color:var(--muted);margin-top:8px">Infografía lista para imprimir; gráficos comparativos que muestran ventanas sensibles (perinatal, pubertad) y los efectos organizadores vs activadores de hormonas sexuales.</p>
+    </details>
+  </section>
+
+  <footer>
+    <div class="card" style="display:inline-block;padding:10px 14px;border-radius:8px">Crédito: infografía generada automáticamente | Uso educativo</div>
+  </footer>
+</main>
+
+<script>
+  // Sleep timeline interactivity: map slider (0-100) to stages and a simple plot (simulated)
+  const slider = document.getElementById('cycleSlider');
+  const plot = document.getElementById('plotLine');
+  const stages = [ {name:'N1', start:0,end:10,activity:0.3}, {name:'N2', start:10,end:50,activity:0.5}, {name:'N3', start:50,end:75,activity:0.15}, {name:'REM', start:75,end:100,activity:0.9} ];
+
+  function renderPlot(val){
+    // Build gradient representing cortical activity across the slider position
+    const t = val/100;
+    // simple amplitude: interpolate by stage
+    let amp = 0.15;
+    for(const s of stages){ if(val>=s.start && val<=s.end) amp = s.activity }
+    plot.style.height = Math.max(24, Math.round(amp*120)) + 'px';
+    plot.style.transition = 'height 400ms ease';
+    // annotate which stage
+    const stage = stages.find(s=> val>=s.start && val<=s.end);
+    plot.setAttribute('aria-label','Actividad cortical: '+(amp*100).toFixed(0)+'%. Fase: '+stage.name);
+  }
+  slider.addEventListener('input', e=>renderPlot(parseInt(e.target.value)));
+  renderPlot(0);
+
+  // Conducta sexual detail box
+  const viewSelect = document.getElementById('viewSelect');
+  const detailBox = document.getElementById('detailBox');
+
+  const views = {
+    maturation: `
+      <h4>Efectos en maduración</h4>
+      <ul>
+        <li><strong>Organización perinatal:</strong> testosterona (y su aromatización a estrógeno en el cerebro) orienta la diferenciación sexual de circuitos.</li>
+        <li><strong>Pubertad:</strong> hormonas activan conductas sexuales, maduran circuitos de recompensa y aumentan conectividad en regiones límbicas.</li>
+      </ul>
+    `,
+    neurodev: `
+      <h4>Efectos en desarrollo neural</h4>
+      <ul>
+        <li><strong>Plasticidad:</strong> estrógenos incrementan spine density en neuronas hipocampales y corticales.</li>
+        <li><strong>Neuronogénesis y mielinización:</strong> modulada por hormonas durante ventanas sensibles.</li>
+      </ul>
+    `,
+    behavior: `
+      <h4>Efectos en conducta y circuitos</h4>
+      <ul>
+        <li><strong>Dopamina y recompensa:</strong> hormonas sexuales modulan la respuesta dopaminérgica ante estímulos sociales y sexuales.</li>
+        <li><strong>Regulación emocional:</strong> progesterona y metabolitos GABAérgicos influyen en ansiedad y comportamiento social.</li>
+      </ul>
+    `
+  }
+
+  viewSelect.addEventListener('change', e=>{ detailBox.innerHTML = views[e.target.value]; });
+  // default
+  detailBox.innerHTML = views['maturation'];
+
+</script>
+</body>
+</html>
