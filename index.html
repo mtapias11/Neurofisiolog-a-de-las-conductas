@@ -1,289 +1,399 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Infografía: Bases biológicas del sueño, la ingesta y la conducta sexual</title>
-  <link rel="stylesheet" href="styles.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bases Biológicas de Procesos Básicos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    :root{--bg:#f6f8fb;--card:#ffffff;--accent:#2b6cb0;--muted:#6b7280;--glass: rgba(255,255,255,0.7)}
-    body{font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg,#eef2f7 0%,var(--bg) 100%); color:#0f172a}
-    header{background:var(--card);padding:28px 22px;border-bottom:1px solid #e6eef8;display:flex;gap:18px;align-items:center}
-    .logo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#4c9bd9);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-    h1{font-size:20px;margin:0}
-    p.lead{margin:2px 0 0;color:var(--muted)}
-    main{max-width:1100px;margin:28px auto;padding:0 18px 80px}
-    .grid{display:grid;grid-template-columns:1fr 420px;gap:22px}
-    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(12,38,63,0.06)}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;600&family=Merriweather:wght@300;700&display=swap');
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fffaf4; /* pastel peach */
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
 
-    /* --- Timeline (Sueño) --- */
-    .timeline{padding:14px}
-    .timeline-visual{height:220px;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(90deg,#e8f1ff,#fff)}
-    .stage{position:absolute;top:0;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 6px;text-align:center}
-    .stage .title{font-weight:700}
-    .stage .sub{font-size:12px;color:var(--muted);margin-top:6px}
-    /* create typical sleep cycle widths (approx) */
-    .n1{left:0; width:10%; background:linear-gradient(180deg,#fffefc,#f5fbff);border-right:1px dashed rgba(0,0,0,0.04)}
-    .n2{left:10%; width:40%; background:linear-gradient(180deg,#f8fbff,#fff)}
-    .n3{left:50%; width:25%; background:linear-gradient(180deg,#eef7f4,#fff)}
-    .rem{left:75%; width:25%; background:linear-gradient(180deg,#fff4fb,#fff)}
+    /* Sticky Header with Shadow */
+    header.custom-banner {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #f7c8e0; /* pastel rose */
+      color: white;
+      text-align: center;
+      padding: 20px;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-    .timeline-plot{height:78px;margin-top:12px;border-radius:8px;background:linear-gradient(180deg,#ffffff,#f7fbff);padding:10px}
-    .plot-line{height:36px;border-radius:6px;background:linear-gradient(90deg,#cfe7ff,#9ec8ff);position:relative}
-    .plot-annot{display:flex;gap:8px;align-items:center;margin-top:10px;font-size:13px;color:var(--muted)}
+    /* Navigation links pastel colors */
+    header.custom-banner nav a {
+      margin: 0 0.75rem;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 5px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
 
-    /* legend */
-    .legend{display:flex;gap:10px;flex-wrap:wrap}
-    .legend .item{display:flex;gap:8px;align-items:center}
-    .swatch{width:12px;height:12px;border-radius:3px;background:var(--accent)}
+    header.custom-banner nav a[href*="Sueño"] {
+      background-color: #c5e1a5; /* pastel green */
+      color: #2e7d32;
+    }
 
-    /* --- Concept map (Ingesta) --- */
-    .concept-map{padding:12px}
-    .map{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .node{background:var(--glass);border-radius:10px;padding:10px;border:1px solid rgba(11,83,145,0.06)}
-    .node h4{margin:0 0 6px 0}
-    .connections{display:flex;flex-direction:column;gap:10px}
-    .conn{display:flex;gap:10px;align-items:center}
-    .pill{padding:6px 10px;border-radius:999px;background:#fff;border:1px solid rgba(0,0,0,0.06)}
+    header.custom-banner nav a[href*="Ingesta"] {
+      background-color: #b3e5fc; /* pastel blue */
+      color: #0277bd;
+    }
 
-    /* svg arrows for concept map */
-    .map-svg{width:100%;height:220px}
+    header.custom-banner nav a[href*="linea"] {
+      background-color: #ffe082; /* pastel yellow */
+      color: #f57f17;
+    }
 
-    /* --- Conducta sexual --- */
-    .horm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .horm-card{padding:12px;border-radius:10px;border:1px solid rgba(12,38,63,0.06);background:linear-gradient(180deg,#fff,#fcfeff)}
-    .toggle-section{margin-top:12px}
+    header.custom-banner nav a:hover {
+      opacity: 0.85;
+    }
 
-    /* footer */
-    footer{max-width:1100px;margin:20px auto;color:var(--muted);font-size:13px;text-align:center}
+    /* Main container */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+    }
 
-    /* responsive */
-    @media(max-width:980px){.grid{grid-template-columns:1fr;}.horm-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:600px){.horm-grid{grid-template-columns:1fr}}
+    /* Section spacing */
+    section {
+      margin-bottom: 40px;
+    }
+
+    /* Responsive images */
+    img.img-fluid, .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%;
+      background: #c5e1a5; /* pastel green */
+      border-radius: 2px;
+      z-index: 0;
+    }
+
+    .timeline-item {
+      padding: 1rem 2rem;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+      z-index: 1;
+    }
+
+    .timeline-item.left {
+      left: 0;
+      text-align: right;
+      padding-right: 4rem;
+      color: #558b2f; /* dark pastel green */
+    }
+
+    .timeline-item.right {
+      left: 50%;
+      padding-left: 4rem;
+      color: #4a90e2; /* pastel blue */
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #a5d6a7; /* lighter pastel green */
+      border: 4px solid #fffaf4;
+      z-index: 2;
+    }
+
+    .timeline-item.left::before {
+      right: -12px;
+    }
+
+    .timeline-item.right::before {
+      left: -12px;
+    }
+
+    /* Concept map nodes */
+    .concept-map {
+      background: #f7fbe9; /* pastel pale green */
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(197, 225, 165, 0.6);
+      padding: 2rem;
+      max-width: 900px;
+      margin: 3rem auto;
+      color: #558b2f;
+      text-align: center;
+    }
+
+    .concept-node {
+      background-color: #c5e1a5;
+      color: #2e7d32;
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      margin: 0.5rem;
+      display: inline-block;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .concept-node:hover,
+    .concept-node:focus {
+      background-color: #81c784;
+      color: white;
+      outline: none;
+    }
+
+    /* Hormones section */
+    .hormones-section {
+      background: linear-gradient(145deg, #d1c4e9, #c5e1a5);
+      border-radius: 15px;
+      box-shadow: 0 4px 18px rgba(209, 196, 233, 0.6);
+      max-width: 900px;
+      margin: 3rem auto 5rem;
+      color: #333;
+      padding: 2rem;
+    }
+
+    .hormones-section h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #512da8; /* pastel purple */
+    }
+
+    .hormones-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 1.5rem;
+    }
+
+    .hormone-card {
+      background: #ede7f6; /* pastel lavender */
+      border-radius: 15px;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      user-select: none;
+      color: #512da8;
+      box-shadow: 0 4px 12px rgba(209, 196, 233, 0.6);
+      border: 2px solid #b39ddb;
+      flex: 1 1 250px;
+    }
+
+    .hormone-card:hover,
+    .hormone-card:focus {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(81, 45, 168, 0.9);
+      outline: none;
+    }
+
+    .hormone-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .hormone-info {
+      font-size: 1rem;
+      line-height: 1.4;
+      display: none;
+      margin-top: 0.5rem;
+      color: #333;
+    }
+
+    .hormone-card.active .hormone-info {
+      display: block;
+    }
+
+    /* Image container */
+    .image-container {
+      max-width: 900px;
+      margin: 1.5rem auto 3rem;
+      padding: 1rem;
+      background-color: #fffaf4;
+      border: 3px dashed #ffe082; /* pastel yellow */
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 250px;
+      color: #f57f17; /* dark pastel yellow */
+      font-size: 1.25rem;
+      font-weight: 600;
+      user-select: none;
+    }
   </style>
 </head>
 <body>
-<header>
-  <div class="logo">BB</div>
-  <div>
-    <h1>Bases biológicas del sueño, la ingesta y la conducta sexual</h1>
-    <p class="lead">Conductas, actividad neuronal, señales químicas y efectos hormonales.</p>
-  </div>
-</header>
+  <!-- Banner principal -->
+  <header class="custom-banner">
+    <h1>Bases Biológicas de Procesos Básicos</h1>
+    <p>Neurofisiología del Comportamiento</p>
+    <nav>
+      <a href="#Sueño" class="text-white">Sueño</a>
+      <a href="#Ingesta" class="text-white">Ingesta</a>
+      <a href="#linea-tiempo" class="text-white">Línea de Tiempo</a>
+    </nav>
+  </header>
 
-<main>
-  <div class="grid">
-    <section class="card">
-      <h2>Sueño — Línea de tiempo y fases</h2>
-      <p style="color:var(--muted);margin-top:6px">Descripción de conductas, actividad neuronal y cambios fisiológicos a lo largo del ciclo.</p>
-
-      <div class="timeline">
-        <div class="timeline-visual" id="timelineVisual">
-          <div class="stage n1" title="N1 - Adormecimiento">
-            <div class="title">N1</div>
-            <div class="sub">Transición: somnolencia, ondas theta</div>
-            <img src="imagenes/ondas_theta.jpg" alt="Ondas Theta" style="margin-top:6px;width:60px;border-radius:6px">
-          </div>
-          <div class="stage n2" title="N2 - Sueño ligero">
-            <div class="title">N2</div>
-            <div class="sub">Fusos & K-complex, disminuye tono muscular</div>
-            <img src="imagenes/Fusos_&_K_complex.png" alt="Fusos & K-complex" style="margin-top:6px;width:60px;border-radius:6px"> 
-          </div>
-          <div class="stage n3" title="N3 - Sueño profundo (SWS)">
-            <div class="title">N3</div>
-            <div class="sub">Ondas delta, restauración, baja frecuencia cardíaca</div>
-          </div>
-          <div class="stage rem" title="REM - Sueño paradójico">
-            <div class="title">REM</div>
-            <div class="sub">Sueños; actividad cortical alta, atonía muscular</div>
-          </div>
-        </div>
-
-        <div class="timeline-plot">
-          <div class="plot-line" id="plotLine"></div>
-          <div class="plot-annot">
-            <div class="legend">
-              <div class="item"><span class="swatch"></span> Actividad cortical</div>
-              <div class="item"><strong style="margin-left:6px">N1</strong> Adormecimiento</div>
-              <div class="item"><strong>N2</strong> Sueño ligero</div>
-              <div class="item"><strong>N3</strong> Sueño profundo</div>
-              <div class="item"><strong>REM</strong> Sueño paradójico</div>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top:12px;color:var(--muted);font-size:14px">
-          <strong>Conductas típicas</strong>: cierre de ojos, reducción del movimiento, movimientos oculares breves (N1), movimientos oculares lentos (N2), casi sin movimientos en N3, movimientos rápidos en REM.
-        </div>
-
-        <ul style="margin-top:12px;color:var(--muted);line-height:1.55">
-          <li><strong>Actividad neuronal</strong>: N1 (theta), N2 (fusos, K-complex), N3 (delta sincronizado) y REM (actividad desincronizada tipo beta-alfa en corteza).</li>
-          <li><strong>Fisiología</strong>: variaciones en frecuencia cardíaca, tono muscular, respuesta autonómica y liberación hormonal (ej. GH en N3).</li>
-        </ul>
-
-        <p style="margin-top:8px;color:var(--muted)"><em>Usa el control inferior para simular un ciclo típico de ~90 minutos.</em></p>
-        <input type="range" min="0" max="100" value="0" id="cycleSlider" style="width:100%">
-      </div>
-    </section>
-
-    <aside class="card">
-      <h3>Ingesta — Mapa conceptual</h3>
-      <p style="color:var(--muted);margin-top:6px">Sustancias y señales en privación, búsqueda, absorción y saciedad.</p>
-
-      <div class="concept-map">
-        <div class="map">
-          <div class="node">
-            <h4>Privación</h4>
-            <p><strong>Sistema</strong>: hipotálamo lateral, orexina (hipocretina)</p>
-            <p><strong>Señales</strong>: baja glucosa, ghrelina ↑, leptina ↓</p>
-          </div>
-
-          <div class="node">
-            <h4>Búsqueda</h4>
-            <p><strong>Neurotransmisores</strong>: dopamina (VTA → NAc)</p>
-            <p><strong>Conducta</strong>: motivación, orientación, aprendizaje de recompensas</p>
-          </div>
-
-          <div class="node">
-            <h4>Absorción</h4>
-            <p><strong>Sistemas</strong>: vago → NST (núcleo del tracto solitario)</p>
-            <p><strong>Sustancias</strong>: insulina, péptidos intestinales (CCK, GLP-1)</p>
-          </div>
-
-          <div class="node">
-            <h4>Saciedad</h4>
-            <p><strong>Hormonas</strong>: leptina, PYY, colecistoquinina</p>
-            <p><strong>Efecto</strong>: inhibición del hambre, aumento de sensación de plenitud</p>
-          </div>
-        </div>
-
-        <svg class="map-svg" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
-          <!-- Simple arrows showing flow: Privación -> Búsqueda -> Absorción -> Saciedad -->
-          <defs>
-            <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-              <path d="M0,0 L6,3 L0,6 z" fill="#2b6cb0" />
-            </marker>
-          </defs>
-          <line x1="10" y1="10" x2="30" y2="10" stroke="#2b6cb0" stroke-width="0.6" marker-end="url(#arrow)" />
-          <line x1="40" y1="10" x2="60" y2="10" stroke="#2b6cb0" stroke-width="0.6" marker-end="url(#arrow)" />
-          <line x1="70" y1="10" x2="90" y2="10" stroke="#2b6cb0" stroke-width="0.6" marker-end="url(#arrow)" />
-
-          <!-- labels -->
-          <text x="8" y="6" font-size="2.6" fill="#0f172a">Privación</text>
-          <text x="34" y="6" font-size="2.6" fill="#0f172a">Búsqueda</text>
-          <text x="64" y="6" font-size="2.6" fill="#0f172a">Absorción</text>
-          <text x="88" y="6" font-size="2.6" fill="#0f172a">Saciedad</text>
-        </svg>
-
-        <div style="margin-top:10px;color:var(--muted)">Consejos breves: la ghrelina estimula el apetito; la leptina y el PYY informan al hipotálamo sobre reservas y plenitud. El vago transmite señales mecánicas e intestino-liberadas modulan la saciedad.</div>
-      </div>
-    </aside>
-  </div>
-
-  <section class="card" style="margin-top:18px">
-    <h2>Conducta sexual — Hormonas y desarrollo</h2>
-    <p style="color:var(--muted);margin-top:6px">Efectos de las hormonas sexuales durante la maduración y el desarrollo del sistema nervioso. Estrategia visual: tarjetas comparativas + tabla interactiva.</p>
-
-    <div class="horm-grid" style="margin-top:12px">
-      <div class="horm-card">
-        <h4>Testosterona</h4>
-        <p><strong>Maduración</strong>: desarrollo de características sexuales secundarias, aumento de masa muscular y anabolismo.</p>
-        <p><strong>Sistema nervioso</strong>: organizadora en periodo perinatal (masculinización); moduladora en pubertad (influye en conducta sexual y agresión).</p>
-      </div>
-
-      <div class="horm-card">
-        <h4>Estrógenos</h4>
-        <p><strong>Maduración</strong>: desarrollo de tejido mamario, distribución de grasa corporal, ciclo ovárico.</p>
-        <p><strong>Sistema nervioso</strong>: afectan la plasticidad sináptica, modulan neurotransmisores (serotonina, dopamina) y circuitos de recompensa.</p>
-      </div>
-
-      <div class="horm-card">
-        <h4>Progesterona</h4>
-        <p><strong>Maduración</strong>: rol en el ciclo reproductor y embarazo.</p>
-        <p><strong>Sistema nervioso</strong>: neuromodulador GABAérgico (efecto ansiolítico/sedante en ciertos contextos).</p>
-      </div>
+  <!-- Sueño: Línea de tiempo -->
+  <section id="Sueño" class="container mb-5">
+    <h2 class="mb-4 text-center">Sueño: Fases y Cambios Neuronales y Fisiológicos</h2>
+    <div class="image-container" role="img" aria-label="Infografía del ciclo de sueño con fases y actividades neuronales">
+      <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/8e609d48-c1b7-4cc1-bac0-23c9d920964e.png" alt="Infografía del ciclo de sueño" class="img-fluid" />
     </div>
-
-    <div class="toggle-section">
-      <label style="display:block;margin-bottom:8px;color:var(--muted)"><strong>Ver enfoque:</strong></label>
-      <select id="viewSelect">
-        <option value="maturation">Efectos en maduración</option>
-        <option value="neurodev">Efectos en desarrollo neural</option>
-        <option value="behavior">Efectos en conducta y circuitos</option>
-      </select>
-
-      <div id="detailBox" style="margin-top:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid rgba(12,38,63,0.04)">
-        <!-- Content populated by JS -->
-      </div>
+    <div class="timeline" aria-label="Línea de tiempo de fases del sueño">
+      <article class="timeline-item left" tabindex="0" aria-describedby="desc-nrem1">
+        <h3>NREM Fase 1</h3>
+        <p>Conductas: Estado de somnolencia ligera, inicio del sueño.</p>
+        <p id="desc-nrem1">Actividad neuronal: Disminución del ritmo alfa, aparición de ritmos theta.</p>
+        <p>Fisiología: Relajación muscular, disminución del ritmo cardíaco y respiratorio.</p>
+      </article>
+      <article class="timeline-item right" tabindex="0" aria-describedby="desc-nrem2">
+        <h3>NREM Fase 2</h3>
+        <p>Conductas: Sueño ligero, preparación para sueño profundo.</p>
+        <p id="desc-nrem2">Actividad neuronal: Aparición de husos de sueño y complejos K.</p>
+        <p>Fisiología: Temperatura corporal comienza a disminuir.</p>
+      </article>
+      <article class="timeline-item left" tabindex="0" aria-describedby="desc-nrem3">
+        <h3>NREM Fase 3 (Sueño Profundo)</h3>
+        <p>Conductas: Sueño profundo, difícil de despertar.</p>
+        <p id="desc-nrem3">Actividad neuronal: Ondas delta predominantes.</p>
+        <p>Fisiología: Recuperación muscular, secreción hormonal, disminución máxima del ritmo cardíaco.</p>
+      </article>
+      <article class="timeline-item right" tabindex="0" aria-describedby="desc-rem">
+        <h3>REM</h3>
+        <p>Conductas: Sueño con movimientos oculares rápidos, sueños vívidos.</p>
+        <p id="desc-rem">Actividad neuronal: Actividad cerebral similar a vigilia, ondas beta y alfa.</p>
+        <p>Fisiología: Paralisis muscular, aumento de la frecuencia cardíaca y respiratoria.</p>
+      </article>
     </div>
-
-    <details style="margin-top:12px">
-      <summary style="font-weight:700">Recursos visuales alternativos</summary>
-      <p style="color:var(--muted);margin-top:8px">Infografía lista para imprimir; gráficos comparativos que muestran ventanas sensibles (perinatal, pubertad) y los efectos organizadores vs activadores de hormonas sexuales.</p>
-    </details>
   </section>
 
-  <footer>
-    <div class="card" style="display:inline-block;padding:10px 14px;border-radius:8px">Crédito: infografía generada automáticamente | Uso educativo</div>
-  </footer>
-</main>
+  <!-- Ingesta: Mapa conceptual interactivo -->
+  <section id="Ingesta" class="concept-map" aria-label="Mapa conceptual interactivo sobre ingesta">
+    <h2 class="text-center mb-4">Ingesta: Sustancias en Privación, Búsqueda, Absorción y Saciedad</h2>
+    <div class="image-container" role="img" aria-label="Mapa conceptual de sustancias en procesos de ingesta">
+      <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/4c682064-8bc4-4181-94e1-688416a8154c.png" alt="Mapa conceptual de ingesta" class="img-fluid" />
+    </div>
+    <div>
+      <div class="concept-node" tabindex="0" data-desc="La privación genera señales en el hipotálamo que activan el hambre. Sustancias clave: grelina aumenta el apetito, leptina disminuye el hambre.">Privación</div>
+      <div class="concept-node" tabindex="0" data-desc="La búsqueda de alimento está mediada por la dopamina y neuropeptidos que incentivan la conducta alimentaria.">Búsqueda</div>
+      <div class="concept-node" tabindex="0" data-desc="En la absorción, las sustancias como la insulina regulan el metabolismo y almacén de nutrientes.">Absorción</div>
+      <div class="concept-node" tabindex="0" data-desc="La saciedad es controlada por señales de leptina, colecistoquinina y péptidos YY que inhiben el apetito.">Saciedad</div>
+    </div>
+    <p class="concept-description" id="concept-desc" tabindex="0">Haz clic o selecciona un nodo para ver la descripción aquí.</p>
+  </section>
 
-<script>
-  // Sleep timeline interactivity: map slider (0-100) to stages and a simple plot (simulated)
-  const slider = document.getElementById('cycleSlider');
-  const plot = document.getElementById('plotLine');
-  const stages = [ {name:'N1', start:0,end:10,activity:0.3}, {name:'N2', start:10,end:50,activity:0.5}, {name:'N3', start:50,end:75,activity:0.15}, {name:'REM', start:75,end:100,activity:0.9} ];
+  <!-- Conducta Sexual: Presentación creativa -->
+  <section id="linea-tiempo" class="hormones-section" aria-label="Efectos de hormonas sexuales en maduración y sistema nervioso">
+    <h2>Efectos de Hormonas Sexuales</h2>
+    <div class="image-container" role="img" aria-label="Ilustración de hormonas sexuales y desarrollo del sistema nervioso">
+      <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/ea4396ab-7251-4bb6-ab8b-532814205a35.png" alt="Ilustración de efectos de hormonas sexuales" class="img-fluid" />
+    </div>
+    <p class="text-center mb-4">Haz clic en cada hormona para ver su función en la maduración y desarrollo del sistema nervioso.</p>
+    <div class="hormones-cards">
+      <article class="hormone-card" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-estrogeno">
+        <h3 class="hormone-title">Estrógenos</h3>
+        <p id="desc-estrogeno" class="hormone-info">
+          Promueven la maduración sexual femenina y modulan la plasticidad neuronal y sináptica. Influyen en el desarrollo de áreas cerebrales relacionadas con el comportamiento social y reproductivo.
+        </p>
+      </article>
+      <article class="hormone-card" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-testosterona">
+        <h3 class="hormone-title">Testosterona</h3>
+        <p id="desc-testosterona" class="hormone-info">
+          Regula la maduración sexual masculina, influencia el desarrollo del sistema nervioso central, aumentando ciertas áreas relacionadas con la conducta agresiva y sexual.
+        </p>
+      </article>
+      <article class="hormone-card" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-progesterona">
+        <h3 class="hormone-title">Progesterona</h3>
+        <p id="desc-progesterona" class="hormone-info">
+          Apoya la regulación del ciclo reproductivo, tiene efectos neuroprotectores y modula la respuesta emocional y el comportamiento sexual.
+        </p>
+      </article>
+    </div>
+  </section>
 
-  function renderPlot(val){
-    // Build gradient representing cortical activity across the slider position
-    const t = val/100;
-    // simple amplitude: interpolate by stage
-    let amp = 0.15;
-    for(const s of stages){ if(val>=s.start && val<=s.end) amp = s.activity }
-    plot.style.height = Math.max(24, Math.round(amp*120)) + 'px';
-    plot.style.transition = 'height 400ms ease';
-    // annotate which stage
-    const stage = stages.find(s=> val>=s.start && val<=s.end);
-    plot.setAttribute('aria-label','Actividad cortical: '+(amp*100).toFixed(0)+'%. Fase: '+stage.name);
-  }
-  slider.addEventListener('input', e=>renderPlot(parseInt(e.target.value)));
-  renderPlot(0);
+<footer class="text-center mt-5 py-4" style="background-color: #f7c8e0; color: #01292b; border-radius: 10px 10px 0 0; box-shadow: 0 -4px 6px rgba(35, 176, 195, 0.779);">
+  <div class="container">
+    <p class="mb-1"><strong>Autores:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ, GABRIELA RODRÍGUEZ BUSTOS, MARÍA JOSE TAPIAS ORTIZ</p>
+    <p class="mb-0">Universidad EAN - 2025 </p>
+  </div>
+</footer>
 
-  // Conducta sexual detail box
-  const viewSelect = document.getElementById('viewSelect');
-  const detailBox = document.getElementById('detailBox');
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Interactividad mapa conceptual - mostrar descripción del nodo
+    const conceptNodes = document.querySelectorAll('.concept-node');
+    const conceptDesc = document.getElementById('concept-desc');
 
-  const views = {
-    maturation: `
-      <h4>Efectos en maduración</h4>
-      <ul>
-        <li><strong>Organización perinatal:</strong> testosterona (y su aromatización a estrógeno en el cerebro) orienta la diferenciación sexual de circuitos.</li>
-        <li><strong>Pubertad:</strong> hormonas activan conductas sexuales, maduran circuitos de recompensa y aumentan conectividad en regiones límbicas.</li>
-      </ul>
-    `,
-    neurodev: `
-      <h4>Efectos en desarrollo neural</h4>
-      <ul>
-        <li><strong>Plasticidad:</strong> estrógenos incrementan spine density en neuronas hipocampales y corticales.</li>
-        <li><strong>Neuronogénesis y mielinización:</strong> modulada por hormonas durante ventanas sensibles.</li>
-      </ul>
-    `,
-    behavior: `
-      <h4>Efectos en conducta y circuitos</h4>
-      <ul>
-        <li><strong>Dopamina y recompensa:</strong> hormonas sexuales modulan la respuesta dopaminérgica ante estímulos sociales y sexuales.</li>
-        <li><strong>Regulación emocional:</strong> progesterona y metabolitos GABAérgicos influyen en ansiedad y comportamiento social.</li>
-      </ul>
-    `
-  }
+    conceptNodes.forEach(node => {
+      node.addEventListener('click', () => {
+        conceptDesc.textContent = node.getAttribute('data-desc');
+      });
+      node.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          node.click();
+        }
+      });
+    });
 
-  viewSelect.addEventListener('change', e=>{ detailBox.innerHTML = views[e.target.value]; });
-  // default
-  detailBox.innerHTML = views['maturation'];
+    // Interactividad cards hormona sexual - toggle descripción y aria-expanded
+    const hormoneCards = document.querySelectorAll('.hormone-card');
 
-</script>
+    hormoneCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const isActive = card.classList.contains('active');
+        hormoneCards.forEach(c => {
+          c.classList.remove('active');
+          c.setAttribute('aria-expanded', 'false');
+        });
+        if (!isActive) {
+          card.classList.add('active');
+          card.setAttribute('aria-expanded', 'true');
+        }
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+  </script>
 </body>
 </html>

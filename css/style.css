@@ -1,148 +1,210 @@
-/* Hoja de estilos para la Infografía — colores llamativos y tipografías variadas*/
-:root{
-  /* PALeta llamativa y didáctica */
-  --bg-1: #fff8f0;   /* amarillo suave */
-  --bg-2: #f0f9ff;   /* celeste claro */
-  --card:   #ffffff;  /* tarjeta principal */
-
-  --accent-1: #ff6b6b; /* coral vibrante */
-  --accent-2: #4f46e5; /* violeta intenso */
-  --accent-3: #06b6d4; /* ciano brillante */
-  --accent-4: #10b981; /* verde esmeralda */
-  --accent-5: #f59e0b; /* naranja didáctico */
-
-  /* neutrales para texto y elementos secundarios */
-  --text: #0b1320;
-  --muted: #475569;
-  --muted-2: #64748b;
-  --glass: rgba(255,255,255,0.85);
-
-  /* sombras y elevación */
-  --shadow-1: 0 6px 18px rgba(12,38,63,0.08);
-  --shadow-2: 0 10px 30px rgba(12,38,63,0.10);
-
-  /* tipografías (usar @import en HTML o aquí antes de este archivo) */
-  --font-heading: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  --font-serif: 'Merriweather', Georgia, 'Times New Roman', serif;
-
-  /* espaciamiento */
-  --gutter: 18px;
-  --radius: 12px;
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Base */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  background: linear-gradient(180deg,var(--bg-2),#ffffff);
-  color:var(--text);
-  font-family:var(--font-body);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.45;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fffaf4; /* pastel peach */
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
 }
 
-/* Typography */
-h1, .h1{font-family:var(--font-heading);font-weight:700;color:var(--accent-2);margin:0 0 8px}
-h2, .h2{font-family:var(--font-heading);font-weight:600;color:var(--accent-3);margin:0 0 10px}
-h3, .h3{font-family:var(--font-heading);font-weight:600;color:var(--accent-1);margin:0 0 8px}
-p{margin:0 0 12px;color:var(--muted)}
-.lead{font-size:1.05rem;color:var(--muted-2)}
-.small{font-size:.88rem;color:var(--muted-2)}
-.code-label{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;font-size:.9rem;background:rgba(15,23,42,0.04);padding:3px 8px;border-radius:6px}
-
-/* Containers */
-.container{max-width:1200px;margin:26px auto;padding:0 var(--gutter)}
-.card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow-1);}
-.row{display:flex;gap:16px}
-.col-2{display:grid;grid-template-columns:1fr 420px;gap:20px}
-@media(max-width:1000px){.col-2{grid-template-columns:1fr}}
-
-/* Buttons */
-.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:600}
-.btn-primary{background:linear-gradient(90deg,var(--accent-2),var(--accent-3));color:white}
-.btn-accent{background:linear-gradient(90deg,var(--accent-4),var(--accent-3));color:white}
-.btn-ghost{background:transparent;border:1px solid rgba(15,23,42,0.06);color:var(--muted)}
-
-/* Timeline - visual */
-.timeline{padding:14px}
-.timeline-track{position:relative;height:240px;border-radius:10px;overflow:hidden;background:linear-gradient(90deg,#ffffff,rgba(240,249,255,0.8));border:1px solid rgba(15,23,42,0.04)}
-.timeline-segment{position:absolute;top:0;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:12px;color:white;font-weight:700;text-shadow:0 1px 0 rgba(0,0,0,0.12)}
-.timeline-segment .label{background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);padding:6px 8px;border-radius:8px;font-size:0.95rem}
-.timeline-seg-n1{left:0;width:12%;background:linear-gradient(180deg,var(--accent-5),#ff9a8b)}
-.timeline-seg-n2{left:12%;width:40%;background:linear-gradient(180deg,var(--accent-3),#2db2d6)}
-.timeline-seg-n3{left:52%;width:23%;background:linear-gradient(180deg,var(--accent-4),#0ea37c)}
-.timeline-seg-rem{left:75%;width:25%;background:linear-gradient(180deg,var(--accent-2),#845ef7)}
-
-/* Plot line (activity) */
-.plot-container{margin-top:12px;background:linear-gradient(180deg,#ffffff,#f7fbff);padding:12px;border-radius:10px;border:1px dashed rgba(15,23,42,0.03)}
-.plot-line{height:48px;border-radius:8px;background:linear-gradient(90deg,#cfe7ff,#9ec8ff);transition:height .45s ease}
-.plot-annot{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
-.legend-item{display:flex;align-items:center;gap:8px;font-size:.95rem}
-.legend-swatch{width:14px;height:14px;border-radius:4px}
-.legend-swatch--high{background:var(--accent-2)}
-.legend-swatch--mid{background:var(--accent-3)}
-.legend-swatch--low{background:var(--accent-5)}
-
-/* Concept map (ingesta) */
-.concept-map{display:grid;grid-template-columns:1fr;gap:12px}
-.map-canvas{background:linear-gradient(180deg,#fffefc,#f0fff6);border-radius:12px;padding:14px;border:1px solid rgba(15,23,42,0.04)}
-.map-nodes{display:flex;flex-wrap:wrap;gap:12px}
-.map-node{flex:1 1 220px;min-width:180px;background:linear-gradient(180deg,#ffffff,#fff9fb);padding:12px;border-radius:10px;border-left:6px solid var(--accent-3);box-shadow:var(--shadow-1)}
-.map-node h4{margin:0 0 6px;color:var(--accent-3)}
-.map-arrow{display:block;height:6px;margin:8px 0}
-
-/* Hormone cards */
-.horm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.horm-card{background:linear-gradient(180deg,#ffffff,#fcfdff);border-radius:12px;padding:14px;border:1px solid rgba(15,23,42,0.04);box-shadow:var(--shadow-1)}
-.horm-card .title{display:flex;align-items:center;gap:10px}
-.horm-badge{padding:6px 10px;border-radius:999px;font-weight:700;color:white}
-.horm-test{background:linear-gradient(90deg,#f97316,#ff6b6b)}
-.horm-est{background:linear-gradient(90deg,#a78bfa,#7c3aed)}
-.horm-prog{background:linear-gradient(90deg,#34d399,#059669)}
-.horm-card img{width:100%;border-radius:8px;margin-top:10px}
-
-/* Utilities de color para resaltar conceptos */
-.tag{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;color:white;font-size:.9rem}
-.tag--red{background:var(--accent-1)}
-.tag--cyan{background:var(--accent-3)}
-.tag--green{background:var(--accent-4)}
-.tag--orange{background:var(--accent-5)}
-
-/* Callout / info box */
-.callout{background:linear-gradient(90deg,#fff7ed,#f0fff6);border-left:6px solid var(--accent-5);padding:12px;border-radius:10px;color:var(--muted)}
-
-/* Accessibility & motion preferences */
-@media (prefers-reduced-motion: reduce){
-  .plot-line, .timeline-segment, .horm-card img{transition:none!important}
+/* Sticky Header with Shadow */
+header.custom-banner {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #f7c8e0; /* pastel rose */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive grid adjustments */
-@media(max-width:820px){
-  .map-node{flex:1 1 100%}
+/* Navigation links pastel colors */
+header.custom-banner nav a {
+  margin: 0 0.75rem;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
 }
 
-/* Print styles: optimizar a A4, eliminar degradados fuertes */
-@media print{
-  :root{--bg-2:#ffffff}
-  body{background:white;color:#000}
-  .card{box-shadow:none;border:none}
-  .timeline-track, .map-canvas, .horm-card{page-break-inside:avoid}
+header.custom-banner nav a[href*="Sueño"] {
+  background-color: #c5e1a5; /* pastel green */
+  color: #2e7d32;
 }
 
-/* Helpers: spacing, text alignment */
-.mt-8{margin-top:8px}
-.mt-16{margin-top:16px}
-.mb-8{margin-bottom:8px}
-.text-center{text-align:center}
-.text-muted{color:var(--muted)}
-
-/* Small responsive tweaks for very small screens */
-@media(max-width:420px){
-  h1{font-size:20px}
-  h2{font-size:18px}
+header.custom-banner nav a[href*="Ingesta"] {
+  background-color: #b3e5fc; /* pastel blue */
+  color: #0277bd;
 }
 
-/* End of stylesheet */
+header.custom-banner nav a[href*="linea"] {
+  background-color: #ffe082; /* pastel yellow */
+  color: #f57f17;
+}
+
+header.custom-banner nav a:hover {
+  opacity: 0.85;
+}
+
+/* Main container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+/* Section spacing */
+section {
+  margin-bottom: 40px;
+}
+
+/* Responsive images */
+img.img-fluid, .image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Timeline */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: #c5e1a5; /* pastel green */
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.timeline-item.left {
+  color: #558b2f; /* dark pastel green */
+}
+
+.timeline-item.right {
+  color: #4a90e2; /* pastel blue */
+}
+
+.timeline-item::before {
+  background: #a5d6a7; /* lighter pastel green */
+  border: 4px solid #fffaf4;
+}
+
+/* Concept map nodes */
+.concept-map {
+  background: #f7fbe9; /* pastel pale green */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(197, 225, 165, 0.6);
+  padding: 2rem;
+  max-width: 900px;
+  margin: 3rem auto;
+  color: #558b2f;
+  text-align: center;
+}
+
+.concept-node {
+  background-color: #c5e1a5;
+  color: #2e7d32;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  margin: 0.5rem;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.concept-node:hover,
+.concept-node:focus {
+  background-color: #81c784;
+  color: white;
+  outline: none;
+}
+
+/* Hormones section */
+.hormones-section {
+  background: linear-gradient(145deg, #d1c4e9, #c5e1a5);
+  border-radius: 15px;
+  box-shadow: 0 4px 18px rgba(209, 196, 233, 0.6);
+  max-width: 900px;
+  margin: 3rem auto 5rem;
+  color: #333;
+  padding: 2rem;
+}
+
+.hormones-section h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #512da8; /* pastel purple */
+}
+
+.hormone-card {
+  background: #ede7f6; /* pastel lavender */
+  border-radius: 15px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  user-select: none;
+  color: #512da8;
+  box-shadow: 0 4px 12px rgba(209, 196, 233, 0.6);
+  border: 2px solid #b39ddb;
+  flex: 1 1 250px;
+}
+
+.hormone-card:hover,
+.hormone-card:focus {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(81, 45, 168, 0.9);
+  outline: none;
+}
+
+.hormone-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.hormone-info {
+  font-size: 1rem;
+  line-height: 1.4;
+  display: none;
+  margin-top: 0.5rem;
+  color: #333;
+}
+
+.hormone-card.active .hormone-info {
+  display: block;
+}
+
+/* Image container */
+.image-container {
+  max-width: 900px;
+  margin: 1.5rem auto 3rem;
+  padding: 1rem;
+  background-color: #fffaf4;
+  border: 3px dashed #ffe082; /* pastel yellow */
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  color: #f57f17; /* dark pastel yellow */
+  font-size: 1.25rem;
+  font-weight: 600;
+  user-select: none;
+}
