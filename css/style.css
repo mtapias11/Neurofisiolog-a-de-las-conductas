@@ -1,210 +1,84 @@
-/* Reset and base styles */
+/* === RESET GENERAL === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fffaf4; /* pastel peach */
-  color: #333;
+  background: linear-gradient(135deg, #D2C1DB, #94D0E0);
+  color: #2e2e2e;
   line-height: 1.6;
-  padding: 20px;
+  overflow-x: hidden;
 }
 
-/* Sticky Header with Shadow */
+/* === ENCABEZADO === */
 header.custom-banner {
+  background: linear-gradient(90deg, #9C81DB, #D85FDE, #BA81DB);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: #f7c8e0; /* pastel rose */
-  color: white;
-  text-align: center;
-  padding: 20px;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeInDown 1s ease;
 }
 
-/* Navigation links pastel colors */
+header.custom-banner h1 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+  letter-spacing: 1px;
+}
+
 header.custom-banner nav a {
-  margin: 0 0.75rem;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 6px 12px;
-  border-radius: 5px;
   display: inline-block;
-  transition: background-color 0.3s ease;
-}
-
-header.custom-banner nav a[href*="Sueño"] {
-  background-color: #c5e1a5; /* pastel green */
-  color: #2e7d32;
-}
-
-header.custom-banner nav a[href*="Ingesta"] {
-  background-color: #b3e5fc; /* pastel blue */
-  color: #0277bd;
-}
-
-header.custom-banner nav a[href*="linea"] {
-  background-color: #ffe082; /* pastel yellow */
-  color: #f57f17;
+  margin: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #94E0D8;
+  color: #222;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
 header.custom-banner nav a:hover {
-  opacity: 0.85;
-}
-
-/* Main container */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-}
-
-/* Section spacing */
-section {
-  margin-bottom: 40px;
-}
-
-/* Responsive images */
-img.img-fluid, .image-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Timeline */
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 100%;
-  background: #c5e1a5; /* pastel green */
-  border-radius: 2px;
-  z-index: 0;
-}
-
-.timeline-item.left {
-  color: #558b2f; /* dark pastel green */
-}
-
-.timeline-item.right {
-  color: #4a90e2; /* pastel blue */
-}
-
-.timeline-item::before {
-  background: #a5d6a7; /* lighter pastel green */
-  border: 4px solid #fffaf4;
-}
-
-/* Concept map nodes */
-.concept-map {
-  background: #f7fbe9; /* pastel pale green */
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(197, 225, 165, 0.6);
-  padding: 2rem;
-  max-width: 900px;
-  margin: 3rem auto;
-  color: #558b2f;
-  text-align: center;
-}
-
-.concept-node {
-  background-color: #c5e1a5;
-  color: #2e7d32;
-  border-radius: 1rem;
-  padding: 1rem 1.5rem;
-  margin: 0.5rem;
-  display: inline-block;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.concept-node:hover,
-.concept-node:focus {
-  background-color: #81c784;
+  background-color: #8184DB;
   color: white;
-  outline: none;
+  transform: scale(1.1);
 }
 
-/* Hormones section */
-.hormones-section {
-  background: linear-gradient(145deg, #d1c4e9, #c5e1a5);
-  border-radius: 15px;
-  box-shadow: 0 4px 18px rgba(209, 196, 233, 0.6);
-  max-width: 900px;
-  margin: 3rem auto 5rem;
-  color: #333;
-  padding: 2rem;
-}
-
-.hormones-section h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #512da8; /* pastel purple */
-}
-
-.hormone-card {
-  background: #ede7f6; /* pastel lavender */
-  border-radius: 15px;
-  padding: 1rem 1.5rem;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  user-select: none;
-  color: #512da8;
-  box-shadow: 0 4px 12px rgba(209, 196, 233, 0.6);
-  border: 2px solid #b39ddb;
-  flex: 1 1 250px;
-}
-
-.hormone-card:hover,
-.hormone-card:focus {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(81, 45, 168, 0.9);
-  outline: none;
-}
-
-.hormone-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-}
-
-.hormone-info {
-  font-size: 1rem;
-  line-height: 1.4;
-  display: none;
-  margin-top: 0.5rem;
-  color: #333;
-}
-
-.hormone-card.active .hormone-info {
-  display: block;
-}
-
-/* Image container */
-.image-container {
-  max-width: 900px;
-  margin: 1.5rem auto 3rem;
-  padding: 1rem;
-  background-color: #fffaf4;
-  border: 3px dashed #ffe082; /* pastel yellow */
-  border-radius: 12px;
+/* === CONTENEDOR PRINCIPAL === */
+.main-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 250px;
-  color: #f57f17; /* dark pastel yellow */
-  font-size: 1.25rem;
-  font-weight: 600;
-  user-select: none;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
+
+/* === ÁREA DE CONTENIDO === */
+main.content-area {
+  flex: 1;
+  background-color: #ffffffc9;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease;
+}
+
+main.content-area:hover {
+  transform: scale(1.01);
+}
+
+/* === SIDEBAR === */
+aside.sidebar {
+  max-width: 300px;
+  background: #B

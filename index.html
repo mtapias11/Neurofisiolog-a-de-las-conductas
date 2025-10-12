@@ -5,304 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bases Biológicas de Procesos Básicos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    /* Reset and base styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: 
-        linear-gradient(rgba(255, 250, 244, 0.85), rgba(255, 250, 244, 0.85)),
-        url('imagenes/vecteezy_ai-generated-abstract-3d-image-of-digital-waves-in-shades-of_35977605.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-      line-height: 1.6;
-      padding: 20px;
-    }
-
-    /* Banner no fijo */
-    header.custom-banner {
-      position: static;
-      background-color: #F274DD; /* pastel rose */
-      color: white;
-      text-align: center;
-      padding: 20px;
-      border-radius: 0 0 10px 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      z-index: auto;
-    }
-
-    /* Navigation links pastel colors */
-    header.custom-banner nav a {
-      margin: 0 0.75rem;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 5px;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-
-    header.custom-banner nav a[href*="Sueño"] {
-      background-color: #c5e1a5e7; /* pastel green */
-      color: #2e7d32;
-    }
-
-    header.custom-banner nav a[href*="Ingesta"] {
-      background-color: #b3e5fc; /* pastel blue */
-      color: #0277bd;
-    }
-
-    header.custom-banner nav a[href*="linea"] {
-      background-color: #ffe082; /* pastel yellow */
-      color: #f57f17;
-    }
-
-    header.custom-banner nav a:hover {
-      opacity: 0.85;
-    }
-
-    /* Main container flex setup */
-    .main-container {
-      display: flex;
-      justify-content: space-between;
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 2rem auto 0;
-    }
-
-    main.content-area {
-      flex: 1 1 65%;
-      background-color: #ffffffcc; /* blanco translúcido para contraste */
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    aside.sidebar {
-      position: sticky;
-      top: 110px;
-      max-width: 300px;
-      background: #f7fbe9; /* pastel very light green */
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(197, 225, 165, 0.6);
-      padding: 1rem;
-      height: fit-content;
-      font-size: 0.95rem;
-    }
-
-    aside.sidebar h5 {
-      margin-bottom: 1rem;
-      font-weight: 700;
-      color: #558b2f;
-      text-align: center;
-    }
-
-    aside.sidebar .card {
-      margin-bottom: 1rem;
-    }
-
-    /* Section spacing */
-    section {
-      margin-bottom: 40px;
-    }
-
-    /* Responsive images */
-    img.img-fluid, .image-container img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Timeline */
-    .timeline {
-      position: relative;
-      max-width: 900px;
-      margin: auto;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 4px;
-      height: 100%;
-      background: #c5e1a5; /* pastel green */
-      border-radius: 2px;
-      z-index: 0;
-    }
-
-    .timeline-item {
-      padding: 1rem 2rem;
-      position: relative;
-      width: 50%;
-      box-sizing: border-box;
-      z-index: 1;
-    }
-
-    .timeline-item.left {
-      left: 0;
-      text-align: right;
-      padding-right: 4rem;
-      color: #558b2f; /* dark pastel green */
-    }
-
-    .timeline-item.right {
-      left: 50%;
-      padding-left: 4rem;
-      color: #4a90e2; /* pastel blue */
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      top: 20px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: #a5d6a7; /* lighter pastel green */
-      border: 4px solid #fffaf4;
-      z-index: 2;
-    }
-
-    .timeline-item.left::before {
-      right: -12px;
-    }
-
-    .timeline-item.right::before {
-      left: -12px;
-    }
-
-    /* Concept map nodes */
-    .concept-map {
-      background: #f7fbe9; /* pastel pale green */
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(197, 225, 165, 0.6);
-      padding: 2rem;
-      max-width: 900px;
-      margin: 3rem auto;
-      color: #558b2f;
-      text-align: center;
-    }
-
-    .concept-node {
-      background-color: #c5e1a5;
-      color: #2e7d32;
-      border-radius: 1rem;
-      padding: 1rem 1.5rem;
-      margin: 0.5rem;
-      display: inline-block;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .concept-node:hover,
-    .concept-node:focus {
-      background-color: #81c784;
-      color: white;
-      outline: none;
-    }
-
-    /* Hormones section */
-    .hormones-section {
-      background: linear-gradient(145deg, #d1c4e9, #c5e1a5);
-      border-radius: 15px;
-      box-shadow: 0 4px 18px rgba(209, 196, 233, 0.6);
-      max-width: 900px;
-      margin: 3rem auto 5rem;
-      color: #333;
-      padding: 2rem;
-    }
-
-    .hormones-section h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #512da8; /* pastel purple */
-    }
-
-    .hormones-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      gap: 1.5rem;
-    }
-
-    .hormone-card {
-      background: #ede7f6; /* pastel lavender */
-      border-radius: 15px;
-      padding: 1rem 1.5rem;
-      cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      user-select: none;
-      color: #512da8;
-      box-shadow: 0 4px 12px rgba(209, 196, 233, 0.6);
-      border: 2px solid #b39ddb;
-      flex: 1 1 250px;
-    }
-
-    .hormone-card:hover,
-    .hormone-card:focus {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 20px rgba(81, 45, 168, 0.9);
-      outline: none;
-    }
-
-    .hormone-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-
-    .hormone-info {
-      font-size: 1rem;
-      line-height: 1.4;
-      display: none;
-      margin-top: 0.5rem;
-      color: #333;
-    }
-
-    .hormone-card.active .hormone-info {
-      display: block;
-    }
-
-    /* Image container */
-    .image-container {
-      max-width: 900px;
-      margin: 1.5rem auto 3rem;
-      padding: 1rem;
-      background-color: #fffaf4;
-      border: 3px dashed #ffe082; /* pastel yellow */
-      border-radius: 12px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 250px;
-      color: #f57f17; /* dark pastel yellow */
-      font-size: 1.25rem;
-      font-weight: 600;
-      user-select: none;
-    }
-
-    /* Footer no fijo */
-    footer {
-      position: static;
-      background-color: #f7c8e0;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      border-radius: 10px 10px 0 0;
-      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-      margin-top: 3rem;
-      z-index: auto;
-    }
-  </style>
+ <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- Banner principal -->
@@ -310,162 +13,138 @@
     <h1>Bienvenidos a Mi Página Web</h1>
     <p>Guía 1</p>
     <nav>
-      <a href="#Sueño" class="text-white">Sueño</a>
-      <a href="#Ingesta" class="text-white">Ingesta</a>
-      <a href="#linea-tiempo" class="text-white">Línea de Tiempo</a>
+      <a href="#Sueño">Sueño</a>
+      <a href="#Ingesta">Ingesta</a>
+      <a href="#linea-tiempo">Línea de Tiempo</a>
     </nav>
   </header>
 
   <div class="main-container">
     <main class="content-area">
-      <!-- Sueño: Línea de tiempo -->
+      <!-- Sueño -->
       <section id="Sueño">
         <h2 class="mb-4 text-center">Sueño: Fases y Cambios Neuronales y Fisiológicos</h2>
-        <div class="image-container" role="img" aria-label="Infografía del ciclo de sueño con fases y actividades neuronales">
+        <div class="image-container">
           <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/8e609d48-c1b7-4cc1-bac0-23c9d920964e.png" alt="Infografía del ciclo de sueño" class="img-fluid" />
         </div>
-        <div class="timeline" aria-label="Línea de tiempo de fases del sueño">
-          <article class="timeline-item left" tabindex="0" aria-describedby="desc-nrem1">
+
+        <!-- Línea de tiempo -->
+        <div class="timeline">
+          <article class="timeline-item left">
             <h3>NREM Fase 1</h3>
-            <p>Conductas: Estado de somnolencia ligera, inicio del sueño.</p>
-            <p id="desc-nrem1">Actividad neuronal: Disminución del ritmo alfa, aparición de ritmos theta.</p>
-            <p>Fisiología: Relajación muscular, disminución del ritmo cardíaco y respiratorio.</p>
+            <p>Somnolencia ligera, inicio del sueño.</p>
+            <p>Actividad neuronal: Disminuye ritmo alfa, aparecen ritmos theta.</p>
+            <p>Fisiología: Relajación muscular, ritmo cardíaco disminuye.</p>
           </article>
-          <article class="timeline-item right" tabindex="0" aria-describedby="desc-nrem2">
+
+          <article class="timeline-item right">
             <h3>NREM Fase 2</h3>
-            <p>Conductas: Sueño ligero, preparación para sueño profundo.</p>
-            <p id="desc-nrem2">Actividad neuronal: Aparición de husos de sueño y complejos K.</p>
-            <p>Fisiología: Temperatura corporal comienza a disminuir.</p>
+            <p>Sueño ligero, preparación para sueño profundo.</p>
+            <p>Actividad neuronal: Husos de sueño y complejos K.</p>
+            <p>Fisiología: Disminuye la temperatura corporal.</p>
           </article>
-          <article class="timeline-item left" tabindex="0" aria-describedby="desc-nrem3">
-            <h3>NREM Fase 3 (Sueño Profundo)</h3>
-            <p>Conductas: Sueño profundo, difícil de despertar.</p>
-            <p id="desc-nrem3">Actividad neuronal: Ondas delta predominantes.</p>
-            <p>Fisiología: Recuperación muscular, secreción hormonal, disminución máxima del ritmo cardíaco.</p>
+
+          <article class="timeline-item left">
+            <h3>NREM Fase 3</h3>
+            <p>Sueño profundo, difícil de despertar.</p>
+            <p>Actividad neuronal: Ondas delta predominantes.</p>
+            <p>Fisiología: Recuperación muscular, secreción hormonal.</p>
           </article>
-          <article class="timeline-item right" tabindex="0" aria-describedby="desc-rem">
+
+          <article class="timeline-item right">
             <h3>REM</h3>
-            <p>Conductas: Sueño con movimientos oculares rápidos, sueños vívidos.</p>
-            <p id="desc-rem">Actividad neuronal: Actividad cerebral similar a vigilia, ondas beta y alfa.</p>
-            <p>Fisiología: Paralisis muscular, aumento de la frecuencia cardíaca y respiratoria.</p>
+            <p>Sueño con movimientos oculares rápidos, sueños vívidos.</p>
+            <p>Actividad neuronal: Ondas beta y alfa (similar a vigilia).</p>
+            <p>Fisiología: Parálisis muscular, frecuencia cardíaca aumenta.</p>
           </article>
         </div>
       </section>
 
-      <!-- Ingesta: Mapa conceptual interactivo -->
-      <section id="Ingesta" class="concept-map" aria-label="Mapa conceptual interactivo sobre ingesta">
+      <!-- Tarjetas de memoria -->
+      <h5>Tarjetas de Memoria</h5>
+      <div class="memory-card"><div class="question">¿Qué neurotransmisor activa la corteza cerebral durante REM?</div><div class="answer" hidden>Acetilcolina</div></div>
+      <div class="memory-card"><div class="question">¿Cuál neurotransmisor contribuye a la activación cortical durante REM?</div><div class="answer" hidden>Glutamato</div></div>
+      <div class="memory-card"><div class="question">¿Qué neurotransmisor promueve el sueño en NREM?</div><div class="answer" hidden>GABA</div></div>
+      <div class="memory-card"><div class="question">¿Qué neurotransmisor regula el inicio del sueño?</div><div class="answer" hidden>Serotonina</div></div>
+      <div class="memory-card"><div class="question">Neurotransmisores que disminuyen en REM y aumentan en vigilia</div><div class="answer" hidden>Noradrenalina y dopamina</div></div>
+
+      <!-- Ingesta -->
+      <section id="Ingesta" class="concept-map">
         <h2 class="text-center mb-4">Ingesta: Sustancias en Privación, Búsqueda, Absorción y Saciedad</h2>
-        <div class="image-container" role="img" aria-label="Mapa conceptual de sustancias en procesos de ingesta">
+        <div class="image-container">
           <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/4c682064-8bc4-4181-94e1-688416a8154c.png" alt="Mapa conceptual de ingesta" class="img-fluid" />
         </div>
         <div>
-          <div class="concept-node" tabindex="0" data-desc="La privación genera señales en el hipotálamo que activan el hambre. Sustancias clave: grelina aumenta el apetito, leptina disminuye el hambre.">Privación</div>
-          <div class="concept-node" tabindex="0" data-desc="La búsqueda de alimento está mediada por la dopamina y neuropeptidos que incentivan la conducta alimentaria.">Búsqueda</div>
-          <div class="concept-node" tabindex="0" data-desc="En la absorción, las sustancias como la insulina regulan el metabolismo y almacén de nutrientes.">Absorción</div>
-          <div class="concept-node" tabindex="0" data-desc="La saciedad es controlada por señales de leptina, colecistoquinina y péptidos YY que inhiben el apetito.">Saciedad</div>
+          <div class="concept-node" data-desc="La privación genera señales en el hipotálamo que activan el hambre. Grelina aumenta el apetito, leptina lo reduce.">Privación</div>
+          <div class="concept-node" data-desc="La búsqueda de alimento está mediada por dopamina y neuropéptidos.">Búsqueda</div>
+          <div class="concept-node" data-desc="La absorción regula el metabolismo mediante insulina y almacenamiento de nutrientes.">Absorción</div>
+          <div class="concept-node" data-desc="La saciedad es controlada por leptina, colecistoquinina y péptidos YY.">Saciedad</div>
         </div>
-        <p class="concept-description" id="concept-desc" tabindex="0">Haz clic o selecciona un nodo para ver la descripción aquí.</p>
+        <p id="concept-desc">Haz clic o selecciona un nodo para ver la descripción aquí.</p>
       </section>
 
-      <!-- Conducta Sexual: Presentación creativa -->
-      <section id="linea-tiempo" class="hormones-section" aria-label="Efectos de hormonas sexuales en maduración y sistema nervioso">
+      <!-- Hormonas sexuales -->
+      <section id="linea-tiempo" class="hormones-section">
         <h2>Efectos de Hormonas Sexuales</h2>
-        <div class="image-container" role="img" aria-label="Ilustración de hormonas sexuales y desarrollo del sistema nervioso">
+        <div class="image-container">
           <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/ea4396ab-7251-4bb6-ab8b-532814205a35.png" alt="Ilustración de efectos de hormonas sexuales" class="img-fluid" />
         </div>
-        <p class="text-center mb-4">Haz clic en cada hormona para ver su función en la maduración y desarrollo del sistema nervioso.</p>
+        <p class="text-center mb-4">Haz clic en cada hormona para ver su función.</p>
+
         <div class="hormones-cards">
-          <article class="hormone-card" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-estrogeno">
+          <article class="hormone-card">
             <h3 class="hormone-title">Estrógenos</h3>
-            <p id="desc-estrogeno" class="hormone-info">
-              Promueven la maduración sexual femenina y modulan la plasticidad neuronal y sináptica. Influyen en el desarrollo de áreas cerebrales relacionadas con el comportamiento social y reproductivo.
-            </p>
+            <p class="hormone-info">Promueven la maduración sexual femenina y la plasticidad neuronal.</p>
           </article>
-          <article class="hormone-card" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-testosterona">
+          <article class="hormone-card">
             <h3 class="hormone-title">Testosterona</h3>
-            <p id="desc-testosterona" class="hormone-info">
-              Regula la maduración sexual masculina, influencia el desarrollo del sistema nervioso central, aumentando ciertas áreas relacionadas con la conducta agresiva y sexual.
-            </p>
+            <p class="hormone-info">Regula la maduración sexual masculina y el desarrollo del sistema nervioso.</p>
           </article>
-          <article class="hormone-card" tabindex="0" aria-expanded="false" role="button" aria-controls="desc-progesterona">
+          <article class="hormone-card">
             <h3 class="hormone-title">Progesterona</h3>
-            <p id="desc-progesterona" class="hormone-info">
-              Apoya la regulación del ciclo reproductivo, tiene efectos neuroprotectores y modula la respuesta emocional y el comportamiento sexual.
-            </p>
+            <p class="hormone-info">Modula el comportamiento emocional y tiene efectos neuroprotectores.</p>
           </article>
         </div>
       </section>
     </main>
 
-    <!-- Sidebar con fichas de aprendizaje -->
-    <aside class="sidebar" aria-label="Fichas de aprendizaje">
+    <!-- Sidebar -->
+    <aside class="sidebar">
       <h5>Fichas de Aprendizaje</h5>
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Bases del Sueño</h6>
-          <p class="card-text">Fases del sueño, actividades neuronales y fisiológicas, importancia del REM.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Sustancias en Ingesta</h6>
-          <p class="card-text">Roles de grelina, leptina, insulina y otros en el control del apetito y saciedad.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Hormonas Sexuales</h6>
-          <p class="card-text">Efectos de estrógenos, progesterona y testosterona en maduración y sistema nervioso.</p>
-        </div>
-      </div>
+      <div class="card"><div class="card-body"><h6>Bases del Sueño</h6><p>Fases del sueño, actividad neuronal y REM.</p></div></div>
+      <div class="card"><div class="card-body"><h6>Sustancias en Ingesta</h6><p>Roles de grelina, leptina e insulina.</p></div></div>
+      <div class="card"><div class="card-body"><h6>Hormonas Sexuales</h6><p>Efectos de estrógenos, progesterona y testosterona.</p></div></div>
     </aside>
   </div>
 
   <footer>
-    <div class="container">
-      <p class="mb-1"><strong>Autores:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ, GABRIELA RODRÍGUEZ BUSTOS, MARÍA JOSE TAPIAS ORTIZ</p>
-      <p class="mb-0">Universidad EAN - Neurofisiología del Comportamiento</p>
-    </div>
+    <p><strong>Autores:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ, GABRIELA RODRÍGUEZ BUSTOS, MARÍA JOSE TAPIAS ORTIZ</p>
+    <p>Universidad EAN - Neurofisiología del Comportamiento</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Interactividad mapa conceptual - mostrar descripción del nodo
+    // Concept map
     const conceptNodes = document.querySelectorAll('.concept-node');
     const conceptDesc = document.getElementById('concept-desc');
-
     conceptNodes.forEach(node => {
-      node.addEventListener('click', () => {
-        conceptDesc.textContent = node.getAttribute('data-desc');
-      });
-      node.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          node.click();
-        }
+      node.addEventListener('click', () => conceptDesc.textContent = node.dataset.desc);
+    });
+
+    // Hormone cards
+    const hormoneCards = document.querySelectorAll('.hormone-card');
+    hormoneCards.forEach(card => {
+      card.addEventListener('click', () => {
+        hormoneCards.forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
       });
     });
 
-    // Interactividad cards hormona sexual - toggle descripción y aria-expanded
-    const hormoneCards = document.querySelectorAll('.hormone-card');
-
-    hormoneCards.forEach(card => {
+    // Memory cards
+    document.querySelectorAll('.memory-card').forEach(card => {
       card.addEventListener('click', () => {
-        const isActive = card.classList.contains('active');
-        hormoneCards.forEach(c => {
-          c.classList.remove('active');
-          c.setAttribute('aria-expanded', 'false');
-        });
-        if (!isActive) {
-          card.classList.add('active');
-          card.setAttribute('aria-expanded', 'true');
-        }
-      });
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          card.click();
-        }
+        const ans = card.querySelector('.answer');
+        ans.hidden = !ans.hidden;
       });
     });
   </script>
