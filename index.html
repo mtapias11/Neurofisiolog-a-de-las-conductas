@@ -15,17 +15,16 @@
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: 
-    linear-gradient(rgba(255, 250, 244, 0.85), rgba(255, 250, 244, 0.85)),
-    url(imagenes/9548552.jpg)no-repeat center center fixed;
-  background-size: cover;
-  color: #3333332c;
-  line-height: 1.6;
-  padding: 20px;
-  overflow-x: hidden;
-}
+ body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(rgba(255, 250, 244, 0.9), rgba(255, 250, 244, 0.9)),
+      url('imagenes/9548552.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    overflow-x: hidden;
+  }
 
 /* === HEADER / BANNER === */
 header.custom-banner {
@@ -42,12 +41,26 @@ header.custom-banner {
   /* animation can be added here if needed */
 }
 
-header.custom-banner h1 {
-  font-size: 2rem;
-  margin-bottom: 0.25rem;
-  letter-spacing: 1px;
-}
+ header.custom-banner h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: .25rem;
+  }
 
+ header.custom-banner p { margin-bottom: 1rem; }
+
+  header.custom-banner nav a {
+    display: inline-block;
+    margin: 0.5rem 0.75rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #d879d3a2;
+    color: #222;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+ 
 /* Navigation links */
 header.custom-banner nav a {
   display: inline-block;
@@ -93,6 +106,25 @@ header.custom-banner nav a:hover {
   margin: 2rem auto 0;
   padding: 0 1rem;
 }
+
+ main.content-area {
+    flex: 1 1 75%;
+    background-color: #ffffffcc;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  aside.sidebar {
+    position: sticky;
+    top: 110px;
+    max-width: 300px;
+    background: #f7fbe9;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(197,225,165,0.6);
+    padding: 1rem;
+    height: fit-content;
+  }
 
 /* === CONTENT AREA === */
 main.content-area {
@@ -148,69 +180,109 @@ img.img-fluid, .image-container img {
 
 /* === TIMELINE === */
 .timeline {
-  position: relative;
-  margin: 2rem auto 3rem auto;
-  padding-left: 50px;
-  border-left: 4px solid var(--color2);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-width: 800px;
-}
+    position: relative;
+    margin: 2rem auto 3rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-width: 900px;
+    padding: 0 2rem;
+  }
 
-.timeline-item {
-  position: relative;
-  padding-left: 1.5rem;
-  cursor: pointer;
-  color: var(--color1);
-  background: var(--color6);
-  border-radius: 12px;
-  padding: 1rem 1.5rem;
-  box-shadow: 2px 2px 8px rgba(214, 18, 155, 0.76);
-  transition: background-color 0.3s, color 0.3s;
-  outline-offset: 2px;
-}
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    background: var(--color2);
+    box-shadow: 0 0 10px var(--color2);
+    border-radius: 2px;
+  }
 
-.timeline-item {
-  padding: 1rem 2rem;
-  position: relative;
-  width: 50%;
-  box-sizing: border-box;
-  z-index: 1;
-}
+  .timeline-item {
+    position: relative;
+    width: 50%;
+    background: var(--color6);
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    box-shadow: 2px 2px 8px rgba(214, 18, 155, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 
-.timeline-item.left {
-  left: 0;
-  text-align: right;
-  padding-right: 4rem;
-  color: #379cbbf1; /* dark pastel green */
-}
+  .timeline-item.left {
+    align-self: flex-start;
+    flex-direction: row-reverse;
+    text-align: right;
+    padding-right: 3rem;
+    color: var(--color-azul);
+  }
 
-.timeline-item.right {
-  left: 50%;
-  padding-left: 4rem;
-  color: #26126d; /* pastel blue */
-}
+  .timeline-item.right {
+    align-self: flex-end;
+    padding-left: 3rem;
+    color: #26126d;
+  }
 
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #d5a4e9d2; /* lighter pastel green */
-  border: 4px solid #8273d3;
-  z-index: 2;
-}
+  .timeline-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #8273d3;
+    box-shadow: 0 0 8px #8273d3;
+    background: white;
+  }
 
-.timeline-item.left::before {
-  right: -12px;
-}
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #d5a4e9d2;
+    border: 4px solid #8273d3;
+  }
 
-.timeline-item.right::before {
-  left: -12px;
-}
+  .timeline-item.left::before { right: -10px; }
+  .timeline-item.right::before { left: -10px; }
+
+  .timeline-item.left::after,
+  .timeline-item.right::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(50% - 24px);
+    height: 4px;
+    background-color: #8273d3;
+    border-radius: 2px;
+  }
+
+  .timeline-item.left::after { right: -4px; }
+  .timeline-item.right::after { left: -4px; }
+
+  @media (max-width: 700px) {
+    .timeline::before {
+      left: 10px;
+      transform: none;
+    }
+    .timeline-item {
+      width: 100%;
+      text-align: left;
+      flex-direction: row;
+      padding-left: 2.5rem;
+    }
+    .timeline-item::before { left: 0; }
+    .timeline-item::after { display: none; }
+  }
+
 
 /* === CONCEPT MAP NODES === */
 .concept-map {
@@ -245,8 +317,8 @@ img.img-fluid, .image-container img {
 /* Estilo general para el título */
 h5 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 700;
-  color: #3c54b4;
+  font-weight: 1000;
+  color: #3cb44cb6;
   text-align: center;
   margin-bottom: 1.5rem;
 }
@@ -256,9 +328,9 @@ h5 {
   background: #ffffffcc;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(60, 84, 180, 0.2);
-  padding: 1.5rem 1.8rem;
-  margin: 0.75rem auto;
-  max-width: 600px;
+  padding: 1.5rem 2.8rem;
+  margin: 2rem auto;
+  max-width: 1500px;
   cursor: pointer;
   outline: none;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -466,7 +538,6 @@ h5 {
   border-radius: 2px;
 }
 
-
 /* === IMAGE CONTAINER === */
 .image-container {
   max-width: 900px;
@@ -521,35 +592,48 @@ footer {
       <div class="d-flex flex-wrap justify-content-center align-items-start" style="gap:2rem;">
 
   <!-- Línea de tiempo del sueño derecha -->
-  <div class="timeline" aria-label="Línea de tiempo de fases del sueño" style="flex:3 1 400px; min-width:280px;">
-    <article class="timeline-item left" tabindex="0" aria-describedby="desc-nrem1">
-      <h3>NREM Fase 1</h3>
-      <p>Conductas: Estado de somnolencia ligera, inicio del sueño.</p>
-      <p id="desc-nrem1">Actividad neuronal: Disminución del ritmo alfa, aparición de ritmos theta.</p>
-      <p>Fisiología: Relajación muscular, disminución del ritmo cardíaco y respiratorio.</p>
-    </article>
-    <article class="timeline-item right" tabindex="0" aria-describedby="desc-nrem2">
-      <h3>NREM Fase 2</h3>
-      <p>Conductas: Sueño ligero, preparación para sueño profundo.</p>
-      <p id="desc-nrem2">Actividad neuronal: Aparición de husos de sueño y complejos K.</p>
-      <p>Fisiología: Temperatura corporal comienza a disminuir.</p>
-    </article>
-    <article class="timeline-item left" tabindex="0" aria-describedby="desc-nrem3">
-      <h3>NREM Fase 3 (Sueño Profundo)</h3>
-      <p>Conductas: Sueño profundo, difícil de despertar.</p>
-      <p id="desc-nrem3">Actividad neuronal: Ondas delta predominantes.</p>
-      <p>Fisiología: Recuperación muscular, secreción hormonal, disminución máxima del ritmo cardíaco.</p>
-    </article>
-    <article class="timeline-item right" tabindex="0" aria-describedby="desc-rem">
-      <h3>REM</h3>
-      <p>Conductas: Sueño con movimientos oculares rápidos, sueños vívidos.</p>
-      <p id="desc-rem">Actividad neuronal: Actividad cerebral similar a vigilia, ondas beta y alfa.</p>
-      <p>Fisiología: Paralisis muscular, aumento de la frecuencia cardíaca y respiratoria.</p>
-    </article>
-  </div>
-</div>
+  <section id="Sueño">
+        <h2 class="text-center mb-4">🕒 Línea de Tiempo: Fases del Sueño</h2>
+        <p>Al dormir, se atraviesa un ciclo de dos fases del sueño: el movimiento ocular rápido (MOR) y el sueño sin MOR. El ciclo se reinicia cada 80 a 100 minutos. Por lo general, se atraviesan de 4 a 6 ciclos por noche. Es posible que se despierte brevemente entre un ciclo y otro. En los estudios sobre el sueño se emplean sensores para registrar los movimientos oculares y la actividad cerebral, y eso se usa para clasificar las fases y etapas del sueño (National Heart, Lung, and Blood Institute, n.d.).</p>
+        <div class="timeline">
+          <article class="timeline-item left">
+            <img src="imagenes/Gráfico-1.png" alt="Icono Fase NREM 1">
+            <div>
+              <h3>NREM Fase 1</h3>
+              <p>Conductas: Estado de somnolencia ligera, inicio del sueño.</p>
+              <p>Actividad neuronal: Disminución del ritmo alfa, aparición de ritmos theta.</p>
+            </div>
+          </article>
 
-      <!-- Tarjetas de memoria -->
+          <article class="timeline-item right">
+            <img src="imagenes/Gráfico-4.png" alt="Icono Fase NREM 2">
+            <div>
+              <h3>NREM Fase 2</h3>
+              <p>Conductas: Sueño ligero, preparación para sueño profundo.</p>
+              <p>Actividad neuronal: Aparición de husos de sueño y complejos K.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item left">
+            <img src="imagenes/Gráfico-3.png" alt="Icono Fase NREM 3">
+            <div>
+              <h3>NREM Fase 3 (Sueño Profundo)</h3>
+              <p>Conductas: Sueño profundo, difícil de despertar.</p>
+              <p>Actividad neuronal: Ondas delta predominantes.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item right">
+            <img src="imagenes/Gráfico-1.png" alt="Icono Fase REM">
+            <div>
+              <h3>REM</h3>
+              <p>Conductas: Sueño con movimientos oculares rápidos, sueños vívidos.</p>
+              <p>Actividad neuronal: Actividad cerebral similar a vigilia.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+ <section>
 <h5>Tarjetas de Memoria</h5>
 <div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans1">
   <div class="question">¿Qué neurotransmisor activa la corteza cerebral especialmente durante REM?</div>
@@ -571,6 +655,7 @@ footer {
   <div class="question">Neurotransmisores que disminuyen durante REM y aumentan en vigilia</div>
   <div class="answer" id="ans5" hidden>Noradrenalina y dopamina</div>
 </div>
+</section>
 
       <!-- Ingesta: Mapa conceptual interactivo -->
        <section id="ingesta" class="content-section" aria-label="Sección Ingesta">
@@ -691,21 +776,36 @@ footer {
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Interactividad mapa conceptual - mostrar descripción del nodo
-    const conceptNodes = document.querySelectorAll('.concept-node');
-    const conceptDesc = document.getElementById('concept-desc');
+// Interactividad mapa conceptual - mostrar descripción del nodo
+const conceptNodes = document.querySelectorAll('.concept-node');
+const conceptDesc = document.getElementById('concept-desc');
 
-    conceptNodes.forEach(node => {
-      node.addEventListener('click', () => {
-        conceptDesc.textContent = node.getAttribute('data-desc');
-      });
-      node.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          node.click();
-        }
-      });
-    });
+conceptNodes.forEach(node => {
+  node.setAttribute('tabindex', '0'); // accesibilidad
+
+  node.addEventListener('click', () => {
+    // Eliminar clase activa de todos los nodos
+    conceptNodes.forEach(n => n.classList.remove('active-node'));
+
+    // Agregar clase activa al nodo seleccionado
+    node.classList.add('active-node');
+
+    // Mostrar descripción con transición
+    conceptDesc.style.opacity = '0';
+    setTimeout(() => {
+      conceptDesc.textContent = node.getAttribute('data-desc');
+      conceptDesc.style.opacity = '1';
+    }, 200);
+  });
+
+  node.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      node.click();
+    }
+  });
+});
+
 
     // Interactividad cards hormona sexual - toggle descripción y aria-expanded
     const hormoneCards = document.querySelectorAll('.hormone-card');
