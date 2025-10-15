@@ -6,9 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bases Biológicas de Procesos Básicos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
   <style>
-    /* === RESET GENERAL === */
+    /* --- RESET GENERAL --- */
     * {
       margin: 0;
       padding: 0;
@@ -27,32 +26,24 @@
       overflow-x: hidden;
     }
 
-    /* === HEADER / BANNER === */
+    /* --- TITULOS EN CURSIVA --- */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-style: italic;
+    }
+
+    /* --- HEADER / NAV --- */
     header.custom-banner {
-      position: static;
-      /* or sticky if preferred */
       background: linear-gradient(90deg, #ebe84df1, #0cd1c7c2, #e05ba9);
-      /* or pastel variant */
-      background-color: #7debc681;
-      /* pastel rose, fallback */
       color: rgb(15, 0, 0);
       text-align: center;
       padding: 2rem 1rem;
       border-radius: 0 0 20px 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      z-index: 1000;
-      top: 0;
-      /* animation can be added here if needed */
-    }
-
-    header.custom-banner h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: .25rem;
-    }
-
-    header.custom-banner p {
-      margin-bottom: 1rem;
     }
 
     header.custom-banner nav a {
@@ -67,18 +58,39 @@
       transition: all 0.3s ease;
     }
 
-    /* Navigation links */
+    header.custom-banner nav a:hover {
+      background-color: hsla(238, 94%, 49%, 0.315);
+      color: white;
+      transform: scale(1.1);
+    }
+
+
+    /* --- HEADER / NAV --- */
+    header.custom-banner {
+      background: linear-gradient(90deg, #ebe84df1, #0cd1c7c2, #e05ba9);
+      color: rgb(15, 0, 0);
+      text-align: center;
+      padding: 2rem 1rem;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
     header.custom-banner nav a {
       display: inline-block;
       margin: 0.5rem 0.75rem;
       padding: 0.6rem 1.2rem;
       background-color: #d879d3a2;
-      /* default pastel purple */
       color: #222;
       font-weight: 600;
       text-decoration: none;
       border-radius: 10px;
       transition: all 0.3s ease;
+    }
+
+    header.custom-banner nav a:hover {
+      background-color: hsla(238, 94%, 49%, 0.315);
+      color: white;
+      transform: scale(1.1);
     }
 
     header.custom-banner nav a[href*="Sueño"] {
@@ -106,20 +118,17 @@
       opacity: 0.85;
     }
 
-    /* === MAIN CONTAINER === */
+    /* --- MAIN LAYOUT --- */
     .main-container {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
       gap: 2rem;
       max-width: 1600px;
-      margin: 2rem auto 0;
-      padding: 0 1rem;
+      margin: 2rem auto;
     }
 
     main.content-area {
-      flex: 1 1 75%;
-      background-color: #ffffffcc;
+      flex: 1;
+      background: #ffffffcc;
       border-radius: 15px;
       padding: 2rem;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -127,13 +136,12 @@
 
     aside.sidebar {
       position: sticky;
-      top: 110px;
+      top: 100px;
       max-width: 300px;
       background: #f7fbe9;
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(197, 225, 165, 0.6);
       padding: 1rem;
-      height: fit-content;
     }
 
     /* === CONTENT AREA === */
@@ -678,6 +686,118 @@
       user-select: none;
     }
 
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: #4f8ffb;
+      transform: translateX(-50%);
+    }
+
+    .timeline-step {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1.3rem 0;
+      position: relative;
+      width: 50%;
+    }
+
+    .timeline-step.left {
+      left: 0;
+      flex-direction: row-reverse;
+      padding-right: 0;
+      padding-left: 20px;
+    }
+
+    .timeline-step.right {
+      left: 50%;
+      padding-left: 0;
+      padding-right: 20px;
+    }
+
+    .timeline-content {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.2rem 2.2rem;
+      box-shadow: 0 2px 16px rgba(79, 143, 251, 0.12);
+      max-width: 34rem;
+      transition: box-shadow 0.3s, transform 0.3s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .timeline-content:hover,
+    .timeline-content.active {
+      box-shadow: 0 4px 22px rgba(79, 143, 251, 0.22), 0 0 0 3px #d2e5fc;
+      transform: translateY(-2px) scale(1.025);
+    }
+
+    .timeline-step::after {
+      content: '';
+      position: absolute;
+      top: 30px;
+      width: 22px;
+      height: 22px;
+      background: #fff;
+      border: 4px solid #4f8ffb;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .timeline-step.left::after {
+      right: -13px;
+    }
+
+    .timeline-step.right::after {
+      left: -13px;
+    }
+
+    @media (max-width: 700px) {
+      .timeline {
+        padding: 0;
+      }
+
+      .timeline-step,
+      .timeline-step.left,
+      .timeline-step.right {
+        flex-direction: column !important;
+        left: 0 !important;
+        width: 100%;
+        padding: 1rem 0 1rem 35px !important;
+      }
+
+      .timeline::before {
+        left: 24px;
+      }
+
+      .timeline-step::after {
+        left: -31px;
+        right: auto;
+      }
+    }
+
+    .stage-title {
+      font-weight: bold;
+      color: #295baa;
+      font-size: 1.14em;
+    }
+
+    .duration {
+      color: #5b7bb1;
+      font-size: 0.97em;
+    }
+
     /* === FOOTER === */
     footer {
       position: static;
@@ -689,6 +809,64 @@
       box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
       margin-top: 3rem;
       z-index: auto;
+    }
+
+    .diagram {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #aaa;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #003366;
+    }
+
+    .section {
+      border: 1px solid #ccc;
+      margin: 10px 0;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #e8f0fe;
+      transition: background 0.3s ease;
+    }
+
+    .section:hover {
+      background: #cce1ff;
+    }
+
+    .section-header {
+      padding: 15px;
+      font-weight: bold;
+      font-size: 1.1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-content {
+      padding: 0 15px 15px 15px;
+      display: none;
+      font-size: 0.95em;
+      line-height: 1.5em;
+      color: #111;
+    }
+
+    .active .section-content {
+      display: block;
+    }
+
+    .toggle-icon {
+      font-size: 1.3em;
+      user-select: none;
+    }
+
+    ul {
+      margin: 8px 15px;
+      padding-left: 20px;
     }
   </style>
 </head>
@@ -714,48 +892,78 @@
 
       <div class="d-flex flex-wrap justify-content-center align-items-start" style="gap:2rem;">
 
-        <!-- Línea de tiempo del sueño derecha -->
-        <section id="Sueño">
-          <h2 class="text-center mb-4">🕒 Línea de Tiempo: Fases del Sueño</h2>
-          <p>Al dormir, se atraviesa un ciclo de dos fases del sueño: el movimiento ocular rápido (MOR) y el sueño sin
-            MOR. El ciclo se reinicia cada 80 a 100 minutos. Por lo general, se atraviesan de 4 a 6 ciclos por noche. Es
-            posible que se despierte brevemente entre un ciclo y otro. En los estudios sobre el sueño se emplean
-            sensores para registrar los movimientos oculares y la actividad cerebral, y eso se usa para clasificar las
-            fases y etapas del sueño (National Heart, Lung, and Blood Institute, n.d.).</p>
-          <div class="timeline" role="list">
-            <div class="timeline-item left" tabindex="0" role="listitem" aria-expanded="false"
-              aria-label="Evento 1: Inicio">
-              <img src="imagenes/Gráfico-1.png" alt="Icono Inicio" class="icon" />
-              <h3>NREM Fase 1</h3>
-              <p>Conductas: Estado de somnolencia ligera, inicio del sueño.</p>
-              <p>Actividad neuronal: Disminución del ritmo alfa, aparición de ritmos theta.</p>
-            </div>
+<!-- Línea de tiempo del sueño derecha -->
+<section id="Sueño">
+  <h2 class="text-center mb-4">🕒 Línea de Tiempo: Fases del Sueño</h2>
+  <p>
+    Al dormir, se atraviesa un ciclo de dos fases del sueño: el movimiento ocular rápido (MOR) y el sueño sin MOR.
+    El ciclo se reinicia cada 80 a 100 minutos. Por lo general, se atraviesan de 4 a 6 ciclos por noche.
+    Es posible que se despierte brevemente entre un ciclo y otro. En los estudios sobre el sueño se emplean sensores
+    para registrar los movimientos oculares y la actividad cerebral, y eso se usa para clasificar las fases y etapas
+    del sueño (National Heart, Lung, and Blood Institute, n.d.).
+  </p>
 
-            <div class="timeline-item right" tabindex="0" role="listitem" aria-expanded="false"
-              aria-label="Evento 2: Desarrollo">
-              <img src="imagenes/Gráfico-4.png" alt="Icono Desarrollo" class="icon" />
-              <h3>NREM Fase 2</h3>
-              <p>Conductas: Sueño ligero, preparación para sueño profundo.</p>
-              <p>Actividad neuronal: Aparición de husos del sueño y complejos K.</p>
-            </div>
+  <div class="timeline">
 
-            <div class="timeline-item left" tabindex="0" role="listitem" aria-expanded="false"
-              aria-label="Evento 3: Experimentación">
-              <img src="imagenes/Gráfico-3.png" alt="Icono Experimentación" class="icon" />
-              <h3>Experimentación</h3>
-              <p>Prácticas interactivas con modelos de conducta sexual y hambre.</p>
-            </div>
+    <!-- Vigilia -->
+    <div class="timeline-step left">
+      <div class="timeline-content">
+        <img src="imagenes/563666.png" alt="Icono Vigilia" class="icon" />
+        <span class="stage-title">Vigilia</span><br>
+        <span class="duration">Previo al sueño</span><br>
+        Ondas beta • Alta actividad motora • Respuesta a estímulos<br>
+        <em>Transición desde despierto hacia el sueño ligero.</em>
+      </div>
+    </div>
 
-            <div class="timeline-item right" tabindex="0" role="listitem" aria-expanded="false"
-              aria-label="Evento 4: Evaluación">
-              <img src="imagenes/Gráfico 202.png" alt="Icono Evaluación" class="icon" />
-              <h3>NREM Fase 3 (Sueño Profundo)</h3>
-              <p>Conductas: Sueño profundo, difícil de despertar.</p>
-              <p>Actividad neuronal: Ondas delta predominantes.</p>
+    <!-- NREM Etapa 1 -->
+    <div class="timeline-step right">
+      <div class="timeline-content">
+        <img src="imagenes/jjj.png"Icono NRE 1" class="icon" />
+        <span class="stage-title">NREM Etapa 1</span><br>
+        <span class="duration">3-12 min/ciclo</span><br>
+        Ondas alfa y theta • Sueño ligero • Descenso en musculatura y respiración<br>
+        <em>Fácil de despertar, inicio del sueño.</em>
+      </div>
+    </div>
 
-            </div>
-          </div>
-        </section>
+    <!-- NREM Etapa 2 -->
+    <div class="timeline-step left">
+      <div class="timeline-content">
+        <img src="imagenes/566655.png" alt="Icono NREM 2" class="icon" />
+        <span class="stage-title">NREM Etapa 2</span><br>
+        <span class="duration">10-20 min/ciclo</span><br>
+        Husillos del sueño y complejos K • Relajación profunda<br>
+        <em>Etapa más larga del ciclo; respuestas al entorno disminuyen.</em>
+      </div>
+    </div>
+
+    <!-- NREM Etapa 3/4 -->
+    <div class="timeline-step right">
+      <div class="timeline-content">
+        <img src="imagenes/46.png"Icono NREM 3/4" class="icon" />
+        <span class="stage-title">NREM Etapa 3/4</span><br>
+        <span class="duration">10-40 min/ciclo</span><br>
+        Ondas delta • Sueño muy profundo • Movimientos mínimos<br>
+        <em>Reparación corporal máxima. Difícil despertar.</em>
+      </div>
+    </div>
+
+    <!-- Fase REM -->
+    <div class="timeline-step left">
+      <div class="timeline-content">
+        <img src="imagenes/520.png" alt="Icono REM" class="icon" />
+        <span class="stage-title">REM</span><br>
+        <span class="duration">15-30 min/ciclo (aumenta)</span><br>
+        Ondas mixtas (como vigilia) • Movimientos oculares rápidos • Parálisis muscular<br>
+        <em>Sueños vívidos, consolidación emocional y de aprendizaje.</em>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+        <!-- Tarjetas de memoria del sueño izquierda -->
         <section>
           <h5>Tarjetas de Memoria</h5>
           <div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans1">
@@ -763,17 +971,20 @@
             <div class="answer" id="ans1" hidden>Acetilcolina</div>
           </div>
           <div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans2">
-            <div class="question">¿Cuál neurotransmisor es excitador y contribuye a la activación cortical durante REM?
+            <div class="question">¿Cuál neurotransmisor es excitador y contribuye a la activación cortical durante
+              REM?
             </div>
             <div class="answer" id="ans2" hidden>Glutamato</div>
           </div>
           <div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans3">
-            <div class="question">¿Qué neurotransmisor inhibe la actividad neuronal para promover el sueño en NREM?
+            <div class="question">¿Qué neurotransmisor inhibe la actividad neuronal para promover el sueño en
+              NREM?
             </div>
             <div class="answer" id="ans3" hidden>GABA</div>
           </div>
           <div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans4">
-            <div class="question">¿Qué neurotransmisor regula el inicio del sueño y la transición entre etapas?</div>
+            <div class="question">¿Qué neurotransmisor regula el inicio del sueño y la transición entre etapas?
+            </div>
             <div class="answer" id="ans4" hidden>Serotonina</div>
           </div>
           <div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans5">
@@ -796,7 +1007,8 @@
             <div class="column" aria-label="Columna sobre Privación">
               <div class="title-box" style="background: #D9CCF9; color: #4B339C;">Privación</div>
               <div class="star star4">&#9733;</div>
-              <div class="desc-box">La privación activa señales hormonales y neurológicas que provocan sensación de
+              <div class="desc-box">La privación activa señales hormonales y neurológicas que provocan sensación
+                de
                 hambre.</div>
               <div class="sub-column" style="background: #E9DEFF;">Hormonas</div>
               <div class="sub-desc">Grelina, Orexina, Neuropeptido Y (NPY)</div>
@@ -806,7 +1018,8 @@
 
             <div class="column" aria-label="Columna sobre Búsqueda">
               <div class="title-box" style="background: #C5E5A8; color: #2C5E11;">Búsqueda</div>
-              <div class="desc-box">El cerebro motiva comportamientos para buscar alimento por recompensa y estímulos
+              <div class="desc-box">El cerebro motiva comportamientos para buscar alimento por recompensa y
+                estímulos
                 externos.</div>
               <div class="sub-column" style="background: #DCF3B1;">Sustancias</div>
               <div class="star star4">&#9733;</div>
@@ -820,7 +1033,8 @@
             <div class="column" aria-label="Columna sobre Absorción">
               <div class="star star4">&#9733;</div>
               <div class="title-box" style="background: #F9D5A8; color: #7A5500;">Absorción</div>
-              <div class="desc-box">Procesos de metabolización y regulación hormonal tras la ingesta de alimentos.</div>
+              <div class="desc-box">Procesos de metabolización y regulación hormonal tras la ingesta de alimentos.
+              </div>
               <div class="sub-column" style="background: #FBE6C3;">Procesos</div>
               <div class="sub-desc">Insulina (metabolismo glucémico), Colecistoquinina (CCK)</div>
               <div class="sub-column" style="background: #FBE6C3;">Ejemplos</div>
@@ -839,81 +1053,182 @@
             </div>
           </div>
         </section>
+
+        <!-- Mapa conceptual de conducta sexual -->
+        <section>
+          <div class="diagram">
+            <h1>Conducta Sexual: Mapa Conceptual Interactivo</h1>
+
+            <div class="section">
+              <div class="section-header">Sistema hormonal y motivación sexual <span class="toggle-icon">+</span></div>
+              <div class="section-content">
+                <ul>
+                  <li>Principales hormonas sexuales: estrógenos, progesterona, testosterona</li>
+                  <li>Eje hipotálamo–hipófisis–gonadal regula funciones reproductivas y sexuales</li>
+                  <li>Cambios cíclicos hormonales en mujeres afectan motivación sexual</li>
+                  <li>Otras hormonas moduladoras: cortisol y hormonas del estrés</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="section">
+              <div class="section-header">Neuroanatomía y circuitos neuronales <span class="toggle-icon">+</span></div>
+              <div class="section-content">
+                <ul>
+                  <li>Regiones cerebrales: hipotálamo, amígdala, núcleo accumbens, corteza prefrontal, tronco cerebral
+                  </li>
+                  <li>Integración de señales sensoriales y emocionales</li>
+                  <li>Sistema de recompensa (dopamina) refuerza el deseo sexual</li>
+                  <li>Mecanismos de control: inhibición y regulación cognitiva</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="section">
+              <div class="section-header">Neuroquímica sexual <span class="toggle-icon">+</span></div>
+              <div class="section-content">
+                <ul>
+                  <li>Dopamina: motivación y recompensa</li>
+                  <li>Serotonina: función inhibitoria postrespuesta</li>
+                  <li>Óxido nítrico: mediador vascular de respuestas físicas</li>
+                  <li>Otros moduladores: GABA, opioides, endocannabinoides</li>
+                  <li>Interacción con hormonas sexuales</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="section">
+              <div class="section-header">Factores del desarrollo biológico sexual <span class="toggle-icon">+</span>
+              </div>
+              <div class="section-content">
+                <ul>
+                  <li>Influencia hormonal prenatal en organización cerebral</li>
+                  <li>Diferenciación sexual del cerebro y sensibilidad a hormonas</li>
+                  <li>Factores genéticos y epigenéticos en orientación e identidad</li>
+                  <li>Estructuran sensibilidad al sistema hormonal y neuroquímico</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="section">
+              <div class="section-header">Interacción sistema digestivo / microbiota – cerebro – conducta sexual <span
+                  class="toggle-icon">+</span></div>
+              <div class="section-content">
+                <ul>
+                  <li>Microbiota intestinal regula hormonas y neurotransmisores</li>
+                  <li>Influencia en motivación y estado de ánimo</li>
+                  <li>Conexión con conducta sexual a través de ejes biológicos integrados</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="section">
+              <div class="section-header">Aplicaciones clínicas y disfunciones sexuales <span
+                  class="toggle-icon">+</span></div>
+              <div class="section-content">
+                <ul>
+                  <li>Trastornos del deseo sexual: hipoactividad, aversión</li>
+                  <li>Disfunciones físicas: disfunción eréctil, anorgasmia</li>
+                  <li>Tratamientos hormonales, neurológicos y farmacológicos</li>
+                  <li>Implicaciones del microbioma en salud sexual</li>
+                </ul>
+              </div>
+            </div>
+            <section>
     </main>
 
     <!-- Sidebar con fichas de aprendizaje -->
     <aside class="sidebar" aria-label="Fichas de aprendizaje">
-<h5>Fichas de Aprendizaje del Sueño</h5>
-  <div class="card">
-    <div class="card-body">
-      <h6 class="card-title">Bases del Sueño</h6>
-      <p class="card-text">Fases del sueño, actividades neuronales y fisiológicas, importancia del REM.</p>
-    </div>
-  </div>
-
-  <h5>Fichas de Aprendizaje de la Ingesta</h5>
-  <div class="card">
-    <div class="card-body">
-      <h6 class="card-title">Sustancias en Ingesta</h6>
-      <p class="card-text">Roles de grelina, leptina, insulina y otros en el control del apetito y saciedad.</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-body">
-      <h6 class="card-title">Hipotálamo: Centro principal de regulación.</h6>
-      <p class="card-text">Núcleo arqueado: Detecta señales de hambre y saciedad.</p>
-      <p class="card-text">Núcleo ventromedial: Relacionado con la saciedad.</p>
-      <p class="card-text">Núcleo lateral: Estimula el apetito.</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-body">
-      <h6 class="card-title">Hormonas clave:</h6>
-      <p class="card-text">Grelina: Estimula el hambre (secretada por el estómago).</p>
-      <p class="card-text">Leptina: Inhibe el apetito (secretada por tejido adiposo).</p>
-      <p class="card-text">Insulina: Regula niveles de glucosa y tiene efecto sobre el apetito.</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-body">
-      <h6 class="card-title">Neurotransmisores</h6>
-      <p class="card-text">Dopamina: Asociada al placer de comer.</p>
-      <p class="card-text">Serotonina: Relacionada con la saciedad y el estado de ánimo.</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-body">
-      <h6 class="card-title">Factores que influyen</h6>
-      <p class="card-text">Ambientales (disponibilidad de comida, cultura).</p>
-      <p class="card-text">Emocionales (estrés, ansiedad).</p>
-      <p class="card-text">Genéticos (predisposición a obesidad o trastornos alimentarios).</p>
-    </div>
-  </div>
-
-  <h5>Fichas de Aprendizaje de la Conducta Sexual</h5>
-  <div class="card">
-    <div class="card-body">
-      <h6 class="card-title">Hormonas Sexuales</h6>
-      <p class="card-text">Efectos de estrógenos, progesterona y testosterona en maduración y sistema nervioso.</p>
-            </p>
-          </div>
+      <h5>Fichas de Aprendizaje del Sueño</h5>
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Bases del Sueño</h6>
+          <p class="card-text">Fases del sueño, actividades neuronales y fisiológicas, importancia del REM.</p>
         </div>
+      </div>
+
+      <h5>Fichas de Aprendizaje de la Ingesta</h5>
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Sustancias en Ingesta</h6>
+          <p class="card-text">Roles de grelina, leptina, insulina y otros en el control del apetito y saciedad.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Hipotálamo: Centro principal de regulación.</h6>
+          <p class="card-text">Núcleo arqueado: Detecta señales de hambre y saciedad.</p>
+          <p class="card-text">Núcleo ventromedial: Relacionado con la saciedad.</p>
+          <p class="card-text">Núcleo lateral: Estimula el apetito.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Hormonas clave:</h6>
+          <p class="card-text">Grelina: Estimula el hambre (secretada por el estómago).</p>
+          <p class="card-text">Leptina: Inhibe el apetito (secretada por tejido adiposo).</p>
+          <p class="card-text">Insulina: Regula niveles de glucosa y tiene efecto sobre el apetito.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Neurotransmisores</h6>
+          <p class="card-text">Dopamina: Asociada al placer de comer.</p>
+          <p class="card-text">Serotonina: Relacionada con la saciedad y el estado de ánimo.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Factores que influyen</h6>
+          <p class="card-text">Ambientales (disponibilidad de comida, cultura).</p>
+          <p class="card-text">Emocionales (estrés, ansiedad).</p>
+          <p class="card-text">Genéticos (predisposición a obesidad o trastornos alimentarios).</p>
+        </div>
+      </div>
+
+      <h5>Fichas de Aprendizaje de la Conducta Sexual</h5>
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Hormonas Sexuales</h6>
+          <p class="card-text">Efectos de estrógenos, progesterona y testosterona en maduración y sistema nervioso.</p>
+          </p>
+        </div>
+      </div>
     </aside>
   </div>
 
   <footer>
     <div class="container">
-      <p class="mb-1"><strong>Referencias:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ, GABRIELA
+      <p class="mb-1"><strong>Referencias:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ,
+        GABRIELA
         RODRÍGUEZ BUSTOS, MARÍA JOSE TAPIAS ORTIZ</p>
       <p class="mb-0">Universidad EAN - Neurofisiología del Comportamiento</p>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+      section.querySelector('.section-header').addEventListener('click', () => {
+        const isActive = section.classList.contains('active');
+        // Close all
+        sections.forEach(s => {
+          s.classList.remove('active');
+          s.querySelector('.toggle-icon').textContent = '+';
+        });
+        // Toggle current
+        if (!isActive) {
+          section.classList.add('active');
+          section.querySelector('.toggle-icon').textContent = '−';
+        }
+      });
+    });
+  </script>
   <script>
     // Funcionalidad para expandir/contraer información al hacer click o presionar enter
     document.querySelectorAll('.timeline-item').forEach(item => {
