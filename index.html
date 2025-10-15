@@ -868,28 +868,54 @@
       margin: 8px 15px;
       padding-left: 20px;
     }
+
+     .diagram-container {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hotspot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+
+  .hotspot:hover,
+  .hotspot:focus {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(60, 60, 255, 0.6);
+    outline: none;
+  }
   </style>
 </head>
 
 <body>
   <!-- Banner principal -->
-  <header class="custom-banner">
+  <header class="custom-banner" role="banner">
     <h1>Bases Biológicas: Sueño, Ingesta y Conducta Sexual</h1>
-    <p class="mb-1"><strong>Autores:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ, GABRIELA
-      RODRÍGUEZ BUSTOS, MARÍA JOSE TAPIAS ORTIZ</p>
+
+    <p class="mb-1">
+      <strong>Autores:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ, 
+      GABRIELA RODRÍGUEZ BUSTOS, MARÍA JOSÉ TAPIAS ORTIZ
+    </p>
     <p class="mb-0">Universidad EAN - Neurofisiología del Comportamiento</p>
-    <nav>
-      <a href="#Sueño" class="text-white">Sueño</a>
-      <a href="#Ingesta" class="text-white">Ingesta</a>
-      <a href="#linea-tiempo" class="text-white">Conducta</a>
-      <a href="#referencias" class="text-white">Referencias</a>
+
+    <nav aria-label="Navegación principal" class="mt-3">
+      <a href="#Sueño" class="text-white me-2">Sueño</a>
+      <a href="#ingesta" class="text-white me-2">Ingesta</a>
+      <a href="#Conducta-sexual" class="text-white me-2">Conducta Sexual</a>
+      <a href="#Referencias" class="text-white">Referencias</a>
     </nav>
   </header>
 
   <div class="main-container">
     <main class="content-area">
-
-
       <div class="d-flex flex-wrap justify-content-center align-items-start" style="gap:2rem;">
 
 <!-- Línea de tiempo del sueño derecha -->
@@ -938,19 +964,29 @@
       </div>
     </div>
 
-    <!-- NREM Etapa 3/4 -->
+    <!-- NREM Etapa 3-->
     <div class="timeline-step right">
       <div class="timeline-content">
-        <img src="imagenes/46.png"Icono NREM 3/4" class="icon" />
-        <span class="stage-title">NREM Etapa 3/4</span><br>
-        <span class="duration">10-40 min/ciclo</span><br>
-        Ondas delta • Sueño muy profundo • Movimientos mínimos<br>
-        <em>Reparación corporal máxima. Difícil despertar.</em>
+        <img src="imagenes/46.png"Icono NREM 3" class="icon" />
+        <span class="stage-title">NREM Etapa 3</span><br>
+        <span class="duration">~10 minutos primer ciclo</span><br>
+        Ondas delta (muy lentas, alta amplitud) • Inicia sueño reparador • Movimientos mínimos<br>
+        <em>Reparación corporal máxima.</em>
       </div>
     </div>
 
-    <!-- Fase REM -->
+  <!-- NREM Etapa 4 -->
     <div class="timeline-step left">
+      <div class="timeline-content">
+        <img src="imagenes/5666666566.png"Icono NREM 4" class="icon" />
+        <span class="stage-title">NREM Etapa 4</span><br>
+        <span class="duration">35-40 minutos primer ciclo</span><br>
+        Ondas delta • Sueño muy profundo<br>
+        <em>Difícil despertar; aparece sonambulismo/terrores</em>
+      </div>
+    </div>
+    <!-- Fase REM -->
+    <div class="timeline-step right">
       <div class="timeline-content">
         <img src="imagenes/520.png" alt="Icono REM" class="icon" />
         <span class="stage-title">REM</span><br>
@@ -1054,10 +1090,52 @@
           </div>
         </section>
 
+<!-- === Conducta Sexual: Diagrama Interactivo === -->
+<div class="container my-5">
+  <h2 class="my-4 text-center">🧠 Conducta Sexual</h2>
+
+  <div class="diagram-container position-relative d-flex justify-content-center">
+    <!-- Imagen del cerebro -->
+    <img src="imagenes/ccc.png" 
+         alt="Diagrama cerebral de las estructuras relacionadas con la conducta sexual"
+         class="img-fluid rounded shadow" 
+         style="max-width: 700px; width: 100%; height: auto;" />
+
+    <!-- Hotspots (puntos interactivos) -->
+    <div tabindex="0" 
+         class="hotspot" 
+         data-bs-toggle="tooltip" 
+         data-bs-placement="top" 
+         title="Hipotálamo: Controla respuestas hormonales vinculadas con la conducta sexual." 
+         style="top: 45%; left: 55%; background-color: #f4f8f7f8;"></div>
+
+    <div tabindex="0" 
+         class="hotspot" 
+         data-bs-toggle="tooltip" 
+         data-bs-placement="top" 
+         title="Amígdala: Procesa emociones y comportamientos sexuales." 
+         style="top: 50%; left: 40%; background-color: #f8f8f8;"></div>
+
+    <div tabindex="0" 
+         class="hotspot" 
+         data-bs-toggle="tooltip" 
+         data-bs-placement="top" 
+         title="Núcleo Accumbens: Asociado al placer y recompensa durante la conducta sexual." 
+         style="top: 55%; left: 70%; background-color: #fcfdff;"></div>
+
+    <div tabindex="0" 
+         class="hotspot" 
+         data-bs-toggle="tooltip" 
+         data-bs-placement="top" 
+         title="Corteza Prefrontal: Involucrada en la toma de decisiones y control inhibitorio." 
+         style="top: 35%; left: 45%; background-color: hsl(0, 0%, 98%);"></div>
+  </div>
+</div>
+
         <!-- Mapa conceptual de conducta sexual -->
         <section>
           <div class="diagram">
-            <h1>Conducta Sexual: Mapa Conceptual Interactivo</h1>
+            <h1>----Bases Neurobiológicas del Deseo Sexual----</h1>
 
             <div class="section">
               <div class="section-header">Sistema hormonal y motivación sexual <span class="toggle-icon">+</span></div>
@@ -1203,10 +1281,10 @@
 
   <footer>
     <div class="container">
-      <p class="mb-1"><strong>Referencias:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ,
-        GABRIELA
-        RODRÍGUEZ BUSTOS, MARÍA JOSE TAPIAS ORTIZ</p>
-      <p class="mb-0">Universidad EAN - Neurofisiología del Comportamiento</p>
+      <p class="mb-1"><strong>Referencias:</strong> Spielman, R. M., Jenkins, W. J., & Lovett, M. D. (s. f.). 4.04: Etapas del sueño. En Psicología Introductoria 2e (OpenStax). LibreTexts Español., Votaw, K. (s. f.). 11.2: Etapas NREM del sueño [PDF]. LibreTexts Español.,Votaw, K. (s. f.). 11.3: Sueño REM. En Psicología general para estudiantes de honor. LibreTexts Español., LibreTexts Español. (s. f.). 11.03: Etapas del sueño. En Biopsicología (OERI) – Proyecto de Revisión. LibreTexts Español., Carlson, N. R. (2018). Fisiología de la conducta (12.ª ed.). Pearson Educación., Duncan, R. P., Van Dillen, L. R., Garbutt, J. M., Earhart, G. M., & Perlmutter, J. S. (2018). Physical therapy and deep brain stimulation in Parkinson’s disease: Protocol for a pilot randomized controlled trial. Pilot and Feasibility Studies, 4(1), 1–9., Parashar, A., & Udayabanu, M. (2017). Gut microbiota: Implications in Parkinson’s disease. Parkinsonism & Related Disorders, 38, 1–7.
+        TED Global. (2010, julio). Heribert Watzke: The brain in your gut [Video]. TED Conferences., LibreTexts. (s.f.). Hormonas sexuales, motivación sexual y conductas reproductivas. En Biopsicología (OERI) – Proyecto de revisión.
+        </p>
+      <p class="mb-0">Universidad EAN</p>
     </div>
   </footer>
 
@@ -1320,7 +1398,14 @@
         }
       });
     });
-  </script>
+ 
+<!-- === JAVASCRIPT PARA LOS TOOLTIPS (Bootstrap 5+) === -->
+  // Inicializar los tooltips de Bootstrap
+  document.addEventListener("DOMContentLoaded", function () {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
+  });
+</script>
 </body>
 
 </html>
