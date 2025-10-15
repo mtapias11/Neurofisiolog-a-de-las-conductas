@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,575 +8,697 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
- /* === RESET GENERAL === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
+    /* === RESET GENERAL === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
- body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(rgba(255, 250, 244, 0.9), rgba(255, 250, 244, 0.9)),
-      url('imagenes/9548552.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
-    overflow-x: hidden;
-  }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(rgba(255, 250, 244, 0.9), rgba(255, 250, 244, 0.9)),
+        url('imagenes/9548552.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      overflow-x: hidden;
+    }
 
-/* === HEADER / BANNER === */
-header.custom-banner {
-  position: static; /* or sticky if preferred */
-  background: linear-gradient(90deg, #ebe84df1, #0cd1c7c2, #e05ba9); /* or pastel variant */
-  background-color: #7debc681; /* pastel rose, fallback */
-  color: rgb(15, 0, 0);
-  text-align: center;
-  padding: 2rem 1rem;
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  top: 0;
-  /* animation can be added here if needed */
-}
+    /* === HEADER / BANNER === */
+    header.custom-banner {
+      position: static;
+      /* or sticky if preferred */
+      background: linear-gradient(90deg, #ebe84df1, #0cd1c7c2, #e05ba9);
+      /* or pastel variant */
+      background-color: #7debc681;
+      /* pastel rose, fallback */
+      color: rgb(15, 0, 0);
+      text-align: center;
+      padding: 2rem 1rem;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      top: 0;
+      /* animation can be added here if needed */
+    }
 
- header.custom-banner h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: .25rem;
-  }
+    header.custom-banner h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: .25rem;
+    }
 
- header.custom-banner p { margin-bottom: 1rem; }
+    header.custom-banner p {
+      margin-bottom: 1rem;
+    }
 
-  header.custom-banner nav a {
-    display: inline-block;
-    margin: 0.5rem 0.75rem;
-    padding: 0.6rem 1.2rem;
-    background-color: #d879d3a2;
-    color: #222;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-  }
- 
-/* Navigation links */
-header.custom-banner nav a {
-  display: inline-block;
-  margin: 0.5rem 0.75rem;
-  padding: 0.6rem 1.2rem;
-  background-color: #d879d3a2; /* default pastel purple */
-  color: #222;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-}
+    header.custom-banner nav a {
+      display: inline-block;
+      margin: 0.5rem 0.75rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #d879d3a2;
+      color: #222;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
 
-header.custom-banner nav a[href*="Sueño"] {
-  background-color: #c5e1a5e7; /* pastel green */
-  color: #2e7d32;
-}
+    /* Navigation links */
+    header.custom-banner nav a {
+      display: inline-block;
+      margin: 0.5rem 0.75rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #d879d3a2;
+      /* default pastel purple */
+      color: #222;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
 
-header.custom-banner nav a[href*="Ingesta"] {
-  background-color: #b3e5fc; /* pastel blue */
-  color: #0277bd;
-}
+    header.custom-banner nav a[href*="Sueño"] {
+      background-color: #c5e1a5e7;
+      /* pastel green */
+      color: #2e7d32;
+    }
 
-header.custom-banner nav a[href*="linea"] {
-  background-color: #ffe082; /* pastel yellow */
-  color: #f57f17;
-}
+    header.custom-banner nav a[href*="Ingesta"] {
+      background-color: #b3e5fc;
+      /* pastel blue */
+      color: #0277bd;
+    }
 
-header.custom-banner nav a:hover {
-  background-color: hsla(238, 94%, 49%, 0.315);
-  color: white;
-  transform: scale(1.1);
-  opacity: 0.85;
-}
+    header.custom-banner nav a[href*="linea"] {
+      background-color: #ffe082;
+      /* pastel yellow */
+      color: #f57f17;
+    }
 
-/* === MAIN CONTAINER === */
-.main-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
-  max-width: 1600px;
-  margin: 2rem auto 0;
-  padding: 0 1rem;
-}
+    header.custom-banner nav a:hover {
+      background-color: hsla(238, 94%, 49%, 0.315);
+      color: white;
+      transform: scale(1.1);
+      opacity: 0.85;
+    }
 
- main.content-area {
-    flex: 1 1 75%;
-    background-color: #ffffffcc;
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
+    /* === MAIN CONTAINER === */
+    .main-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      max-width: 1600px;
+      margin: 2rem auto 0;
+      padding: 0 1rem;
+    }
 
-  aside.sidebar {
-    position: sticky;
-    top: 110px;
-    max-width: 300px;
-    background: #f7fbe9;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(197,225,165,0.6);
-    padding: 1rem;
-    height: fit-content;
-  }
+    main.content-area {
+      flex: 1 1 75%;
+      background-color: #ffffffcc;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-/* === CONTENT AREA === */
-main.content-area {
-  flex: 1 1 75%;
-  background-color: #ffffffcc; /* translucent white */
-  border-radius: 15px;
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6px);
-  transition: transform 0.3s ease;
-}
+    aside.sidebar {
+      position: sticky;
+      top: 110px;
+      max-width: 300px;
+      background: #f7fbe9;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(197, 225, 165, 0.6);
+      padding: 1rem;
+      height: fit-content;
+    }
 
-main.content-area:hover {
-  transform: scale(1.01);
-}
+    /* === CONTENT AREA === */
+    main.content-area {
+      flex: 1 1 75%;
+      background-color: #ffffffcc;
+      /* translucent white */
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s ease;
+    }
 
-/* === SIDEBAR === */
-aside.sidebar {
-  position: sticky;
-  top: 110px;
-  max-width: 300px;
-  background: #f7fbe9; /* pastel very light green */
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(197, 225, 165, 0.6);
-  padding: 1rem;
-  height: fit-content;
-  font-size: 0.95rem;
-}
+    main.content-area:hover {
+      transform: scale(1.01);
+    }
 
-aside.sidebar h5 {
-  margin-bottom: 1rem;
-  font-weight: 700;
-  color: #558b2f;
-  text-align: center;
-}
+    /* === SIDEBAR === */
+    aside.sidebar {
+      position: sticky;
+      top: 110px;
+      max-width: 300px;
+      background: #f7fbe9;
+      /* pastel very light green */
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(197, 225, 165, 0.6);
+      padding: 1rem;
+      height: fit-content;
+      font-size: 0.95rem;
+    }
 
-aside.sidebar .card {
-  margin-bottom: 1rem;
-}
+    aside.sidebar h5 {
+      margin-bottom: 1rem;
+      font-weight: 700;
+      color: #558b2f;
+      text-align: center;
+    }
 
-/* === GENERAL SECTION SPACING === */
-section {
-  margin-bottom: 40px;
-}
+    aside.sidebar .card {
+      margin-bottom: 1rem;
+    }
 
-/* === RESPONSIVE IMAGES === */
-img.img-fluid, .image-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
+    /* === GENERAL SECTION SPACING === */
+    section {
+      margin-bottom: 40px;
+    }
 
-/* === TIMELINE === */
-.timeline {
-    position: relative;
-    margin: 2rem auto 3rem auto;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    max-width: 900px;
-    padding: 0 2rem;
-  }
+    /* === RESPONSIVE IMAGES === */
+    img.img-fluid,
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
 
-  .timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    background: var(--color2);
-    box-shadow: 0 0 10px var(--color2);
-    border-radius: 2px;
-  }
+    /* === TIMELINE === */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto 3rem auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
 
-  .timeline-item {
-    position: relative;
-    width: 50%;
-    background: var(--color6);
-    border-radius: 12px;
-    padding: 1rem 2rem;
-    box-shadow: 2px 2px 8px rgba(214, 18, 155, 0.4);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .timeline-item.left {
-    align-self: flex-start;
-    flex-direction: row-reverse;
-    text-align: right;
-    padding-right: 3rem;
-    color: var(--color-azul);
-  }
-
-  .timeline-item.right {
-    align-self: flex-end;
-    padding-left: 3rem;
-    color: #26126d;
-  }
-
-  .timeline-item img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #8273d3;
-    box-shadow: 0 0 8px #8273d3;
-    background: white;
-  }
-
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #d5a4e9d2;
-    border: 4px solid #8273d3;
-  }
-
-  .timeline-item.left::before { right: -10px; }
-  .timeline-item.right::before { left: -10px; }
-
-  .timeline-item.left::after,
-  .timeline-item.right::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: calc(50% - 24px);
-    height: 4px;
-    background-color: #8273d3;
-    border-radius: 2px;
-  }
-
-  .timeline-item.left::after { right: -4px; }
-  .timeline-item.right::after { left: -4px; }
-
-  @media (max-width: 700px) {
     .timeline::before {
-      left: 10px;
-      transform: none;
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      background: var(--color-line);
+      border-radius: 2px;
+      z-index: 0;
     }
+
     .timeline-item {
-      width: 100%;
-      text-align: left;
+      position: relative;
+      width: 50%;
+      background: var(--color-card);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      box-shadow: 2px 2px 8px rgba(130, 115, 211, 0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: box-shadow 0.3s;
+      z-index: 1;
+      /* Cambiar a fila para icono y texto */
       flex-direction: row;
-      padding-left: 2.5rem;
+      align-items: center;
     }
-    .timeline-item::before { left: 0; }
-    .timeline-item::after { display: none; }
-  }
+
+    /* Icono al inicio */
+    .timeline-item .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1rem;
+      flex-shrink: 0;
+      box-shadow: 0 0 6px var(--color-line);
+      border: 2px solid var(--color-line);
+    }
+
+    /* Ajustar texto después del icono */
+    .timeline-item h3,
+    .timeline-item p {
+      flex: 1 1 auto;
+      margin: 0;
+    }
+
+    /* mantener texto en col diferentes */
+    .timeline-item.left {
+      text-align: left;
+      padding-left: 1rem;
+      padding-right: 3rem;
+      flex-direction: row-reverse;
+    }
+
+    .timeline-item:hover,
+    .timeline-item:focus {
+      box-shadow: 4px 4px 16px rgba(130, 115, 211, 0.6);
+      outline: none;
+      background: #d6cfff;
+    }
+
+    .timeline-item.left .icon {
+      margin-right: 0;
+      margin-left: 1rem;
+    }
+
+    .timeline-item.right {
+      align-self: flex-end;
+      padding-left: 3rem;
+      color: var(--color-text);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #d5a4e9d2;
+      border: 4px solid var(--color-line);
+      z-index: 2;
+    }
+
+    .timeline-item.left::before {
+      right: -10px;
+    }
+
+    .timeline-item.right::before {
+      left: -10px;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: calc(50% - 34px);
+      height: 4px;
+      background-color: var(--color-line);
+      border-radius: 2px;
+      z-index: 1;
+    }
+
+    .timeline-item.left::after {
+      right: -24px;
+    }
+
+    .timeline-item.right::after {
+      left: -24px;
+    }
+
+    .timeline-item h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      font-size: 1rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .timeline-item.expanded p {
+      max-height: 200px;
+      /* Espacio suficiente para mostrar el texto */
+      margin-top: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .timeline {
+        padding: 0 1rem;
+      }
+
+      .timeline::before {
+        left: 10px;
+        transform: none;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 3rem;
+        padding-right: 1rem;
+        text-align: left !important;
+      }
+
+      .timeline-item.left,
+      .timeline-item.right {
+        align-self: flex-start;
+      }
+
+      .timeline-item::before {
+        left: 0;
+        right: auto;
+      }
+
+      .timeline-item::after {
+        display: none;
+      }
+    }
 
 
-/* === CONCEPT MAP NODES === */
-.concept-map {
-  background: #f7fbe9; /* pastel pale green */
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(197, 225, 165, 0.6);
-  padding: 2rem;
-  max-width: 900px;
-  margin: 3rem auto;
-  color: #558b2f;
-  text-align: center;
-}
+    /* === CONCEPT MAP NODES === */
+    .concept-map {
+      background: #f7fbe9;
+      /* pastel pale green */
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(197, 225, 165, 0.6);
+      padding: 2rem;
+      max-width: 900px;
+      margin: 3rem auto;
+      color: #558b2f;
+      text-align: center;
+    }
 
-.concept-node {
-  background-color: #c5e1a5;
-  color: #2e7d32;
-  border-radius: 1rem;
-  padding: 1rem 1.5rem;
-  margin: 0.5rem;
-  display: inline-block;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.3s, color 0.3s;
-}
+    .concept-node {
+      background-color: #c5e1a5;
+      color: #2e7d32;
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      margin: 0.5rem;
+      display: inline-block;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
 
-.concept-node:hover,
-.concept-node:focus {
-  background-color: #81c784;
-  color: white;
-  outline: none;
-}
-/* Estilo general para el título */
-h5 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 1000;
-  color: #3cb44cb6;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
+    .concept-node:hover,
+    .concept-node:focus {
+      background-color: #81c784;
+      color: white;
+      outline: none;
+    }
 
-/* Contenedor de cada tarjeta */
-.memory-card {
-  background: #ffffffcc;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(60, 84, 180, 0.2);
-  padding: 1.5rem 2.8rem;
-  margin: 2rem auto;
-  max-width: 1500px;
-  cursor: pointer;
-  outline: none;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  user-select: none;
-}
+    /* Estilo general para el título */
+    h5 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 1000;
+      color: #3cb44cb6;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
 
-/* Efecto hover y foco */
-.memory-card:hover,
-.memory-card:focus {
-  box-shadow: 0 8px 25px rgba(60, 84, 180, 0.4);
-  transform: translateY(-6px);
-}
+    /* Contenedor de cada tarjeta */
+    .memory-card {
+      background: #ffffffcc;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(60, 84, 180, 0.2);
+      padding: 1.5rem 2.8rem;
+      margin: 2rem auto;
+      max-width: 1500px;
+      cursor: pointer;
+      outline: none;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      user-select: none;
+    }
 
-/* Pregunta */
-.memory-card .question {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #2e3a87;
-  margin-bottom: 0.75rem;
-  line-height: 1.4;
-}
+    /* Efecto hover y foco */
+    .memory-card:hover,
+    .memory-card:focus {
+      box-shadow: 0 8px 25px rgba(60, 84, 180, 0.4);
+      transform: translateY(-6px);
+    }
 
-/* Respuesta (oculta por defecto, visible con clase activa o aria-expanded) */
-.memory-card .answer {
-  font-size: 1rem;
-  color: #444;
-  line-height: 1.5;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.35s ease, opacity 0.35s ease;
-  margin-top: 0;
-}
+    /* Pregunta */
+    .memory-card .question {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #2e3a87;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
 
-/* Mostrar respuesta cuando la tarjeta tiene aria-expanded="true" */
-.memory-card[aria-expanded="true"] .answer {
-  max-height: 200px; /* suficiente para varias líneas */
-  opacity: 1;
-  margin-top: 0.75rem;
-}
+    /* Respuesta (oculta por defecto, visible con clase activa o aria-expanded) */
+    .memory-card .answer {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.5;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.35s ease;
+      margin-top: 0;
+    }
 
-/* Accesibilidad: resaltado de foco para teclado */
-.memory-card:focus-visible {
-  box-shadow: 0 0 0 3px #7b8ce0;
-}
+    /* Mostrar respuesta cuando la tarjeta tiene aria-expanded="true" */
+    .memory-card[aria-expanded="true"] .answer {
+      max-height: 200px;
+      /* suficiente para varias líneas */
+      opacity: 1;
+      margin-top: 0.75rem;
+    }
 
-/* Mapa conceptual de Ingesta */
-.map-container {
-  max-width: 1200px;
-  margin: 0 auto 3rem auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem 2rem;
-  position: relative;
-  padding: 2rem;
-  background-color: #F5FCFF;
-  font-family: 'Fredoka One', sans-serif;
-}
+    /* Accesibilidad: resaltado de foco para teclado */
+    .memory-card:focus-visible {
+      box-shadow: 0 0 0 3px #7b8ce0;
+    }
 
-/* Título centrado y en cursiva */
-.map-container .map-title {
-  grid-column: 1 / -1;
-  font-style: italic;
-  font-size: 2rem;
-  text-align: center;
-  color: #184651;
-  margin-bottom: 1.5rem;
-  user-select: none;
-}
+    /* Mapa conceptual de Ingesta */
+    .map-container {
+      max-width: 1200px;
+      margin: 0 auto 3rem auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem 2rem;
+      position: relative;
+      padding: 2rem;
+      background-color: #F5FCFF;
+      font-family: 'Fredoka One', sans-serif;
+    }
 
-/* Estrellitas decorativas */
-.star {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: transparent;
-  color: #C5A9A9;
-  font-size: 24px;
-  pointer-events: none;
-  user-select: none;
-}
-.star1 { top: 20px; left: 20px; }
-.star2 { top: 100px; left: 140px; }
-.star3 { top: 180px; left: 70px; }
-.star4 { top: 20px; right: 30px; }
-.star5 { top: 150px; right: 80px; }
-.star6 { bottom: 30px; right: 120px; }
-.star7 { bottom: 60px; left: 10px; }
+    /* Título centrado y en cursiva */
+    .map-container .map-title {
+      grid-column: 1 / -1;
+      font-style: italic;
+      font-size: 2rem;
+      text-align: center;
+      color: #184651;
+      margin-bottom: 1.5rem;
+      user-select: none;
+    }
 
-.column {
-  background: #E6FAFF;
-  border-radius: 15px;
-  padding: 1rem;
-  box-shadow: 2px 2px 10px rgba(137, 170, 178, 0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
+    /* Estrellitas decorativas */
+    .star {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: transparent;
+      color: #C5A9A9;
+      font-size: 24px;
+      pointer-events: none;
+      user-select: none;
+    }
 
-/* Para que las líneas dentro funcionen */
-.column {
-  position: relative;
-}
+    .star1 {
+      top: 20px;
+      left: 20px;
+    }
 
-.title-box {
-  background: #B7E9F7;
-  padding: 0.8rem 1.2rem;
-  border-radius: 16px;
-  font-weight: 700;
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  width: 100%;
-  text-align: center;
-  user-select: none;
-}
+    .star2 {
+      top: 100px;
+      left: 140px;
+    }
 
-.desc-box, .box {
-  background: #D9F0F7;
-  padding: 1rem;
-  border-radius: 12px;
-  font-size: 1rem;
-  text-align: center;
-  min-height: 60px;
-  color: #275766;
-  user-select: none;
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 0.8rem;
-}
+    .star3 {
+      top: 180px;
+      left: 70px;
+    }
 
-.sub-column {
-  background: #C6E8F8;
-  border-radius: 16px;
-  padding: 0.6rem 1rem;
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin-bottom: 0.8rem;
-  width: 90%;
-  color: #184651;
-  user-select: none;
-}
+    .star4 {
+      top: 20px;
+      right: 30px;
+    }
 
-.sub-desc {
-  background: #A9D9F4;
-  padding: 0.6rem 1rem;
-  border-radius: 12px;
-  color: #00334C;
-  font-size: 0.9rem;
-  margin-bottom: 0.7rem;
-  width: 90%;
-  text-align: justify;
-  user-select: none;
-}
+    .star5 {
+      top: 150px;
+      right: 80px;
+    }
 
-/* Líneas que unen los cuadros */
+    .star6 {
+      bottom: 30px;
+      right: 120px;
+    }
 
-/* Línea horizontal entre columnas */
-.map-container::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: calc(25% + 1rem);
-  width: calc(50% - 2rem);
-  height: 2px;
-  background-color: #75B3C4;
-  z-index: 0;
-}
+    .star7 {
+      bottom: 60px;
+      left: 10px;
+    }
 
-/* Línea vertical entre filas */
-.map-container::after {
-  content: '';
-  position: absolute;
-  top: calc(33.33% + 1rem);
-  left: 50%;
-  width: 2px;
-  height: calc(33.33% - 2rem);
-  background-color: #75B3C4;
-  z-index: 0;
-}
+    .column {
+      background: #E6FAFF;
+      border-radius: 15px;
+      padding: 1rem;
+      box-shadow: 2px 2px 10px rgba(137, 170, 178, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
 
-/* Líneas verticales entre columnas */
-.map-container .column:not(:nth-child(4))::after {
-  content: '';
-  position: absolute;
-  top: 25%;
-  right: -1rem;
-  width: 2px;
-  height: 50%;
-  background-color: #75B3C4;
-  z-index: 0;
-  border-radius: 2px;
-}
+    /* Para que las líneas dentro funcionen */
+    .column {
+      position: relative;
+    }
 
-/* Líneas verticales para columnas de la segunda fila (columnas 5-7) */
-.map-container .column:nth-child(n + 5):not(:nth-child(8))::after {
-  content: '';
-  position: absolute;
-  top: 25%;
-  right: -1rem;
-  width: 2px;
-  height: 50%;
-  background-color: #75B3C4;
-  z-index: 0;
-  border-radius: 2px;
-}
+    .title-box {
+      background: #B7E9F7;
+      padding: 0.8rem 1.2rem;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      text-align: center;
+      user-select: none;
+    }
 
-/* === IMAGE CONTAINER === */
-.image-container {
-  max-width: 900px;
-  margin: 1.5rem auto 3rem;
-  padding: 1rem;
-  background-color: #fffaf4;
-  border: 3px dashed #ffe082; /* pastel yellow */
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 250px;
-  color: #f57f17; /* dark pastel yellow */
-  font-size: 1.25rem;
-  font-weight: 600;
-  user-select: none;
-}
+    .desc-box,
+    .box {
+      background: #D9F0F7;
+      padding: 1rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      text-align: center;
+      min-height: 60px;
+      color: #275766;
+      user-select: none;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 0.8rem;
+    }
 
-/* === FOOTER === */
-footer {
-  position: static;
-  background-color: #f7c8e0;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  border-radius: 10px 10px 0 0;
-  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 3rem;
-  z-index: auto;
-}
+    .sub-column {
+      background: #C6E8F8;
+      border-radius: 16px;
+      padding: 0.6rem 1rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      width: 90%;
+      color: #184651;
+      user-select: none;
+    }
 
+    .sub-desc {
+      background: #A9D9F4;
+      padding: 0.6rem 1rem;
+      border-radius: 12px;
+      color: #00334C;
+      font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+      width: 90%;
+      text-align: justify;
+      user-select: none;
+    }
+
+    /* Líneas que unen los cuadros */
+
+    /* Línea horizontal entre columnas */
+    .map-container::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: calc(25% + 1rem);
+      width: calc(50% - 2rem);
+      height: 2px;
+      background-color: #75B3C4;
+      z-index: 0;
+    }
+
+    /* Línea vertical entre filas */
+    .map-container::after {
+      content: '';
+      position: absolute;
+      top: calc(33.33% + 1rem);
+      left: 50%;
+      width: 2px;
+      height: calc(33.33% - 2rem);
+      background-color: #75B3C4;
+      z-index: 0;
+    }
+
+    /* Líneas verticales entre columnas */
+    .map-container .column:not(:nth-child(4))::after {
+      content: '';
+      position: absolute;
+      top: 25%;
+      right: -1rem;
+      width: 2px;
+      height: 50%;
+      background-color: #75B3C4;
+      z-index: 0;
+      border-radius: 2px;
+    }
+
+    /* Líneas verticales para columnas de la segunda fila (columnas 5-7) */
+    .map-container .column:nth-child(n + 5):not(:nth-child(8))::after {
+      content: '';
+      position: absolute;
+      top: 25%;
+      right: -1rem;
+      width: 2px;
+      height: 50%;
+      background-color: #75B3C4;
+      z-index: 0;
+      border-radius: 2px;
+    }
+
+    /* === IMAGE CONTAINER === */
+    .image-container {
+      max-width: 900px;
+      margin: 1.5rem auto 3rem;
+      padding: 1rem;
+      background-color: #fffaf4;
+      border: 3px dashed #ffe082;
+      /* pastel yellow */
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 250px;
+      color: #f57f17;
+      /* dark pastel yellow */
+      font-size: 1.25rem;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    /* === FOOTER === */
+    footer {
+      position: static;
+      background-color: #f7c8e0;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px 10px 0 0;
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 3rem;
+      z-index: auto;
+    }
   </style>
 </head>
+
 <body>
   <!-- Banner principal -->
   <header class="custom-banner">
     <h1>Bases Biológicas: Sueño, Ingesta y Conducta Sexual</h1>
-    <p class="mb-1"><strong>Autores:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ, GABRIELA RODRÍGUEZ BUSTOS, MARÍA JOSE TAPIAS ORTIZ</p>
+    <p class="mb-1"><strong>Autores:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ, GABRIELA
+      RODRÍGUEZ BUSTOS, MARÍA JOSE TAPIAS ORTIZ</p>
     <p class="mb-0">Universidad EAN - Neurofisiología del Comportamiento</p>
     <nav>
       <a href="#Sueño" class="text-white">Sueño</a>
@@ -591,220 +714,253 @@ footer {
 
       <div class="d-flex flex-wrap justify-content-center align-items-start" style="gap:2rem;">
 
-  <!-- Línea de tiempo del sueño derecha -->
-  <section id="Sueño">
-        <h2 class="text-center mb-4">🕒 Línea de Tiempo: Fases del Sueño</h2>
-        <p>Al dormir, se atraviesa un ciclo de dos fases del sueño: el movimiento ocular rápido (MOR) y el sueño sin MOR. El ciclo se reinicia cada 80 a 100 minutos. Por lo general, se atraviesan de 4 a 6 ciclos por noche. Es posible que se despierte brevemente entre un ciclo y otro. En los estudios sobre el sueño se emplean sensores para registrar los movimientos oculares y la actividad cerebral, y eso se usa para clasificar las fases y etapas del sueño (National Heart, Lung, and Blood Institute, n.d.).</p>
-        <div class="timeline">
-          <article class="timeline-item left">
-            <img src="imagenes/Gráfico-1.png" alt="Icono Fase NREM 1">
-            <div>
+        <!-- Línea de tiempo del sueño derecha -->
+        <section id="Sueño">
+          <h2 class="text-center mb-4">🕒 Línea de Tiempo: Fases del Sueño</h2>
+          <p>Al dormir, se atraviesa un ciclo de dos fases del sueño: el movimiento ocular rápido (MOR) y el sueño sin
+            MOR. El ciclo se reinicia cada 80 a 100 minutos. Por lo general, se atraviesan de 4 a 6 ciclos por noche. Es
+            posible que se despierte brevemente entre un ciclo y otro. En los estudios sobre el sueño se emplean
+            sensores para registrar los movimientos oculares y la actividad cerebral, y eso se usa para clasificar las
+            fases y etapas del sueño (National Heart, Lung, and Blood Institute, n.d.).</p>
+          <div class="timeline" role="list">
+            <div class="timeline-item left" tabindex="0" role="listitem" aria-expanded="false"
+              aria-label="Evento 1: Inicio">
+              <img src="imagenes/Gráfico-1.png" alt="Icono Inicio" class="icon" />
               <h3>NREM Fase 1</h3>
               <p>Conductas: Estado de somnolencia ligera, inicio del sueño.</p>
               <p>Actividad neuronal: Disminución del ritmo alfa, aparición de ritmos theta.</p>
             </div>
-          </article>
 
-          <article class="timeline-item right">
-            <img src="imagenes/Gráfico-4.png" alt="Icono Fase NREM 2">
-            <div>
+            <div class="timeline-item right" tabindex="0" role="listitem" aria-expanded="false"
+              aria-label="Evento 2: Desarrollo">
+              <img src="imagenes/Gráfico-4.png" alt="Icono Desarrollo" class="icon" />
               <h3>NREM Fase 2</h3>
               <p>Conductas: Sueño ligero, preparación para sueño profundo.</p>
-              <p>Actividad neuronal: Aparición de husos de sueño y complejos K.</p>
+              <p>Actividad neuronal: Aparición de husos del sueño y complejos K.</p>
             </div>
-          </article>
 
-          <article class="timeline-item left">
-            <img src="imagenes/Gráfico-3.png" alt="Icono Fase NREM 3">
-            <div>
+            <div class="timeline-item left" tabindex="0" role="listitem" aria-expanded="false"
+              aria-label="Evento 3: Experimentación">
+              <img src="imagenes/Gráfico-3.png" alt="Icono Experimentación" class="icon" />
+              <h3>Experimentación</h3>
+              <p>Prácticas interactivas con modelos de conducta sexual y hambre.</p>
+            </div>
+
+            <div class="timeline-item right" tabindex="0" role="listitem" aria-expanded="false"
+              aria-label="Evento 4: Evaluación">
+              <img src="imagenes/Gráfico 202.png" alt="Icono Evaluación" class="icon" />
               <h3>NREM Fase 3 (Sueño Profundo)</h3>
               <p>Conductas: Sueño profundo, difícil de despertar.</p>
               <p>Actividad neuronal: Ondas delta predominantes.</p>
+
             </div>
-          </article>
-
-          <article class="timeline-item right">
-            <img src="imagenes/Gráfico-1.png" alt="Icono Fase REM">
-            <div>
-              <h3>REM</h3>
-              <p>Conductas: Sueño con movimientos oculares rápidos, sueños vívidos.</p>
-              <p>Actividad neuronal: Actividad cerebral similar a vigilia.</p>
-            </div>
-          </article>
-        </div>
-      </section>
- <section>
-<h5>Tarjetas de Memoria</h5>
-<div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans1">
-  <div class="question">¿Qué neurotransmisor activa la corteza cerebral especialmente durante REM?</div>
-  <div class="answer" id="ans1" hidden>Acetilcolina</div>
-</div>
-<div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans2">
-  <div class="question">¿Cuál neurotransmisor es excitador y contribuye a la activación cortical durante REM?</div>
-  <div class="answer" id="ans2" hidden>Glutamato</div>
-</div>
-<div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans3">
-  <div class="question">¿Qué neurotransmisor inhibe la actividad neuronal para promover el sueño en NREM?</div>
-  <div class="answer" id="ans3" hidden>GABA</div>
-</div>
-<div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans4">
-  <div class="question">¿Qué neurotransmisor regula el inicio del sueño y la transición entre etapas?</div>
-  <div class="answer" id="ans4" hidden>Serotonina</div>
-</div>
-<div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans5">
-  <div class="question">Neurotransmisores que disminuyen durante REM y aumentan en vigilia</div>
-  <div class="answer" id="ans5" hidden>Noradrenalina y dopamina</div>
-</div>
-</section>
-
-      <!-- Ingesta: Mapa conceptual interactivo -->
-       <section id="ingesta" class="content-section" aria-label="Sección Ingesta">
-        <div class="title-box" style="background: #97e9fd; color: #33769cef;">Ingesta: Bases y Regulación</div>
-      <div class="map-container" aria-label="Mapa conceptual de ingesta y regulación de procesos">
-        <div class="star star1">&#9733;</div>
-        <div class="star star2">&#9733;</div>
-        <div class="star star3">&#9733;</div>
-        <div class="star star4">&#9733;</div>
-        <div class="star star5">&#9733;</div>
-        <div class="star star6">&#9733;</div>
-        <div class="star star7">&#9733;</div>
-        <div class="column" aria-label="Columna sobre Privación">
-          <div class="title-box" style="background: #D9CCF9; color: #4B339C;">Privación</div>
-          <div class="star star4">&#9733;</div>
-          <div class="desc-box">La privación activa señales hormonales y neurológicas que provocan sensación de hambre.</div>
-          <div class="sub-column" style="background: #E9DEFF;">Hormonas</div>
-          <div class="sub-desc">Grelina, Orexina, Neuropeptido Y (NPY)</div>
-          <div class="sub-column" style="background: #E9DEFF;">Ejemplos</div>
-          <div class="sub-desc">Aumento de grelina en ayuno prolongado.</div>
-        </div>
-
-        <div class="column" aria-label="Columna sobre Búsqueda">
-          <div class="title-box" style="background: #C5E5A8; color: #2C5E11;">Búsqueda</div>
-          <div class="desc-box">El cerebro motiva comportamientos para buscar alimento por recompensa y estímulos externos.</div>
-          <div class="sub-column" style="background: #DCF3B1;">Sustancias</div>
-          <div class="star star4">&#9733;</div>
-          <div class="sub-desc">Dopamina (recompensa), Norepinefrina</div>
-          <div class="star star4">&#9733;</div>
-          <div class="sub-column" style="background: #DCF3B1;">Ejemplos</div>
-          <div class="sub-desc">Liberación de dopamina al encontrar comida palatable.</div>
-           <div class="star star6">&#9733;</div>
-        </div>
-
-        <div class="column" aria-label="Columna sobre Absorción">
-          <div class="star star4">&#9733;</div>
-          <div class="title-box" style="background: #F9D5A8; color: #7A5500;">Absorción</div>  
-          <div class="desc-box">Procesos de metabolización y regulación hormonal tras la ingesta de alimentos.</div>
-          <div class="sub-column" style="background: #FBE6C3;">Procesos</div>
-          <div class="sub-desc">Insulina (metabolismo glucémico), Colecistoquinina (CCK)</div>
-          <div class="sub-column" style="background: #FBE6C3;">Ejemplos</div>
-          <div class="sub-desc">Liberación de insulina ante aumento glucémico.</div>
-        </div>
-
-        <div class="column" aria-label="Columna sobre Saciedad">
-          <div class="title-box" style="background: #B7D6D2; color: #0D3B3B;">Saciedad</div>
-          <div class="desc-box">Sensación de plenitud regulada por señales hormonales y neuroquímicas.</div>
-          <div class="sub-column" style="background: #CDE8E6;">Hormonas</div>
-          <div class="sub-desc">Leptina, Péptido YY, Serotonina</div>
-          <div class="star star4">&#9733;</div>
-          <div class="sub-column" style="background: #CDE8E6;">Ejemplos</div>
-          <div class="sub-desc">Aumento de leptina post-ingesta.</div>
-          <div class="star star7">&#9733;</div>
           </div>
-      </div>
-    </section>
+        </section>
+        <section>
+          <h5>Tarjetas de Memoria</h5>
+          <div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans1">
+            <div class="question">¿Qué neurotransmisor activa la corteza cerebral especialmente durante REM?</div>
+            <div class="answer" id="ans1" hidden>Acetilcolina</div>
+          </div>
+          <div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans2">
+            <div class="question">¿Cuál neurotransmisor es excitador y contribuye a la activación cortical durante REM?
+            </div>
+            <div class="answer" id="ans2" hidden>Glutamato</div>
+          </div>
+          <div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans3">
+            <div class="question">¿Qué neurotransmisor inhibe la actividad neuronal para promover el sueño en NREM?
+            </div>
+            <div class="answer" id="ans3" hidden>GABA</div>
+          </div>
+          <div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans4">
+            <div class="question">¿Qué neurotransmisor regula el inicio del sueño y la transición entre etapas?</div>
+            <div class="answer" id="ans4" hidden>Serotonina</div>
+          </div>
+          <div class="memory-card" tabindex="0" role="button" aria-expanded="false" aria-controls="ans5">
+            <div class="question">Neurotransmisores que disminuyen durante REM y aumentan en vigilia</div>
+            <div class="answer" id="ans5" hidden>Noradrenalina y dopamina</div>
+          </div>
+        </section>
+
+        <!-- Ingesta: Mapa conceptual interactivo -->
+        <section id="ingesta" class="content-section" aria-label="Sección Ingesta">
+          <div class="title-box" style="background: #97e9fd; color: #33769cef;">Ingesta: Bases y Regulación</div>
+          <div class="map-container" aria-label="Mapa conceptual de ingesta y regulación de procesos">
+            <div class="star star1">&#9733;</div>
+            <div class="star star2">&#9733;</div>
+            <div class="star star3">&#9733;</div>
+            <div class="star star4">&#9733;</div>
+            <div class="star star5">&#9733;</div>
+            <div class="star star6">&#9733;</div>
+            <div class="star star7">&#9733;</div>
+            <div class="column" aria-label="Columna sobre Privación">
+              <div class="title-box" style="background: #D9CCF9; color: #4B339C;">Privación</div>
+              <div class="star star4">&#9733;</div>
+              <div class="desc-box">La privación activa señales hormonales y neurológicas que provocan sensación de
+                hambre.</div>
+              <div class="sub-column" style="background: #E9DEFF;">Hormonas</div>
+              <div class="sub-desc">Grelina, Orexina, Neuropeptido Y (NPY)</div>
+              <div class="sub-column" style="background: #E9DEFF;">Ejemplos</div>
+              <div class="sub-desc">Aumento de grelina en ayuno prolongado.</div>
+            </div>
+
+            <div class="column" aria-label="Columna sobre Búsqueda">
+              <div class="title-box" style="background: #C5E5A8; color: #2C5E11;">Búsqueda</div>
+              <div class="desc-box">El cerebro motiva comportamientos para buscar alimento por recompensa y estímulos
+                externos.</div>
+              <div class="sub-column" style="background: #DCF3B1;">Sustancias</div>
+              <div class="star star4">&#9733;</div>
+              <div class="sub-desc">Dopamina (recompensa), Norepinefrina</div>
+              <div class="star star4">&#9733;</div>
+              <div class="sub-column" style="background: #DCF3B1;">Ejemplos</div>
+              <div class="sub-desc">Liberación de dopamina al encontrar comida palatable.</div>
+              <div class="star star6">&#9733;</div>
+            </div>
+
+            <div class="column" aria-label="Columna sobre Absorción">
+              <div class="star star4">&#9733;</div>
+              <div class="title-box" style="background: #F9D5A8; color: #7A5500;">Absorción</div>
+              <div class="desc-box">Procesos de metabolización y regulación hormonal tras la ingesta de alimentos.</div>
+              <div class="sub-column" style="background: #FBE6C3;">Procesos</div>
+              <div class="sub-desc">Insulina (metabolismo glucémico), Colecistoquinina (CCK)</div>
+              <div class="sub-column" style="background: #FBE6C3;">Ejemplos</div>
+              <div class="sub-desc">Liberación de insulina ante aumento glucémico.</div>
+            </div>
+
+            <div class="column" aria-label="Columna sobre Saciedad">
+              <div class="title-box" style="background: #B7D6D2; color: #0D3B3B;">Saciedad</div>
+              <div class="desc-box">Sensación de plenitud regulada por señales hormonales y neuroquímicas.</div>
+              <div class="sub-column" style="background: #CDE8E6;">Hormonas</div>
+              <div class="sub-desc">Leptina, Péptido YY, Serotonina</div>
+              <div class="star star4">&#9733;</div>
+              <div class="sub-column" style="background: #CDE8E6;">Ejemplos</div>
+              <div class="sub-desc">Aumento de leptina post-ingesta.</div>
+              <div class="star star7">&#9733;</div>
+            </div>
+          </div>
+        </section>
     </main>
 
     <!-- Sidebar con fichas de aprendizaje -->
     <aside class="sidebar" aria-label="Fichas de aprendizaje">
-      <h5>Fichas de Aprendizaje</h5>
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Bases del Sueño</h6>
-          <p class="card-text">Fases del sueño, actividades neuronales y fisiológicas, importancia del REM.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Sustancias en Ingesta</h6>
-          <p class="card-text">Roles de grelina, leptina, insulina y otros en el control del apetito y saciedad.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Hormonas Sexuales</h6>
-          <p class="card-text">Efectos de estrógenos, progesterona y testosterona en maduración y sistema nervioso.</p>
-        </div>
-      </div>
-        <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Hipotálamo: Centro principal de regulación.</h6> 
-          <p class="card-text">Núcleo arqueado: Detecta señales de hambre y saciedad.</p>
-          <p class="card-text">Núcleo ventromedial: Relacionado con la saciedad.</p>
-          <p class="card-text">Núcleo lateral: Estimula el apetito.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Hormonas clave:</h6> 
-          <p class="card-text">Grelina: Estimula el hambre (secretada por el estómago).</p>
-          <p class="card-text">Leptina: Inhibe el apetito (secretada por tejido adiposo).</p>
-          <p class="card-text">Insulina: Regula niveles de glucosa y tiene efecto sobre el apetito.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Neurotransmisores</h6> 
-          <p class="card-text">Dopamina: Asociada al placer de comer.</p>
-          <p class="card-text">Serotonina: Relacionada con la saciedad y el estado de ánimo.</p>
+<h5>Fichas de Aprendizaje del Sueño</h5>
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Bases del Sueño</h6>
+      <p class="card-text">Fases del sueño, actividades neuronales y fisiológicas, importancia del REM.</p>
+    </div>
+  </div>
+
+  <h5>Fichas de Aprendizaje de la Ingesta</h5>
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Sustancias en Ingesta</h6>
+      <p class="card-text">Roles de grelina, leptina, insulina y otros en el control del apetito y saciedad.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Hipotálamo: Centro principal de regulación.</h6>
+      <p class="card-text">Núcleo arqueado: Detecta señales de hambre y saciedad.</p>
+      <p class="card-text">Núcleo ventromedial: Relacionado con la saciedad.</p>
+      <p class="card-text">Núcleo lateral: Estimula el apetito.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Hormonas clave:</h6>
+      <p class="card-text">Grelina: Estimula el hambre (secretada por el estómago).</p>
+      <p class="card-text">Leptina: Inhibe el apetito (secretada por tejido adiposo).</p>
+      <p class="card-text">Insulina: Regula niveles de glucosa y tiene efecto sobre el apetito.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Neurotransmisores</h6>
+      <p class="card-text">Dopamina: Asociada al placer de comer.</p>
+      <p class="card-text">Serotonina: Relacionada con la saciedad y el estado de ánimo.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Factores que influyen</h6>
+      <p class="card-text">Ambientales (disponibilidad de comida, cultura).</p>
+      <p class="card-text">Emocionales (estrés, ansiedad).</p>
+      <p class="card-text">Genéticos (predisposición a obesidad o trastornos alimentarios).</p>
+    </div>
+  </div>
+
+  <h5>Fichas de Aprendizaje de la Conducta Sexual</h5>
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Hormonas Sexuales</h6>
+      <p class="card-text">Efectos de estrógenos, progesterona y testosterona en maduración y sistema nervioso.</p>
+            </p>
           </div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Factores que influyen</h6> 
-          <p class="card-text">Ambientales (disponibilidad de comida, cultura).</p>
-          <p class="card-text">Emocionales (estrés, ansiedad).</p>
-          <p class="card-text">Genéticos (predisposición a obesidad o trastornos alimentarios).</p>
+        </div>
     </aside>
   </div>
 
   <footer>
     <div class="container">
-      <p class="mb-1"><strong>Autores:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ, GABRIELA RODRÍGUEZ BUSTOS, MARÍA JOSE TAPIAS ORTIZ</p>
+      <p class="mb-1"><strong>Referencias:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ, GABRIELA
+        RODRÍGUEZ BUSTOS, MARÍA JOSE TAPIAS ORTIZ</p>
       <p class="mb-0">Universidad EAN - Neurofisiología del Comportamiento</p>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-// Interactividad mapa conceptual - mostrar descripción del nodo
-const conceptNodes = document.querySelectorAll('.concept-node');
-const conceptDesc = document.getElementById('concept-desc');
+    // Funcionalidad para expandir/contraer información al hacer click o presionar enter
+    document.querySelectorAll('.timeline-item').forEach(item => {
+      item.addEventListener('click', () => toggleExpand(item));
+      item.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleExpand(item);
+        }
+      });
+    });
 
-conceptNodes.forEach(node => {
-  node.setAttribute('tabindex', '0'); // accesibilidad
-
-  node.addEventListener('click', () => {
-    // Eliminar clase activa de todos los nodos
-    conceptNodes.forEach(n => n.classList.remove('active-node'));
-
-    // Agregar clase activa al nodo seleccionado
-    node.classList.add('active-node');
-
-    // Mostrar descripción con transición
-    conceptDesc.style.opacity = '0';
-    setTimeout(() => {
-      conceptDesc.textContent = node.getAttribute('data-desc');
-      conceptDesc.style.opacity = '1';
-    }, 200);
-  });
-
-  node.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      node.click();
+    function toggleExpand(item) {
+      const expanded = item.classList.contains('expanded');
+      item.classList.toggle('expanded', !expanded);
+      item.setAttribute('aria-expanded', !expanded);
     }
-  });
-});
+
+    // Interactividad mapa conceptual - mostrar descripción del nodo
+    const conceptNodes = document.querySelectorAll('.concept-node');
+    const conceptDesc = document.getElementById('concept-desc');
+
+    conceptNodes.forEach(node => {
+      node.setAttribute('tabindex', '0'); // accesibilidad
+
+      node.addEventListener('click', () => {
+        // Eliminar clase activa de todos los nodos
+        conceptNodes.forEach(n => n.classList.remove('active-node'));
+
+        // Agregar clase activa al nodo seleccionado
+        node.classList.add('active-node');
+
+        // Mostrar descripción con transición
+        conceptDesc.style.opacity = '0';
+        setTimeout(() => {
+          conceptDesc.textContent = node.getAttribute('data-desc');
+          conceptDesc.style.opacity = '1';
+        }, 200);
+      });
+
+      node.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          node.click();
+        }
+      });
+    });
 
 
     // Interactividad cards hormona sexual - toggle descripción y aria-expanded
@@ -830,25 +986,26 @@ conceptNodes.forEach(node => {
       });
     });
 
-document.querySelectorAll('.memory-card').forEach(card => {
-  card.addEventListener('click', () => {
-    const answer = card.querySelector('.answer');
-    const expanded = card.getAttribute('aria-expanded') === 'true';
-    if (expanded) {
-      answer.hidden = true;
-      card.setAttribute('aria-expanded', 'false');
-    } else {
-      answer.hidden = false;
-      card.setAttribute('aria-expanded', 'true');
-    }
-  });
-  card.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      card.click();
-    }
-  });
-});
+    document.querySelectorAll('.memory-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const answer = card.querySelector('.answer');
+        const expanded = card.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+          answer.hidden = true;
+          card.setAttribute('aria-expanded', 'false');
+        } else {
+          answer.hidden = false;
+          card.setAttribute('aria-expanded', 'true');
+        }
+      });
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
   </script>
 </body>
+
 </html>
