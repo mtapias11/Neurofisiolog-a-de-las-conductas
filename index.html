@@ -17,7 +17,7 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(rgba(255, 250, 244, 0.9), rgba(255, 250, 244, 0.9)),
+      background: linear-gradient(rgba(215, 224, 179, 0.9), rgba(255, 250, 244, 0.87)),
         url('imagenes/9548552.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #333;
@@ -147,7 +147,7 @@
     /* === CONTENT AREA === */
     main.content-area {
       flex: 1 1 75%;
-      background-color: #ffffffcc;
+      background-color: #ec83db6b;
       /* translucent white */
       border-radius: 15px;
       padding: 2rem;
@@ -379,292 +379,327 @@
       }
     }
 
-
-    /* === CONCEPT MAP NODES === */
-    .concept-map {
-      background: #f7fbe9;
-      /* pastel pale green */
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(197, 225, 165, 0.6);
-      padding: 2rem;
-      max-width: 900px;
-      margin: 3rem auto;
-      color: #558b2f;
-      text-align: center;
-    }
-
-    .concept-node {
-      background-color: #c5e1a5;
-      color: #2e7d32;
-      border-radius: 1rem;
-      padding: 1rem 1.5rem;
-      margin: 0.5rem;
-      display: inline-block;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .concept-node:hover,
-    .concept-node:focus {
-      background-color: #81c784;
-      color: white;
-      outline: none;
-    }
-
-    /* Estilo general para el título */
-    h5 {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-weight: 1000;
-      color: #3cb44cb6;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-
-    /* Contenedor de cada tarjeta */
-    .memory-card {
-      background: #ffffffcc;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(60, 84, 180, 0.2);
-      padding: 1.5rem 2.8rem;
+    /* Tarjetas de memoria del sueño izquierda */
+      {
+      max-width: 700px;
       margin: 2rem auto;
-      max-width: 1500px;
-      cursor: pointer;
-      outline: none;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      user-select: none;
+      padding: 1rem 1.5rem;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* Efecto hover y foco */
+    section h5 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Memory card container */
+    .memory-card {
+      position: relative;
+      background-color: #fff;
+      border: 3px solid #f31295;
+      border-radius: 12px;
+      padding: 1.25rem 6rem;
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+      outline: none;
+      box-shadow: 0 3px 7px rgba(243, 156, 18, 0.3);
+      overflow: hidden;
+      user-select: none;
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    /* Hover and focus styles */
     .memory-card:hover,
     .memory-card:focus {
-      box-shadow: 0 8px 25px rgba(60, 84, 180, 0.4);
-      transform: translateY(-6px);
+      background-color: #eaf6ff;
+      box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+      border-color: #2980b9;
+    }
+
+    /* Question styling */
+    .memory-card .question {
+      font-weight: 600;
+      color: #34495e;
+      font-size: 1.1rem;
+      line-height: 1.3;
+    }
+
+    /* Answer styling - hidden by default */
+    .memory-card .answer {
+      margin-top: 0.75rem;
+      font-size: 1rem;
+      color: #27ae60;
+      font-weight: 500;
+      line-height: 1.4;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      overflow: hidden;
+    }
+
+    /* When answer is shown */
+    .memory-card[aria-expanded="true"] .answer {
+      display: block;
+      /* optionally, for animation:
+  max-height: 200px; 
+  opacity: 1;
+  */
+    }
+
+    /* Accessibility: keyboard focus */
+    .memory-card:focus-visible {
+      outline: 3px solid #2980b9;
+      outline-offset: 2px;
+    }
+
+    /* Pseudo-element: Estrellitas decorativas */
+    .memory-card::before,
+    .memory-card::after {
+      content: '⭐ ✨ 🌟';
+      position: absolute;
+      font-size: 1.25rem;
+      color: #f1c40f;
+      opacity: 0.15;
+      animation: twinkle 3s infinite alternate ease-in-out;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .memory-card::before {
+      top: 10px;
+      left: 10px;
+    }
+
+    .memory-card::after {
+      bottom: 10px;
+      right: 10px;
+      animation-delay: 1.5s;
+    }
+
+    /* Animación para las estrellitas */
+    @keyframes twinkle {
+      0% {
+        opacity: 0.1;
+        transform: scale(1) rotate(0deg);
+      }
+
+      50% {
+        opacity: 0.3;
+        transform: scale(1.1) rotate(15deg);
+      }
+
+      100% {
+        opacity: 0.1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    /* Hover y foco */
+    .memory-card:hover,
+    .memory-card:focus {
+      background-color: #fff3e0;
+      box-shadow: 0 6px 15px rgba(243, 18, 104, 0.884);
+      border-color: #e6227d;
     }
 
     /* Pregunta */
     .memory-card .question {
-      font-size: 1.2rem;
       font-weight: 700;
-      color: #2e3a87;
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
+      color: #4d4946;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      position: relative;
+      padding-right: 30px;
     }
 
-    /* Respuesta (oculta por defecto, visible con clase activa o aria-expanded) */
+    /* Pequeño icono delante de la pregunta */
+    .memory-card .question::before {
+      content: '❓';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.3rem;
+      color: #f39c12;
+    }
+
+    /* Respuesta */
     .memory-card .answer {
-      font-size: 1rem;
-      color: #444;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #27ae60;
+      font-weight: 600;
       line-height: 1.5;
+      display: none;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    /* Icono delante de la respuesta */
+    .memory-card .answer::before {
+      content: '✔️';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.2rem;
+      color: #2ecc71;
+    }
+
+    /* Mostrar respuesta si aria-expanded = true */
+    .memory-card[aria-expanded="true"] .answer {
+      display: block;
+    }
+
+    /* Enfoque con outline personalizado */
+    .memory-card:focus-visible {
+      outline: 6px dashed #f312bb81;
+      outline-offset: 6px;
+    }
+
+
+    /* Mapa Conceptual Interactivo: Ingesta - Bases Biológicas*/
+    :root {
+      --color-privacion: #d9ccf9;
+      --color-busqueda: #c5e5a8;
+      --color-absorcion: #f9d5a8;
+      --color-saciedad: #b7d6d2;
+      --color-text-dark: #333;
+    }
+
+    .concept-map {
+      background: #f7fbff;
+      padding: 2rem;
+      font-family: 'Inter', sans-serif;
+      border-radius: 1.5rem;
+    }
+
+    .main-title {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0b3d91;
+      margin-bottom: 2rem;
+    }
+
+    .map-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1rem;
+    }
+
+    .concept-card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .concept-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-header {
+      width: 100%;
+      border: none;
+      text-align: left;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.8rem 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .card-header:hover {
+      filter: brightness(1.05);
+    }
+
+    .card-content {
       max-height: 0;
       overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.35s ease, opacity 0.35s ease;
-      margin-top: 0;
+      transition: max-height 0.5s ease;
+      padding: 0 1rem;
+      font-size: 0.95rem;
+      color: #333;
     }
 
-    /* Mostrar respuesta cuando la tarjeta tiene aria-expanded="true" */
-    .memory-card[aria-expanded="true"] .answer {
-      max-height: 200px;
-      /* suficiente para varias líneas */
-      opacity: 1;
-      margin-top: 0.75rem;
+    .card-content p,
+    .card-content ul {
+      margin: 0.6rem 0;
     }
 
-    /* Accesibilidad: resaltado de foco para teclado */
-    .memory-card:focus-visible {
-      box-shadow: 0 0 0 3px #7b8ce0;
+    .card-content ul {
+      list-style-type: "🔹 ";
+      padding-left: 1rem;
     }
 
-    /* Mapa conceptual de Ingesta */
-    .map-container {
-      max-width: 1200px;
-      margin: 0 auto 3rem auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem 2rem;
-      position: relative;
-      padding: 2rem;
-      background-color: #F5FCFF;
-      font-family: 'Fredoka One', sans-serif;
+    .concept-card.active .card-content {
+      max-height: 500px;
+      padding-bottom: 0.8rem;
     }
 
-    /* Título centrado y en cursiva */
-    .map-container .map-title {
-      grid-column: 1 / -1;
-      font-style: italic;
-      font-size: 2rem;
-      text-align: center;
-      color: #184651;
-      margin-bottom: 1.5rem;
-      user-select: none;
-    }
-
-    /* Estrellitas decorativas */
+    /* Estrellas decorativas */
     .star {
+      color: gold;
+      font-size: 1.2rem;
+      animation: twinkle 2.5s infinite;
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background: transparent;
-      color: #C5A9A9;
-      font-size: 24px;
-      pointer-events: none;
-      user-select: none;
+    }
+
+    @keyframes twinkle {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(1.3);
+      }
     }
 
     .star1 {
-      top: 20px;
-      left: 20px;
+      top: 10%;
+      left: 8%;
     }
 
     .star2 {
-      top: 100px;
-      left: 140px;
+      top: 20%;
+      right: 15%;
     }
 
     .star3 {
-      top: 180px;
-      left: 70px;
+      bottom: 10%;
+      left: 15%;
     }
 
     .star4 {
-      top: 20px;
-      right: 30px;
+      top: 50%;
+      left: 50%;
     }
 
     .star5 {
-      top: 150px;
-      right: 80px;
+      bottom: 15%;
+      right: 10%;
     }
 
     .star6 {
-      bottom: 30px;
-      right: 120px;
+      top: 75%;
+      right: 25%;
     }
 
     .star7 {
-      bottom: 60px;
-      left: 10px;
+      top: 30%;
+      left: 40%;
     }
 
-    .column {
-      background: #E6FAFF;
-      border-radius: 15px;
-      padding: 1rem;
-      box-shadow: 2px 2px 10px rgba(137, 170, 178, 0.3);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-    }
 
-    /* Para que las líneas dentro funcionen */
-    .column {
-      position: relative;
-    }
-
-    .title-box {
-      background: #B7E9F7;
-      padding: 0.8rem 1.2rem;
-      border-radius: 16px;
-      font-weight: 700;
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      width: 100%;
-      text-align: center;
-      user-select: none;
-    }
-
-    .desc-box,
-    .box {
-      background: #D9F0F7;
-      padding: 1rem;
-      border-radius: 12px;
-      font-size: 1rem;
-      text-align: center;
-      min-height: 60px;
-      color: #275766;
-      user-select: none;
-      width: 100%;
-      box-sizing: border-box;
-      margin-bottom: 0.8rem;
-    }
-
-    .sub-column {
-      background: #C6E8F8;
-      border-radius: 16px;
-      padding: 0.6rem 1rem;
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-bottom: 0.8rem;
-      width: 90%;
-      color: #184651;
-      user-select: none;
-    }
-
-    .sub-desc {
-      background: #A9D9F4;
-      padding: 0.6rem 1rem;
-      border-radius: 12px;
-      color: #00334C;
-      font-size: 0.9rem;
-      margin-bottom: 0.7rem;
-      width: 90%;
-      text-align: justify;
-      user-select: none;
-    }
-
-    /* Líneas que unen los cuadros */
-
-    /* Línea horizontal entre columnas */
-    .map-container::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: calc(25% + 1rem);
-      width: calc(50% - 2rem);
-      height: 2px;
-      background-color: #75B3C4;
-      z-index: 0;
-    }
-
-    /* Línea vertical entre filas */
-    .map-container::after {
-      content: '';
-      position: absolute;
-      top: calc(33.33% + 1rem);
-      left: 50%;
-      width: 2px;
-      height: calc(33.33% - 2rem);
-      background-color: #75B3C4;
-      z-index: 0;
-    }
-
-    /* Líneas verticales entre columnas */
-    .map-container .column:not(:nth-child(4))::after {
-      content: '';
-      position: absolute;
-      top: 25%;
-      right: -1rem;
-      width: 2px;
-      height: 50%;
-      background-color: #75B3C4;
-      z-index: 0;
-      border-radius: 2px;
-    }
-
-    /* Líneas verticales para columnas de la segunda fila (columnas 5-7) */
-    .map-container .column:nth-child(n + 5):not(:nth-child(8))::after {
-      content: '';
-      position: absolute;
-      top: 25%;
-      right: -1rem;
-      width: 2px;
-      height: 50%;
-      background-color: #75B3C4;
-      z-index: 0;
-      border-radius: 2px;
-    }
 
     /* === IMAGE CONTAINER === */
     .image-container {
@@ -749,8 +784,8 @@
       top: 30px;
       width: 22px;
       height: 22px;
-      background: #fff;
-      border: 4px solid #4f8ffb;
+      background: #3ae2daf8;
+      border: 4px solid #333fe7;
       border-radius: 50%;
       z-index: 1;
     }
@@ -789,7 +824,7 @@
 
     .stage-title {
       font-weight: bold;
-      color: #295baa;
+      color: #2932aac0;
       font-size: 1.14em;
     }
 
@@ -802,7 +837,7 @@
     footer {
       position: static;
       background-color: #f7c8e0;
-      color: white;
+      color: rgb(207, 147, 147);
       text-align: center;
       padding: 20px;
       border-radius: 10px 10px 0 0;
@@ -814,7 +849,7 @@
     .diagram {
       max-width: 900px;
       margin: auto;
-      background: white;
+      background: rgba(184, 56, 167, 0.438);
       border-radius: 10px;
       box-shadow: 0 0 10px #aaa;
       padding: 20px;
@@ -830,7 +865,7 @@
       margin: 10px 0;
       border-radius: 6px;
       cursor: pointer;
-      background: #e8f0fe;
+      background: #e92ed0;
       transition: background 0.3s ease;
     }
 
@@ -869,29 +904,145 @@
       padding-left: 20px;
     }
 
-     .diagram-container {
-    position: relative;
-    max-width: 700px;
-    margin: 0 auto;
-  }
+    .diagram-container {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+    }
 
-  .hotspot {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: 2px solid white;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-  }
+    .hotspot {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid rgba(139, 33, 33, 0.418);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
 
-  .hotspot:hover,
-  .hotspot:focus {
-    transform: scale(1.2);
-    box-shadow: 0 0 10px rgba(60, 60, 255, 0.6);
-    outline: none;
+    .hotspot:hover,
+    .hotspot:focus {
+      transform: scale(1.2);
+      box-shadow: 0 0 10px rgba(60, 60, 255, 0.397);
+      outline: none;
+    }
+
+    /* === MIND MAP === */
+    
+.map-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.mind-map {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* === NODO CENTRAL === */
+.central-node {
+  background: linear-gradient(135deg, #524461e8, #25adfc);
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 2.5rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 0 1.5rem rgba(50, 100, 200, 0.4);
+  border: 4px solid #ffffff33;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.central-node:hover {
+  transform: scale(1.08) rotate(1deg);
+  box-shadow: 0 0 2rem rgba(50, 100, 200, 0.5);
+}
+
+/* === NODOS TEMÁTICOS === */
+.node {
+  background: #ffffff;
+  border-radius: 1.8rem;
+  padding: 2rem;
+  box-shadow: 0 0.375rem 1.2rem rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  line-height: 1.6;
+  min-width: 280px;
+  max-width: 600px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-left: 6px solid #25cafc;
+  position: relative;
+}
+
+/* Animación al pasar el cursor */
+.node:hover {
+  transform: translateY(-0.5rem) scale(1.02);
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+/* Intercalado: alternar alineación */
+.node:nth-child(even) {
+  align-self: flex-start;
+}
+
+.node:nth-child(odd) {
+  align-self: flex-end;
+}
+
+/* Títulos */
+.node h3 {
+  color: #2575fc;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Listas */
+.node ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  list-style-type: disc;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .node,
+  .central-node {
+    align-self: center !important;
+    width: 90%;
   }
+}
+
+/* === ACCESIBILIDAD: REDUCIR MOVIMIENTO === */
+@media (prefers-reduced-motion: reduce) {
+  .node:hover,
+  .central-node:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* === DETALLES ADICIONALES === */
+.node::before {
+  content: "🧠";
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.2rem;
+  color: #2575fc;
+}
+
   </style>
 </head>
 
@@ -901,16 +1052,16 @@
     <h1>Bases Biológicas: Sueño, Ingesta y Conducta Sexual</h1>
 
     <p class="mb-1">
-      <strong>Autores:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ, 
+      <strong>Autores:</strong> ANA MILENA FLOREZ PALLARES, LUISA FERNANDA ESPINOZA JIMENEZ,
       GABRIELA RODRÍGUEZ BUSTOS, MARÍA JOSÉ TAPIAS ORTIZ
     </p>
     <p class="mb-0">Universidad EAN - Neurofisiología del Comportamiento</p>
 
     <nav aria-label="Navegación principal" class="mt-3">
-      <a href="#Sueño" class="text-white me-2">Sueño</a>
-      <a href="#ingesta" class="text-white me-2">Ingesta</a>
-      <a href="#Conducta-sexual" class="text-white me-2">Conducta Sexual</a>
-      <a href="#Referencias" class="text-white">Referencias</a>
+      <a href="#sueño" class="btn btn-outline-light me-2 text-white">Sueño</a>
+      <a href="#mapa-ingesta" class="btn btn-outline-light me-2 text-white">Ingesta</a>
+      <a href="#conducta-sexual" class="btn btn-outline-light me-2 text-white">Conducta Sexual</a>
+      <a href="#referencias-bibliograficas" class="btn btn-outline-light me-2 text-white">Referencias</a>
     </nav>
   </header>
 
@@ -918,86 +1069,89 @@
     <main class="content-area">
       <div class="d-flex flex-wrap justify-content-center align-items-start" style="gap:2rem;">
 
-<!-- Línea de tiempo del sueño derecha -->
-<section id="Sueño">
-  <h2 class="text-center mb-4">🕒 Línea de Tiempo: Fases del Sueño</h2>
-  <p>
-    Al dormir, se atraviesa un ciclo de dos fases del sueño: el movimiento ocular rápido (MOR) y el sueño sin MOR.
-    El ciclo se reinicia cada 80 a 100 minutos. Por lo general, se atraviesan de 4 a 6 ciclos por noche.
-    Es posible que se despierte brevemente entre un ciclo y otro. En los estudios sobre el sueño se emplean sensores
-    para registrar los movimientos oculares y la actividad cerebral, y eso se usa para clasificar las fases y etapas
-    del sueño (National Heart, Lung, and Blood Institute, n.d.).
-  </p>
+        <!-- Línea de tiempo del sueño derecha -->
+        <section id="sueño" class="content-section" aria-label="Sueño">
+          <div class="sleep-banner text-black text-center py-5 mb-4"
+            style="background: url('imagenes/banner_sueno.jpg') center/cover no-repeat; animation: fadeIn 2s ease-in-out; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);">
+            <h2 class="display-5 fw-bold">🕒 Línea de Tiempo: Fases del Sueño</h2>
+            <p class="lead" style="font-size: 12pt;">Al dormir, se atraviesa un ciclo de dos fases del sueño: el
+              movimiento ocular rápido (MOR) y el sueño sin MOR.
+              El ciclo se reinicia cada 80 a 100 minutos. Por lo general, se atraviesan de 4 a 6 ciclos por noche.
+              Es posible que se despierte brevemente entre un ciclo y otro. En los estudios sobre el sueño se emplean
+              sensores
+              para registrar los movimientos oculares y la actividad cerebral, y eso se usa para clasificar las fases y
+              etapas
+              del sueño (National Heart, Lung, and Blood Institute, n.d.).
+            </p>
+            <div class="timeline">
 
-  <div class="timeline">
+              <!-- Vigilia -->
+              <div class="timeline-step left">
+                <div class="timeline-content">
+                  <img src="imagenes/563666.png" alt="Icono Vigilia" class="icon" />
+                  <span class="stage-title">Vigilia</span><br>
+                  <span class="duration">Previo al sueño</span><br>
+                  Ondas beta • Alta actividad motora • Respuesta a estímulos<br>
+                  <em>Transición desde despierto hacia el sueño ligero.</em>
+                </div>
+              </div>
 
-    <!-- Vigilia -->
-    <div class="timeline-step left">
-      <div class="timeline-content">
-        <img src="imagenes/563666.png" alt="Icono Vigilia" class="icon" />
-        <span class="stage-title">Vigilia</span><br>
-        <span class="duration">Previo al sueño</span><br>
-        Ondas beta • Alta actividad motora • Respuesta a estímulos<br>
-        <em>Transición desde despierto hacia el sueño ligero.</em>
-      </div>
-    </div>
+              <!-- NREM Etapa 1 -->
+              <div class="timeline-step right">
+                <div class="timeline-content">
+                  <img src="imagenes/jjj.png" Icono NRE 1" class="icon" />
+                  <span class="stage-title">NREM Etapa 1</span><br>
+                  <span class="duration">3-12 min/ciclo</span><br>
+                  Ondas alfa y theta • Sueño ligero • Descenso en musculatura y respiración<br>
+                  <em>Fácil de despertar, inicio del sueño.</em>
+                </div>
+              </div>
 
-    <!-- NREM Etapa 1 -->
-    <div class="timeline-step right">
-      <div class="timeline-content">
-        <img src="imagenes/jjj.png"Icono NRE 1" class="icon" />
-        <span class="stage-title">NREM Etapa 1</span><br>
-        <span class="duration">3-12 min/ciclo</span><br>
-        Ondas alfa y theta • Sueño ligero • Descenso en musculatura y respiración<br>
-        <em>Fácil de despertar, inicio del sueño.</em>
-      </div>
-    </div>
+              <!-- NREM Etapa 2 -->
+              <div class="timeline-step left">
+                <div class="timeline-content">
+                  <img src="imagenes/566655.png" alt="Icono NREM 2" class="icon" />
+                  <span class="stage-title">NREM Etapa 2</span><br>
+                  <span class="duration">10-20 min/ciclo</span><br>
+                  Husillos del sueño y complejos K • Relajación profunda<br>
+                  <em>Etapa más larga del ciclo; respuestas al entorno disminuyen.</em>
+                </div>
+              </div>
 
-    <!-- NREM Etapa 2 -->
-    <div class="timeline-step left">
-      <div class="timeline-content">
-        <img src="imagenes/566655.png" alt="Icono NREM 2" class="icon" />
-        <span class="stage-title">NREM Etapa 2</span><br>
-        <span class="duration">10-20 min/ciclo</span><br>
-        Husillos del sueño y complejos K • Relajación profunda<br>
-        <em>Etapa más larga del ciclo; respuestas al entorno disminuyen.</em>
-      </div>
-    </div>
+              <!-- NREM Etapa 3-->
+              <div class="timeline-step right">
+                <div class="timeline-content">
+                  <img src="imagenes/46.png" Icono NREM 3" class="icon" />
+                  <span class="stage-title">NREM Etapa 3</span><br>
+                  <span class="duration">~10 minutos primer ciclo</span><br>
+                  Ondas delta (muy lentas, alta amplitud) • Inicia sueño reparador • Movimientos mínimos<br>
+                  <em>Reparación corporal máxima.</em>
+                </div>
+              </div>
 
-    <!-- NREM Etapa 3-->
-    <div class="timeline-step right">
-      <div class="timeline-content">
-        <img src="imagenes/46.png"Icono NREM 3" class="icon" />
-        <span class="stage-title">NREM Etapa 3</span><br>
-        <span class="duration">~10 minutos primer ciclo</span><br>
-        Ondas delta (muy lentas, alta amplitud) • Inicia sueño reparador • Movimientos mínimos<br>
-        <em>Reparación corporal máxima.</em>
-      </div>
-    </div>
+              <!-- NREM Etapa 4 -->
+              <div class="timeline-step left">
+                <div class="timeline-content">
+                  <img src="imagenes/5666666566.png" Icono NREM 4" class="icon" />
+                  <span class="stage-title">NREM Etapa 4</span><br>
+                  <span class="duration">35-40 minutos primer ciclo</span><br>
+                  Ondas delta • Sueño muy profundo<br>
+                  <em>Difícil despertar; aparece sonambulismo/terrores</em>
+                </div>
+              </div>
+              <!-- Fase REM -->
+              <div class="timeline-step right">
+                <div class="timeline-content">
+                  <img src="imagenes/520.png" alt="Icono REM" class="icon" />
+                  <span class="stage-title">REM</span><br>
+                  <span class="duration">15-30 min/ciclo (aumenta)</span><br>
+                  Ondas mixtas (como vigilia) • Movimientos oculares rápidos • Parálisis muscular<br>
+                  <em>Sueños vívidos, consolidación emocional y de aprendizaje.</em>
+                </div>
+              </div>
 
-  <!-- NREM Etapa 4 -->
-    <div class="timeline-step left">
-      <div class="timeline-content">
-        <img src="imagenes/5666666566.png"Icono NREM 4" class="icon" />
-        <span class="stage-title">NREM Etapa 4</span><br>
-        <span class="duration">35-40 minutos primer ciclo</span><br>
-        Ondas delta • Sueño muy profundo<br>
-        <em>Difícil despertar; aparece sonambulismo/terrores</em>
-      </div>
-    </div>
-    <!-- Fase REM -->
-    <div class="timeline-step right">
-      <div class="timeline-content">
-        <img src="imagenes/520.png" alt="Icono REM" class="icon" />
-        <span class="stage-title">REM</span><br>
-        <span class="duration">15-30 min/ciclo (aumenta)</span><br>
-        Ondas mixtas (como vigilia) • Movimientos oculares rápidos • Parálisis muscular<br>
-        <em>Sueños vívidos, consolidación emocional y de aprendizaje.</em>
-      </div>
-    </div>
-
-  </div>
-</section>
+            </div>
+        </section>
 
         <!-- Tarjetas de memoria del sueño izquierda -->
         <section>
@@ -1029,383 +1183,520 @@
           </div>
         </section>
 
-        <!-- Ingesta: Mapa conceptual interactivo -->
-        <section id="ingesta" class="content-section" aria-label="Sección Ingesta">
-          <div class="title-box" style="background: #97e9fd; color: #33769cef;">Ingesta: Bases y Regulación</div>
-          <div class="map-container" aria-label="Mapa conceptual de ingesta y regulación de procesos">
-            <div class="star star1">&#9733;</div>
-            <div class="star star2">&#9733;</div>
-            <div class="star star3">&#9733;</div>
-            <div class="star star4">&#9733;</div>
-            <div class="star star5">&#9733;</div>
-            <div class="star star6">&#9733;</div>
-            <div class="star star7">&#9733;</div>
-            <div class="column" aria-label="Columna sobre Privación">
-              <div class="title-box" style="background: #D9CCF9; color: #4B339C;">Privación</div>
-              <div class="star star4">&#9733;</div>
-              <div class="desc-box">La privación activa señales hormonales y neurológicas que provocan sensación
-                de
-                hambre.</div>
-              <div class="sub-column" style="background: #E9DEFF;">Hormonas</div>
-              <div class="sub-desc">Grelina, Orexina, Neuropeptido Y (NPY)</div>
-              <div class="sub-column" style="background: #E9DEFF;">Ejemplos</div>
-              <div class="sub-desc">Aumento de grelina en ayuno prolongado.</div>
-            </div>
+        <!-- 🌐 Mapa Conceptual Interactivo: Ingesta - Bases Biológicas -->
+        <section id="mapa-ingesta" class="concept-map" aria-label="Mapa conceptual de la ingesta: bases biológicas">
+          <h2 class="main-title">🧠 Ingesta: Bases Biológicas </h2>
 
-            <div class="column" aria-label="Columna sobre Búsqueda">
-              <div class="title-box" style="background: #C5E5A8; color: #2C5E11;">Búsqueda</div>
-              <div class="desc-box">El cerebro motiva comportamientos para buscar alimento por recompensa y
-                estímulos
-                externos.</div>
-              <div class="sub-column" style="background: #DCF3B1;">Sustancias</div>
-              <div class="star star4">&#9733;</div>
-              <div class="sub-desc">Dopamina (recompensa), Norepinefrina</div>
-              <div class="star star4">&#9733;</div>
-              <div class="sub-column" style="background: #DCF3B1;">Ejemplos</div>
-              <div class="sub-desc">Liberación de dopamina al encontrar comida palatable.</div>
-              <div class="star star6">&#9733;</div>
-            </div>
-
-            <div class="column" aria-label="Columna sobre Absorción">
-              <div class="star star4">&#9733;</div>
-              <div class="title-box" style="background: #F9D5A8; color: #7A5500;">Absorción</div>
-              <div class="desc-box">Procesos de metabolización y regulación hormonal tras la ingesta de alimentos.
+          <div class="map-grid">
+            <!-- I. FUNDAMENTOS GENERALES -->
+            <div class="concept-card">
+              <button class="card-header" style="background:#AEE1F9; color:#0B4F6C;">
+                1️⃣ Definición y Conceptos Fundamentales
+              </button>
+              <div class="card-content">
+                <p>La <strong>ingesta</strong> comprende procesos fisiológicos, neurobiológicos y psicológicos
+                  que permiten obtener y procesar nutrientes para mantener la <em>homeostasis energética</em> y el
+                  funcionamiento óptimo.</p>
+                <p>Está regulada por <strong>mecanismos internos</strong> (señales de energía) y
+                  <strong>factores externos</strong> (contexto social, disponibilidad de alimentos).
+                </p>
               </div>
-              <div class="sub-column" style="background: #FBE6C3;">Procesos</div>
-              <div class="sub-desc">Insulina (metabolismo glucémico), Colecistoquinina (CCK)</div>
-              <div class="sub-column" style="background: #FBE6C3;">Ejemplos</div>
-              <div class="sub-desc">Liberación de insulina ante aumento glucémico.</div>
             </div>
 
-            <div class="column" aria-label="Columna sobre Saciedad">
-              <div class="title-box" style="background: #B7D6D2; color: #0D3B3B;">Saciedad</div>
-              <div class="desc-box">Sensación de plenitud regulada por señales hormonales y neuroquímicas.</div>
-              <div class="sub-column" style="background: #CDE8E6;">Hormonas</div>
-              <div class="sub-desc">Leptina, Péptido YY, Serotonina</div>
-              <div class="star star4">&#9733;</div>
-              <div class="sub-column" style="background: #CDE8E6;">Ejemplos</div>
-              <div class="sub-desc">Aumento de leptina post-ingesta.</div>
-              <div class="star star7">&#9733;</div>
+            <!-- II. BASE BIOLÓGICA Y FISIOLÓGICA -->
+            <div class="concept-card">
+              <button class="card-header" style="background:#F9D5A8; color:#7A5500;">
+                2️⃣ Anatomía y Fisiología del Sistema Digestivo
+              </button>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Boca y Esófago:</strong> masticación, saliva (amilasa), transporte peristáltico.</li>
+                  <li><strong>Estómago:</strong> almacena alimentos, secreta ácido y pepsina; mecanorreceptores envían
+                    señales al cerebro.</li>
+                  <li><strong>Intestino Delgado:</strong> absorción de nutrientes (duodeno, yeyuno, íleon).</li>
+                  <li><strong>Intestino Grueso:</strong> absorción de agua y electrolitos.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- III. REGULACIÓN CENTRAL -->
+            <div class="concept-card">
+              <button class="card-header" style="background:#C5E5A8; color:#2C5E11;">
+                3️⃣ Regulación Neural Central: El Hipotálamo
+              </button>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Lateral (LH):</strong> activa hambre y búsqueda de alimento.</li>
+                  <li><strong>Ventromedial (VMH):</strong> inhibe la ingesta (saciedad).</li>
+                  <li><strong>Arqueado (ARC):</strong>
+                    <ul>
+                      <li>POMC/CART → suprimen apetito</li>
+                      <li>NPY/AgRP → promueven apetito</li>
+                    </ul>
+                  </li>
+                  <li><strong>Paraventricular (PVN):</strong> integra señales y regula respuestas autónomas.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- IV. SEÑALES QUÍMICAS CENTRALES -->
+            <div class="concept-card">
+              <button class="card-header" style="background:#D9CCF9; color:#4B339C;">
+                4️⃣ Neurotransmisores y Neuropéptidos
+              </button>
+              <div class="card-content">
+                <ul>
+                  <li><strong>NPY / AgRP:</strong> estimulan apetito.</li>
+                  <li><strong>POMC / α-MSH / CART:</strong> reducen ingesta.</li>
+                  <li><strong>Orexinas y MCH:</strong> promueven hambre, energía y vigilia.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- V. SEÑALES HORMONALES PERIFÉRICAS -->
+            <div class="concept-card">
+              <button class="card-header" style="background:#B7D6D2; color:#0D3B3B;">
+                5️⃣ Hormonas Periféricas: Eje Adiposo-Hipotalámico
+              </button>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Leptina:</strong> indica saciedad; resistencia → hiperfagia.</li>
+                  <li><strong>Grelina:</strong> estimula hambre antes de comer.</li>
+                  <li><strong>PYY, CCK, GLP-1:</strong> inducen saciedad tras la comida.</li>
+                  <li><strong>Insulina:</strong> señala disponibilidad energética al cerebro.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- VI. ENERGÍA Y HOMEOSTASIS -->
+            <div class="concept-card">
+              <button class="card-header" style="background:#E8F0A9; color:#495A00;">
+                6️⃣ Glucosa, Metabolismo y Regulación del Apetito
+              </button>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Homeostasis Glucémica:</strong> neuronas del ARC y VMH detectan niveles de glucosa.</li>
+                  <li><strong>Teoría Glucostática:</strong> hambre surge cuando disminuye la utilización de glucosa.
+                  </li>
+                  <li><strong>Teoría Lipostática:</strong> leptina regula el balance energético a largo plazo.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- VII. SEÑALES MECÁNICAS Y SENSORIALES -->
+            <div class="concept-card">
+              <button class="card-header" style="background:#FFD6A5; color:#754300;">
+                7️⃣ Señales Gastrointestinales y Sensoriales
+              </button>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Distensión Gástrica:</strong> activa nervio vago → NTS → hipotálamo → saciedad.</li>
+                  <li><strong>Osmoreceptores y Quimiorreceptores:</strong> detectan nutrientes y envían señales de
+                    plenitud.</li>
+                  <li><strong>Gusto y Olfato:</strong> influyen en apetito y elección alimentaria.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- VIII. SISTEMAS DE RECOMPENSA Y APRENDIZAJE -->
+            <div class="concept-card">
+              <button class="card-header" style="background:#C3E8F9; color:#0C506C;">
+                8️⃣ Aprendizaje, Recompensa y Memoria
+              </button>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Condicionamiento Clásico:</strong> señales asociadas a comida evocan hambre.</li>
+                  <li><strong>Aversión Condicionada:</strong> evita sabores vinculados a malestar.</li>
+                  <li><strong>Memoria de Ingesta:</strong> el cerebro recuerda qué/cuánto/cuándo se comió.</li>
+                  <li><strong>Sistema Dopaminérgico:</strong> anticipación y placer al comer.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- IX. FACTORES EMOCIONALES Y PSICOLÓGICOS -->
+            <div class="concept-card">
+              <button class="card-header" style="background:#E0B0FF; color:#4B0082;">
+                9️⃣ Factores Psicológicos y Emocionales
+              </button>
+              <div class="card-content">
+                <ul>
+                  <li><strong>Estrés:</strong> agudo ↓ apetito, crónico ↑ ingesta (especialmente “comfort food”).</li>
+                  <li><strong>Depresión:</strong> puede causar anorexia o hiperfagia.</li>
+                  <li><strong>Ingesta Emocional:</strong> comer por ansiedad o tristeza, no por hambre real.</li>
+                  <li><strong>Ansiedad y Control:</strong> restricción alimentaria o conductas patológicas.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
 
-<!-- === Conducta Sexual: Diagrama Interactivo === -->
-<div class="container my-5">
-  <h2 class="my-4 text-center">🧠 Conducta Sexual</h2>
+        <!-- === Conducta Sexual: Diagrama Interactivo === -->
+        <section aria-label="Conducta Sexual" class="content-section" id="conducta-sexual">
+          <div class="container my-5">
+            <h2 class="my-4 text-center">🧠 Conducta Sexual</h2>
+            <p class="lead text-center">
+              Explora las principales estructuras cerebrales involucradas en la conducta sexual humana.
+            </p>
 
-  <div class="diagram-container position-relative d-flex justify-content-center">
-    <!-- Imagen del cerebro -->
-    <img src="imagenes/ccc.png" 
-         alt="Diagrama cerebral de las estructuras relacionadas con la conducta sexual"
-         class="img-fluid rounded shadow" 
-         style="max-width: 700px; width: 100%; height: auto;" />
+            <div class="diagram-container position-relative d-flex justify-content-center">
+              <!-- Imagen del cerebro -->
+              <img src="imagenes/ccc.png" alt="Diagrama cerebral de las estructuras relacionadas con la conducta sexual"
+                class="img-fluid rounded shadow" style="max-width: 700px; width: 100%; height: auto;" />
 
-    <!-- Hotspots (puntos interactivos) -->
-    <div tabindex="0" 
-         class="hotspot" 
-         data-bs-toggle="tooltip" 
-         data-bs-placement="top" 
-         title="Hipotálamo: Controla respuestas hormonales vinculadas con la conducta sexual." 
-         style="top: 45%; left: 55%; background-color: #f4f8f7f8;"></div>
+              <!-- Hotspots (puntos interactivos) -->
+              <div tabindex="0" class="hotspot" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Hipotálamo: Controla respuestas hormonales vinculadas con la conducta sexual."
+                style="top: 55%; left: 45%; background-color: #e0e68cf8;"></div>
 
-    <div tabindex="0" 
-         class="hotspot" 
-         data-bs-toggle="tooltip" 
-         data-bs-placement="top" 
-         title="Amígdala: Procesa emociones y comportamientos sexuales." 
-         style="top: 50%; left: 40%; background-color: #f8f8f8;"></div>
+              <div tabindex="0" class="hotspot" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Amígdala: Procesa emociones y comportamientos sexuales."
+                style="top: 60%; left: 48%; background-color: #30dbcd;"></div>
 
-    <div tabindex="0" 
-         class="hotspot" 
-         data-bs-toggle="tooltip" 
-         data-bs-placement="top" 
-         title="Núcleo Accumbens: Asociado al placer y recompensa durante la conducta sexual." 
-         style="top: 55%; left: 70%; background-color: #fcfdff;"></div>
+              <div tabindex="0" class="hotspot" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Núcleo Accumbens: Asociado al placer y recompensa durante la conducta sexual."
+                style="top: 55%; left: 35%; background-color: #e62dae;"></div>
 
-    <div tabindex="0" 
-         class="hotspot" 
-         data-bs-toggle="tooltip" 
-         data-bs-placement="top" 
-         title="Corteza Prefrontal: Involucrada en la toma de decisiones y control inhibitorio." 
-         style="top: 35%; left: 45%; background-color: hsl(0, 0%, 98%);"></div>
+              <div tabindex="0" class="hotspot" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Corteza Prefrontal: Involucrada en la toma de decisiones y control inhibitorio."
+                style="top: 35%; left: 30%; background-color: hsl(76, 66%, 50%);"></div>
+            </div>
+          </div>
+<!-- Mapa conceptual de conducta sexual -->
+<div class="mind-map" role="application" aria-label="Mapa mental sobre conducta sexual">
+
+  <!-- Nodo central -->
+  <section class="central-node" tabindex="0" role="region" aria-label="Nodo central: Conducta sexual">
+    Conducta Sexual
+  </section>
+
+  <!-- Nodo: Sistema hormonal y motivación -->
+  <section class="node" tabindex="0" role="region" aria-label="Sistema hormonal y motivación sexual">
+    <h3>Sistema hormonal y motivación</h3>
+    <ul>
+      <li>Estrógenos, progesterona, testosterona</li>
+      <li>Eje hipotálamo-hipófisis-gonadal</li>
+      <li>Cambios cíclicos en mujeres</li>
+      <li>Relación con conducta reproductiva</li>
+      <li>Cortisol y hormonas del estrés</li>
+    </ul>
+  </section>
+
+  <!-- Nodo: Neuroanatomía del deseo -->
+  <section class="node" tabindex="0" role="region" aria-label="Neuroanatomía y circuitos del deseo sexual">
+    <h3>Neuroanatomía del deseo</h3>
+    <ul>
+      <li>Hipotálamo, amígdala, núcleo accumbens</li>
+      <li>Corteza prefrontal, tronco cerebral</li>
+      <li>Integración sensorial y emocional</li>
+      <li>Sistema de recompensa (dopamina)</li>
+      <li>Modulación cognitiva</li>
+    </ul>
+  </section>
+
+  <!-- Nodo: Neuroquímica -->
+  <section class="node" tabindex="0" role="region" aria-label="Neuroquímica sexual">
+    <h3>Neuroquímica</h3>
+    <ul>
+      <li>Dopamina: motivación y recompensa</li>
+      <li>Serotonina: inhibición post-respuesta</li>
+      <li>Óxido nítrico: respuesta vascular</li>
+      <li>GABA, opioides, endocannabinoides</li>
+      <li>Interacción con hormonas sexuales</li>
+    </ul>
+  </section>
+
+  <!-- Nodo: Desarrollo biológico -->
+  <section class="node" tabindex="0" role="region" aria-label="Factores del desarrollo biológico sexual">
+    <h3>Desarrollo biológico</h3>
+    <ul>
+      <li>Influencia hormonal prenatal</li>
+      <li>Diferenciación cerebral</li>
+      <li>Genética y epigenética</li>
+      <li>Orientación e identidad</li>
+      <li>Sensibilidad estructural a hormonas</li>
+    </ul>
+  </section>
+
+  <!-- Nodo: Microbiota -->
+  <section class="node" tabindex="0" role="region" aria-label="Microbiota y conducta sexual">
+    <h3>Microbiota y cerebro</h3>
+    <ul>
+      <li>Regulación hormonal y neurotransmisores</li>
+      <li>Influencia en motivación y ánimo</li>
+      <li>Conexión con conducta sexual</li>
+      <li>Ejes biológicos integrados</li>
+    </ul>
+  </section>
+
+  <!-- Nodo: Aplicaciones clínicas -->
+  <section class="node" tabindex="0" role="region" aria-label="Aplicaciones clínicas y disfunciones sexuales">
+    <h3>Aplicaciones clínicas</h3>
+    <ul>
+      <li>Deseo sexual hipoactivo, aversión</li>
+      <li>Disfunción eréctil, anorgasmia</li>
+      <li>Tratamientos hormonales y neurológicos</li>
+      <li>Impacto del microbioma</li>
+    </ul>
+  </section>
+
+</div>
+<!-- SVG para líneas del mapa mental -->
+<svg class="map-lines" aria-hidden="true"></svg>    
+
+</main>
+
+<!-- Sidebar con fichas de aprendizaje -->
+<aside class="sidebar" aria-label="Fichas de aprendizaje">
+  <h5>Fichas de Aprendizaje del Sueño</h5>
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Bases del Sueño</h6>
+      <p class="card-text">Fases del sueño, actividades neuronales y fisiológicas, importancia del REM.</p>
+    </div>
   </div>
+
+  <h5>Fichas de Aprendizaje de la Ingesta</h5>
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Sustancias en Ingesta</h6>
+      <p class="card-text">Roles de grelina, leptina, insulina y otros en el control del apetito y saciedad.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Hipotálamo: Centro principal de regulación.</h6>
+      <p class="card-text">Núcleo arqueado: Detecta señales de hambre y saciedad.</p>
+      <p class="card-text">Núcleo ventromedial: Relacionado con la saciedad.</p>
+      <p class="card-text">Núcleo lateral: Estimula el apetito.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Hormonas clave:</h6>
+      <p class="card-text">Grelina: Estimula el hambre (secretada por el estómago).</p>
+      <p class="card-text">Leptina: Inhibe el apetito (secretada por tejido adiposo).</p>
+      <p class="card-text">Insulina: Regula niveles de glucosa y tiene efecto sobre el apetito.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Neurotransmisores</h6>
+      <p class="card-text">Dopamina: Asociada al placer de comer.</p>
+      <p class="card-text">Serotonina: Relacionada con la saciedad y el estado de ánimo.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Factores que influyen</h6>
+      <p class="card-text">Ambientales (disponibilidad de comida, cultura).</p>
+      <p class="card-text">Emocionales (estrés, ansiedad).</p>
+      <p class="card-text">Genéticos (predisposición a obesidad o trastornos alimentarios).</p>
+    </div>
+  </div>
+
+  <h5>Fichas de Aprendizaje de la Conducta Sexual</h5>
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">Hormonas Sexuales</h6>
+      <p class="card-text">Efectos de estrógenos, progesterona y testosterona en maduración y sistema nervioso.</p>
+      </p>
+    </div>
+  </div>
+</aside>
 </div>
 
-        <!-- Mapa conceptual de conducta sexual -->
-        <section>
-          <div class="diagram">
-            <h1>----Bases Neurobiológicas del Deseo Sexual----</h1>
-
-            <div class="section">
-              <div class="section-header">Sistema hormonal y motivación sexual <span class="toggle-icon">+</span></div>
-              <div class="section-content">
-                <ul>
-                  <li>Principales hormonas sexuales: estrógenos, progesterona, testosterona</li>
-                  <li>Eje hipotálamo–hipófisis–gonadal regula funciones reproductivas y sexuales</li>
-                  <li>Cambios cíclicos hormonales en mujeres afectan motivación sexual</li>
-                  <li>Otras hormonas moduladoras: cortisol y hormonas del estrés</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="section">
-              <div class="section-header">Neuroanatomía y circuitos neuronales <span class="toggle-icon">+</span></div>
-              <div class="section-content">
-                <ul>
-                  <li>Regiones cerebrales: hipotálamo, amígdala, núcleo accumbens, corteza prefrontal, tronco cerebral
-                  </li>
-                  <li>Integración de señales sensoriales y emocionales</li>
-                  <li>Sistema de recompensa (dopamina) refuerza el deseo sexual</li>
-                  <li>Mecanismos de control: inhibición y regulación cognitiva</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="section">
-              <div class="section-header">Neuroquímica sexual <span class="toggle-icon">+</span></div>
-              <div class="section-content">
-                <ul>
-                  <li>Dopamina: motivación y recompensa</li>
-                  <li>Serotonina: función inhibitoria postrespuesta</li>
-                  <li>Óxido nítrico: mediador vascular de respuestas físicas</li>
-                  <li>Otros moduladores: GABA, opioides, endocannabinoides</li>
-                  <li>Interacción con hormonas sexuales</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="section">
-              <div class="section-header">Factores del desarrollo biológico sexual <span class="toggle-icon">+</span>
-              </div>
-              <div class="section-content">
-                <ul>
-                  <li>Influencia hormonal prenatal en organización cerebral</li>
-                  <li>Diferenciación sexual del cerebro y sensibilidad a hormonas</li>
-                  <li>Factores genéticos y epigenéticos en orientación e identidad</li>
-                  <li>Estructuran sensibilidad al sistema hormonal y neuroquímico</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="section">
-              <div class="section-header">Interacción sistema digestivo / microbiota – cerebro – conducta sexual <span
-                  class="toggle-icon">+</span></div>
-              <div class="section-content">
-                <ul>
-                  <li>Microbiota intestinal regula hormonas y neurotransmisores</li>
-                  <li>Influencia en motivación y estado de ánimo</li>
-                  <li>Conexión con conducta sexual a través de ejes biológicos integrados</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="section">
-              <div class="section-header">Aplicaciones clínicas y disfunciones sexuales <span
-                  class="toggle-icon">+</span></div>
-              <div class="section-content">
-                <ul>
-                  <li>Trastornos del deseo sexual: hipoactividad, aversión</li>
-                  <li>Disfunciones físicas: disfunción eréctil, anorgasmia</li>
-                  <li>Tratamientos hormonales, neurológicos y farmacológicos</li>
-                  <li>Implicaciones del microbioma en salud sexual</li>
-                </ul>
-              </div>
-            </div>
-            <section>
-    </main>
-
-    <!-- Sidebar con fichas de aprendizaje -->
-    <aside class="sidebar" aria-label="Fichas de aprendizaje">
-      <h5>Fichas de Aprendizaje del Sueño</h5>
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Bases del Sueño</h6>
-          <p class="card-text">Fases del sueño, actividades neuronales y fisiológicas, importancia del REM.</p>
-        </div>
-      </div>
-
-      <h5>Fichas de Aprendizaje de la Ingesta</h5>
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Sustancias en Ingesta</h6>
-          <p class="card-text">Roles de grelina, leptina, insulina y otros en el control del apetito y saciedad.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Hipotálamo: Centro principal de regulación.</h6>
-          <p class="card-text">Núcleo arqueado: Detecta señales de hambre y saciedad.</p>
-          <p class="card-text">Núcleo ventromedial: Relacionado con la saciedad.</p>
-          <p class="card-text">Núcleo lateral: Estimula el apetito.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Hormonas clave:</h6>
-          <p class="card-text">Grelina: Estimula el hambre (secretada por el estómago).</p>
-          <p class="card-text">Leptina: Inhibe el apetito (secretada por tejido adiposo).</p>
-          <p class="card-text">Insulina: Regula niveles de glucosa y tiene efecto sobre el apetito.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Neurotransmisores</h6>
-          <p class="card-text">Dopamina: Asociada al placer de comer.</p>
-          <p class="card-text">Serotonina: Relacionada con la saciedad y el estado de ánimo.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Factores que influyen</h6>
-          <p class="card-text">Ambientales (disponibilidad de comida, cultura).</p>
-          <p class="card-text">Emocionales (estrés, ansiedad).</p>
-          <p class="card-text">Genéticos (predisposición a obesidad o trastornos alimentarios).</p>
-        </div>
-      </div>
-
-      <h5>Fichas de Aprendizaje de la Conducta Sexual</h5>
-      <div class="card">
-        <div class="card-body">
-          <h6 class="card-title">Hormonas Sexuales</h6>
-          <p class="card-text">Efectos de estrógenos, progesterona y testosterona en maduración y sistema nervioso.</p>
-          </p>
-        </div>
-      </div>
-    </aside>
-  </div>
-
-  <footer>
+<footer>
+  <section id="referencias-bibliograficas" class="mb-3">
+    <h5 class="text-center mb-3">📚 Referencias Bibliográficas</h5>
     <div class="container">
-      <p class="mb-1"><strong>Referencias:</strong> Spielman, R. M., Jenkins, W. J., & Lovett, M. D. (s. f.). 4.04: Etapas del sueño. En Psicología Introductoria 2e (OpenStax). LibreTexts Español., Votaw, K. (s. f.). 11.2: Etapas NREM del sueño [PDF]. LibreTexts Español.,Votaw, K. (s. f.). 11.3: Sueño REM. En Psicología general para estudiantes de honor. LibreTexts Español., LibreTexts Español. (s. f.). 11.03: Etapas del sueño. En Biopsicología (OERI) – Proyecto de Revisión. LibreTexts Español., Carlson, N. R. (2018). Fisiología de la conducta (12.ª ed.). Pearson Educación., Duncan, R. P., Van Dillen, L. R., Garbutt, J. M., Earhart, G. M., & Perlmutter, J. S. (2018). Physical therapy and deep brain stimulation in Parkinson’s disease: Protocol for a pilot randomized controlled trial. Pilot and Feasibility Studies, 4(1), 1–9., Parashar, A., & Udayabanu, M. (2017). Gut microbiota: Implications in Parkinson’s disease. Parkinsonism & Related Disorders, 38, 1–7.
-        TED Global. (2010, julio). Heribert Watzke: The brain in your gut [Video]. TED Conferences., LibreTexts. (s.f.). Hormonas sexuales, motivación sexual y conductas reproductivas. En Biopsicología (OERI) – Proyecto de revisión.
-        </p>
-      <p class="mb-0">Universidad EAN</p>
+      <p class="mb-1"><strong>Referencias:</strong> Spielman, R. M., Jenkins, W. J., &amp; Lovett, M. D. (s. f.).
+        4.04:
+        Etapas del sueño. En Psicología Introductoria 2e (OpenStax). LibreTexts Español., Votaw, K. (s. f.). 11.2:
+        Etapas NREM del sueño [PDF]. LibreTexts Español.,Votaw, K. (s. f.). 11.3: Sueño REM. En Psicología general
+        para
+        estudiantes de honor. LibreTexts Español., LibreTexts Español. (s. f.). 11.03: Etapas del sueño. En
+        Biopsicología (OERI) – Proyecto de Revisión. LibreTexts Español., Carlson, N. R. (2018). Fisiología de la
+        conducta (12.ª ed.). Pearson Educación., Duncan, R. P., Van Dillen, L. R., Garbutt, J. M., Earhart, G. M.,
+        &amp;
+        Perlmutter, J. S. (2018). Physical therapy and deep brain stimulation in Parkinson’s disease: Protocol for a
+        pilot randomized controlled trial. Pilot and Feasibility Studies, 4(1), 1–9., Parashar, A., &amp; Udayabanu,
+        M.
+        (2017). Gut microbiota: Implications in Parkinson’s disease. Parkinsonism &amp; Related Disorders, 38, 1–7.
+        TED Global. (2010, julio). Heribert Watzke: The brain in your gut [Video]. TED Conferences., LibreTexts.
+        (s.f.).
+        Hormonas sexuales, motivación sexual y conductas reproductivas. En Biopsicología (OERI) – Proyecto de
+        revisión., Bartoshuk, L. M., & Beauchamp, G. K. (1994). Chemical senses. Annual Review of Psychology, 45(1),
+        419-449., Cannon, W. B., McIver, M. A., & Blakeslee, S. M. (1988). Studies on the conditions of activity in
+        endocrine glands: XV. The effect of adrenin on the secretion of pancreatic juice. American Journal of
+        Physiology, 91(2), 283-291., Carlson, N. R. (2014). Physiology of behavior (11th ed.). Pearson., Clark, J. T.,
+        Kalra, P. S., Crowley, W. R., & Kalra, S. P. (1984). Neuropeptide Y and human pancreatic polypeptide stimulate
+        feeding behavior in rats. Endocrinology, 115(1), 427-429, Cone, R. D. (2005). Anatomy and regulation of the
+        central melanocortin system. Nature Neuroscience.,
+      </p>Cummings, D. E., Purnell, J. Q., Frayo, R. S., Schmidova, K., Wisse, B. E., & Weigle, D. S. (2001). A
+      preprandial rise in plasma ghrelin levels suggests a role in meal initiation in humans. Diabetes, 50(8),
+      1714-1719., Dallman, M. F., Pecoraro, N., Akana, S. F., la Fleur, S. E., Gomez, F., Houshyar, H., ... &
+      Bhatnagar, S. (2003). Chronic stress and obesity: A new view of "comfort food". Proceedings of the National
+      Academy of Sciences, 100(20), 11696-11701., de Castro, J. M. (1994). Family and friends produce greater social
+      facilitation of food intake than other companions. Physiology & Behavior, 56(3), 445-455.,Frayling, T. M.,
+      Timpson, N. J., Weedon, M. N., Zeggini, E., Freathy, R. M., Lindgren, C. M., ... & McCarthy, M. I. (2007). A
+      common variant in the FTO gene is associated with body mass index and predisposes to childhood and adult
+      obesity. Science, 316(5829), 889-894.
+      <p>El contenido y las explicaciones se elaboraron con base en artículos científicos y fuentes divulgativas
+        recientes.</p>
+      <small>© 2025 Página educativa sobre procesos biológicos | © 2025</small>
     </div>
-  </footer>
+</footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-      section.querySelector('.section-header').addEventListener('click', () => {
-        const isActive = section.classList.contains('active');
-        // Close all
-        sections.forEach(s => {
-          s.classList.remove('active');
-          s.querySelector('.toggle-icon').textContent = '+';
-        });
-        // Toggle current
-        if (!isActive) {
-          section.classList.add('active');
-          section.querySelector('.toggle-icon').textContent = '−';
-        }
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // === Secciones desplegables ===
+  document.querySelectorAll('.section').forEach(section => {
+    section.querySelector('.section-header').addEventListener('click', () => {
+      const isActive = section.classList.contains('active');
+      document.querySelectorAll('.section').forEach(s => {
+        s.classList.remove('active');
+        s.querySelector('.toggle-icon').textContent = '+';
       });
+      if (!isActive) {
+        section.classList.add('active');
+        section.querySelector('.toggle-icon').textContent = '−';
+      }
     });
-  </script>
-  <script>
-    // Funcionalidad para expandir/contraer información al hacer click o presionar enter
-    document.querySelectorAll('.timeline-item').forEach(item => {
-      item.addEventListener('click', () => toggleExpand(item));
-      item.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggleExpand(item);
-        }
-      });
+  });
+
+  // === Cards con encabezado ===
+  document.querySelectorAll(".card-header").forEach(button => {
+    button.addEventListener("click", () => {
+      const card = button.parentElement;
+      card.classList.toggle("active");
+    });
+  });
+
+  // === Línea entre nodo central y nodos secundarios ===
+  function drawLines() {
+    const svg = document.querySelector('.map-lines');
+    svg.innerHTML = '';
+
+    const central = document.querySelector('.central-node');
+    const nodes = document.querySelectorAll('.node');
+
+    const centralRect = central.getBoundingClientRect();
+    const centerX = centralRect.left + centralRect.width / 2;
+    const centerY = centralRect.top + centralRect.height / 2;
+
+    nodes.forEach(node => {
+      const rect = node.getBoundingClientRect();
+      const nodeX = rect.left + rect.width / 2;
+      const nodeY = rect.top + rect.height / 2;
+
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', centerX);
+      line.setAttribute('y1', centerY);
+      line.setAttribute('x2', nodeX);
+      line.setAttribute('y2', nodeY);
+      line.setAttribute('stroke', '#25adfc');
+      line.setAttribute('stroke-width', '2');
+      svg.appendChild(line);
+    });
+  }
+
+  window.addEventListener('load', drawLines);
+  window.addEventListener('resize', drawLines);
+
+  // === Línea de tiempo expandible con accesibilidad ===
+  document.querySelectorAll('.timeline-item').forEach(item => {
+    item.addEventListener('click', () => toggleExpand(item));
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleExpand(item);
+      }
+    });
+  });
+
+  function toggleExpand(item) {
+    const expanded = item.classList.contains('expanded');
+    item.classList.toggle('expanded', !expanded);
+    item.setAttribute('aria-expanded', !expanded);
+  }
+
+  // === Mapa conceptual: mostrar descripción del nodo ===
+  const conceptNodes = document.querySelectorAll('.concept-node');
+  const conceptDesc = document.getElementById('concept-desc');
+
+  conceptNodes.forEach(node => {
+    node.setAttribute('tabindex', '0');
+
+    node.addEventListener('click', () => {
+      conceptNodes.forEach(n => n.classList.remove('active-node'));
+      node.classList.add('active-node');
+
+      conceptDesc.style.opacity = '0';
+      setTimeout(() => {
+        conceptDesc.textContent = node.getAttribute('data-desc');
+        conceptDesc.style.opacity = '1';
+      }, 200);
     });
 
-    function toggleExpand(item) {
-      const expanded = item.classList.contains('expanded');
-      item.classList.toggle('expanded', !expanded);
-      item.setAttribute('aria-expanded', !expanded);
-    }
+    node.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        node.click();
+      }
+    });
+  });
 
-    // Interactividad mapa conceptual - mostrar descripción del nodo
-    const conceptNodes = document.querySelectorAll('.concept-node');
-    const conceptDesc = document.getElementById('concept-desc');
+  // === Cards de hormonas sexuales ===
+  const hormoneCards = document.querySelectorAll('.hormone-card');
 
-    conceptNodes.forEach(node => {
-      node.setAttribute('tabindex', '0'); // accesibilidad
-
-      node.addEventListener('click', () => {
-        // Eliminar clase activa de todos los nodos
-        conceptNodes.forEach(n => n.classList.remove('active-node'));
-
-        // Agregar clase activa al nodo seleccionado
-        node.classList.add('active-node');
-
-        // Mostrar descripción con transición
-        conceptDesc.style.opacity = '0';
-        setTimeout(() => {
-          conceptDesc.textContent = node.getAttribute('data-desc');
-          conceptDesc.style.opacity = '1';
-        }, 200);
+  hormoneCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const isActive = card.classList.contains('active');
+      hormoneCards.forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('aria-expanded', 'false');
       });
-
-      node.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          node.click();
-        }
-      });
+      if (!isActive) {
+        card.classList.add('active');
+        card.setAttribute('aria-expanded', 'true');
+      }
     });
 
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
 
-    // Interactividad cards hormona sexual - toggle descripción y aria-expanded
-    const hormoneCards = document.querySelectorAll('.hormone-card');
-
-    hormoneCards.forEach(card => {
-      card.addEventListener('click', () => {
-        const isActive = card.classList.contains('active');
-        hormoneCards.forEach(c => {
-          c.classList.remove('active');
-          c.setAttribute('aria-expanded', 'false');
-        });
-        if (!isActive) {
-          card.classList.add('active');
-          card.setAttribute('aria-expanded', 'true');
-        }
-      });
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          card.click();
-        }
-      });
+  // === Cards de memoria ===
+  document.querySelectorAll('.memory-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const answer = card.querySelector('.answer');
+      const expanded = card.getAttribute('aria-expanded') === 'true';
+      answer.hidden = expanded;
+      card.setAttribute('aria-expanded', String(!expanded));
     });
 
-    document.querySelectorAll('.memory-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const answer = card.querySelector('.answer');
-        const expanded = card.getAttribute('aria-expanded') === 'true';
-        if (expanded) {
-          answer.hidden = true;
-          card.setAttribute('aria-expanded', 'false');
-        } else {
-          answer.hidden = false;
-          card.setAttribute('aria-expanded', 'true');
-        }
-      });
-      card.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          card.click();
-        }
-      });
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
     });
- 
-<!-- === JAVASCRIPT PARA LOS TOOLTIPS (Bootstrap 5+) === -->
-  // Inicializar los tooltips de Bootstrap
+  });
+
+  // === Tooltips de Bootstrap ===
   document.addEventListener("DOMContentLoaded", function () {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
   });
 </script>
-</body>
 
 </html>
