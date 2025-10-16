@@ -7,7 +7,7 @@
   <title>Bases Biológicas de Procesos Básicos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
-    /* --- RESET GENERAL --- */
+     /* --- RESET GENERAL --- */
     * {
       margin: 0;
       padding: 0;
@@ -1580,19 +1580,20 @@
   // === Línea entre nodo central y nodos secundarios ===
   function drawLines() {
     const svg = document.querySelector('.map-lines');
+    if (!svg) return;
     svg.innerHTML = '';
 
     const central = document.querySelector('.central-node');
     const nodes = document.querySelectorAll('.node');
 
     const centralRect = central.getBoundingClientRect();
-    const centerX = centralRect.left + centralRect.width / 2;
-    const centerY = centralRect.top + centralRect.height / 2;
+    const centerX = centralRect.left + centralRect.width / 2 + window.scrollX;
+    const centerY = centralRect.top + centralRect.height / 2 + window.scrollY;
 
     nodes.forEach(node => {
       const rect = node.getBoundingClientRect();
-      const nodeX = rect.left + rect.width / 2;
-      const nodeY = rect.top + rect.height / 2;
+      const nodeX = rect.left + rect.width / 2 + window.scrollX;
+      const nodeY = rect.top + rect.height / 2 + window.scrollY;
 
       const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
       line.setAttribute('x1', centerX);
@@ -1622,7 +1623,7 @@
   function toggleExpand(item) {
     const expanded = item.classList.contains('expanded');
     item.classList.toggle('expanded', !expanded);
-    item.setAttribute('aria-expanded', !expanded);
+    item.setAttribute('aria-expanded', String(!expanded));
   }
 
   // === Mapa conceptual: mostrar descripción del nodo ===
@@ -1698,5 +1699,6 @@
     tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
   });
 </script>
+``
 
 </html>
