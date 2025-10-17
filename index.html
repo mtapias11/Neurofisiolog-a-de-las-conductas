@@ -17,8 +17,8 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(rgba(215, 224, 179, 0.9), rgba(255, 250, 244, 0.87)),
-        url('imagenes/9548552.jpg') no-repeat center center fixed;
+      background: linear-gradient(rgba(236, 240, 4, 0.267), rgba(255, 250, 244, 0.87)),
+        url('imagenes/3428274.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #333;
       line-height: 1.6;
@@ -38,8 +38,8 @@
 
     /* --- HEADER / NAV --- */
     header.custom-banner {
-      background: linear-gradient(90deg, #ebe84df1, #0cd1c7c2, #e05ba9);
-      color: rgb(15, 0, 0);
+      background: linear-gradient(90deg, #333333, #B76E79, #FFFFF0);
+      color: rgb(0, 11, 15);
       text-align: center;
       padding: 2rem 1rem;
       border-radius: 0 0 20px 20px;
@@ -67,7 +67,7 @@
 
     /* --- HEADER / NAV --- */
     header.custom-banner {
-      background: linear-gradient(90deg, #ebe84df1, #0cd1c7c2, #e05ba9);
+      background: linear-gradient(90deg, #ebe84df1, #FFFFF0, #D4AF37);
       color: rgb(15, 0, 0);
       text-align: center;
       padding: 2rem 1rem;
@@ -147,7 +147,7 @@
     /* === CONTENT AREA === */
     main.content-area {
       flex: 1 1 75%;
-      background-color: #ec83db6b;
+      background-color: #d0e4aa1f;
       /* translucent white */
       border-radius: 15px;
       padding: 2rem;
@@ -836,7 +836,7 @@
     /* === FOOTER === */
     footer {
       position: static;
-      background-color: #f7c8e0;
+      background-color: #f7c8e038;
       color: rgb(207, 147, 147);
       text-align: center;
       padding: 20px;
@@ -928,119 +928,163 @@
       outline: none;
     }
 
-    /* === MIND MAP === */
-    
+/* === ESTILO GENERAL DEL MAPA (REDUCIDO) === */
+.mind-map {
+  position: relative;
+  width: 130%;
+  min-height: 130vh;
+  left: 50%;
+  transform: translateX(-50%);  /* centra el mapa horizontalmente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 3rem 2rem;
+  background: radial-gradient(circle at center, #f5f7fa, #ffe0f1c7);
+  font-family: "Poppins", sans-serif;
+  color: #333;
+
+/* 🎨 NUEVOS AJUSTES DE ESTILO */
+  border-radius: 4rem;
+  box-shadow: 0 0 2rem rgba(241, 33, 172, 0.959);
+  border: 2px solid rgba(175, 4, 90, 0.925);
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+}
+
 .map-lines {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
   z-index: 0;
 }
-.mind-map {
-  position: relative;
-  z-index: 1;
-}
 
-
-/* === NODO CENTRAL === */
+/* === NODO CENTRAL (REDUCIDO) === */
 .central-node {
-  background: linear-gradient(135deg, #524461e8, #25adfc);
-  color: #ffffff;
-  border-radius: 50%;
-  padding: 2.5rem;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  background: linear-gradient(145deg, #f44aa7, #00c6ff);
+  color: #fff;
   font-weight: 700;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem); /* antes 1.6–2.4rem */
   text-align: center;
-  box-shadow: 0 0 1.5rem rgba(50, 100, 200, 0.4);
-  border: 4px solid #ffffff33;
-  width: 300px;
-  height: 300px;
+  border-radius: 50%;
+  width: 180px;   /* antes 260px */
+  height: 180px;  /* antes 260px */
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+  border: 4px solid rgba(255, 255, 255, 0.4);
+  position: relative;
+  z-index: 1;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: default;
 }
 
 .central-node:hover {
-  transform: scale(1.08) rotate(1deg);
-  box-shadow: 0 0 2rem rgba(50, 100, 200, 0.5);
+  transform: scale(1.05);
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.25);
 }
 
-/* === NODOS TEMÁTICOS === */
+/* === NODOS TEMÁTICOS (REDUCIDOS) === */
 .node {
+  position: absolute;
+  width: 220px;             /* antes 300px */
+  max-width: 85vw;
   background: #ffffff;
-  border-radius: 1.8rem;
-  padding: 2rem;
-  box-shadow: 0 0.375rem 1.2rem rgba(0, 0, 0, 0.1);
-  font-size: 1rem;
-  line-height: 1.6;
-  min-width: 280px;
-  max-width: 600px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  border-left: 6px solid #25cafc;
-  position: relative;
+  border-radius: 1rem;      /* antes 1.5rem */
+  padding: 1.2rem 1.4rem;   /* antes 1.6rem 1.8rem */
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #fc05a9; /* antes 6px */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
 }
 
-/* Animación al pasar el cursor */
 .node:hover {
-  transform: translateY(-0.5rem) scale(1.02);
-  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 0.8rem 1.4rem rgba(0, 0, 0, 0.15);
 }
 
-/* Intercalado: alternar alineación */
-.node:nth-child(even) {
-  align-self: flex-start;
-}
-
-.node:nth-child(odd) {
-  align-self: flex-end;
-}
-
-/* Títulos */
+/* === TÍTULOS DE LOS NODOS === */
 .node h3 {
-  color: #2575fc;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-  font-size: 1.2rem;
+  color: #a604f1;
+  font-size: 1rem;         /* antes 1.2rem */
+  margin-bottom: 0.6rem;
   text-align: center;
 }
 
-/* Listas */
+/* === CONTENIDO === */
 .node ul {
   margin: 0;
-  padding-left: 1.2rem;
+  padding-left: 1rem;
   list-style-type: disc;
+  font-size: 0.85rem;       /* antes 0.95rem */
+  line-height: 1.4;
 }
+
+/* === ICONO DECORATIVO === */
+.node::before {
+  content: "🧬";
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  font-size: 1rem;          /* antes 1.3rem */
+  opacity: 0.7;
+}
+
+/* === DISTRIBUCIÓN RADIAL DE NODOS (MÁS SEPARADOS) === */
+.node:nth-of-type(2) { top: 6vh; left: 50%; transform: translate(-50%, 0); }
+
+.node:nth-of-type(3) { top: 18%; right: 10%; transform: translate(0, 0); }
+
+.node:nth-of-type(4) { bottom: 16%; right: 8%; transform: translate(0, 0); }
+
+.node:nth-of-type(5) { bottom: 6vh; left: 50%; transform: translate(-50%, 0); }
+
+.node:nth-of-type(6) { bottom: 16%; left: 8%; transform: translate(0, 0); }
+
+.node:nth-of-type(7) { top: 18%; left: 10%; transform: translate(0, 0); }
+
 
 /* === RESPONSIVE === */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .mind-map {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1.5rem 1rem;
+    transform: none;
+  }
+
+  .node {
+    position: relative;
+    width: 90%;
+    margin: 0.8rem 0;
+    transform: none !important;
+  }
+
+  .node::before {
+    display: none;
+  }
+
+  .central-node {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* === ACCESIBILIDAD === */
+.central-node:focus,
+.node:focus {
+  outline: 2px solid #00c6ff;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
   .node,
   .central-node {
-    align-self: center !important;
-    width: 90%;
+    transition: none;
   }
-}
-
-/* === ACCESIBILIDAD: REDUCIR MOVIMIENTO === */
-@media (prefers-reduced-motion: reduce) {
-  .node:hover,
-  .central-node:hover {
-    transform: none;
-    box-shadow: none;
-  }
-}
-
-/* === DETALLES ADICIONALES === */
-.node::before {
-  content: "🧠";
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 1.2rem;
-  color: #2575fc;
 }
 
   </style>
@@ -1361,129 +1405,133 @@
                 style="top: 35%; left: 30%; background-color: hsl(76, 66%, 50%);"></div>
             </div>
           </div>
-<!-- Mapa conceptual de conducta sexual -->
-<div class="mind-map" role="application" aria-label="Mapa mental sobre conducta sexual">
+ <!-- === Mapa conceptual === -->
+  <div class="mind-map" role="application" aria-label="Mapa mental sobre conducta sexual">
+    <!-- Nodo central -->
+    <section class="central-node" tabindex="0" role="region" aria-label="Nodo central: Conducta sexual">
+      Conducta Sexual
+    </section>
 
-  <!-- Nodo central -->
-  <section class="central-node" tabindex="0" role="region" aria-label="Nodo central: Conducta sexual">
-    Conducta Sexual
-  </section>
+    <!-- Nodo: Sistema hormonal y motivación -->
+    <section class="node" tabindex="0" role="region" aria-label="Sistema hormonal y motivación sexual">
+      <h3>Sistema hormonal y motivación</h3>
+      <ul>
+        <li>Estrógenos, progesterona, testosterona</li>
+        <li>Eje hipotálamo-hipófisis-gonadal</li>
+        <li>Cambios cíclicos en mujeres</li>
+        <li>Relación con conducta reproductiva</li>
+        <li>Cortisol y hormonas del estrés</li>
+      </ul>
+    </section>
 
-  <!-- Nodo: Sistema hormonal y motivación -->
-  <section class="node" tabindex="0" role="region" aria-label="Sistema hormonal y motivación sexual">
-    <h3>Sistema hormonal y motivación</h3>
-    <ul>
-      <li>Estrógenos, progesterona, testosterona</li>
-      <li>Eje hipotálamo-hipófisis-gonadal</li>
-      <li>Cambios cíclicos en mujeres</li>
-      <li>Relación con conducta reproductiva</li>
-      <li>Cortisol y hormonas del estrés</li>
-    </ul>
-  </section>
+    <!-- Nodo: Neuroanatomía del deseo -->
+    <section class="node" tabindex="0" role="region" aria-label="Neuroanatomía y circuitos del deseo sexual">
+      <h3>Neuroanatomía del deseo</h3>
+      <ul>
+        <li>Hipotálamo, amígdala, núcleo accumbens</li>
+        <li>Corteza prefrontal, tronco cerebral</li>
+        <li>Integración sensorial y emocional</li>
+        <li>Sistema de recompensa (dopamina)</li>
+        <li>Modulación cognitiva</li>
+      </ul>
+    </section>
 
-  <!-- Nodo: Neuroanatomía del deseo -->
-  <section class="node" tabindex="0" role="region" aria-label="Neuroanatomía y circuitos del deseo sexual">
-    <h3>Neuroanatomía del deseo</h3>
-    <ul>
-      <li>Hipotálamo, amígdala, núcleo accumbens</li>
-      <li>Corteza prefrontal, tronco cerebral</li>
-      <li>Integración sensorial y emocional</li>
-      <li>Sistema de recompensa (dopamina)</li>
-      <li>Modulación cognitiva</li>
-    </ul>
-  </section>
+    <!-- Nodo: Neuroquímica -->
+    <section class="node" tabindex="0" role="region" aria-label="Neuroquímica sexual">
+      <h3>Neuroquímica</h3>
+      <ul>
+        <li>Dopamina: motivación y recompensa</li>
+        <li>Serotonina: inhibición post-respuesta</li>
+        <li>Óxido nítrico: respuesta vascular</li>
+        <li>GABA, opioides, endocannabinoides</li>
+        <li>Interacción con hormonas sexuales</li>
+      </ul>
+    </section>
 
-  <!-- Nodo: Neuroquímica -->
-  <section class="node" tabindex="0" role="region" aria-label="Neuroquímica sexual">
-    <h3>Neuroquímica</h3>
-    <ul>
-      <li>Dopamina: motivación y recompensa</li>
-      <li>Serotonina: inhibición post-respuesta</li>
-      <li>Óxido nítrico: respuesta vascular</li>
-      <li>GABA, opioides, endocannabinoides</li>
-      <li>Interacción con hormonas sexuales</li>
-    </ul>
-  </section>
+    <!-- Nodo: Desarrollo biológico -->
+    <section class="node" tabindex="0" role="region" aria-label="Factores del desarrollo biológico sexual">
+      <h3>Desarrollo biológico</h3>
+      <ul>
+        <li>Influencia hormonal prenatal</li>
+        <li>Diferenciación cerebral</li>
+        <li>Genética y epigenética</li>
+        <li>Orientación e identidad</li>
+        <li>Sensibilidad estructural a hormonas</li>
+      </ul>
+    </section>
 
-  <!-- Nodo: Desarrollo biológico -->
-  <section class="node" tabindex="0" role="region" aria-label="Factores del desarrollo biológico sexual">
-    <h3>Desarrollo biológico</h3>
-    <ul>
-      <li>Influencia hormonal prenatal</li>
-      <li>Diferenciación cerebral</li>
-      <li>Genética y epigenética</li>
-      <li>Orientación e identidad</li>
-      <li>Sensibilidad estructural a hormonas</li>
-    </ul>
-  </section>
+    <!-- Nodo: Microbiota -->
+    <section class="node" tabindex="0" role="region" aria-label="Microbiota y conducta sexual">
+      <h3>Microbiota y cerebro</h3>
+      <ul>
+        <li>Regulación hormonal y neurotransmisores</li>
+        <li>Influencia en motivación y ánimo</li>
+        <li>Conexión con conducta sexual</li>
+        <li>Ejes biológicos integrados</li>
+      </ul>
+    </section>
 
-  <!-- Nodo: Microbiota -->
-  <section class="node" tabindex="0" role="region" aria-label="Microbiota y conducta sexual">
-    <h3>Microbiota y cerebro</h3>
-    <ul>
-      <li>Regulación hormonal y neurotransmisores</li>
-      <li>Influencia en motivación y ánimo</li>
-      <li>Conexión con conducta sexual</li>
-      <li>Ejes biológicos integrados</li>
-    </ul>
-  </section>
+    <!-- Nodo: Aplicaciones clínicas -->
+    <section class="node" tabindex="0" role="region" aria-label="Aplicaciones clínicas y disfunciones sexuales">
+      <h3>Aplicaciones clínicas</h3>
+      <ul>
+        <li>Deseo sexual hipoactivo, aversión</li>
+        <li>Disfunción eréctil, anorgasmia</li>
+        <li>Tratamientos hormonales y neurológicos</li>
+        <li>Impacto del microbioma</li>
+      </ul>
+    </section>
 
-  <!-- Nodo: Aplicaciones clínicas -->
-  <section class="node" tabindex="0" role="region" aria-label="Aplicaciones clínicas y disfunciones sexuales">
-    <h3>Aplicaciones clínicas</h3>
-    <ul>
-      <li>Deseo sexual hipoactivo, aversión</li>
-      <li>Disfunción eréctil, anorgasmia</li>
-      <li>Tratamientos hormonales y neurológicos</li>
-      <li>Impacto del microbioma</li>
-    </ul>
-  </section>
-
-</div>
-<!-- SVG para líneas del mapa mental -->
-<svg class="map-lines" aria-hidden="true"></svg>    
-
+    <!-- SVG de líneas -->
+    <svg class="map-lines" aria-hidden="true"></svg>
+  </div>
 </main>
 
 <!-- Sidebar con fichas de aprendizaje -->
 <aside class="sidebar" aria-label="Fichas de aprendizaje">
-  <h5>Fichas de Aprendizaje del Sueño</h5>
+  <h5>🔍Fichas de Aprendizaje del Sueño</h5>
   <div class="card">
     <div class="card-body">
-      <h6 class="card-title">Bases del Sueño</h6>
-      <p class="card-text">Fases del sueño, actividades neuronales y fisiológicas, importancia del REM.</p>
+      <h6 class="card-title">🪄Bases del Sueño</h6>
+      <p class="card-text">🧠 Durante el sueño REM, el cuerpo entra en una parálisis temporal para evitar que actuemos físicamente nuestros sueños.</p>
+    </div>
+  </div>
+<div class="card">
+    <div class="card-body">
+      <h6 class="card-title">🪄Dormir mal afecta la salud</h6>
+      <p class="card-text">🧠 La falta de sueño está relacionada con obesidad, hipertensión, diabetes tipo 2 y problemas de ánimo.</p>
+      <p class="card-text"> 🧬Algunas personas se despiertan sin alarma gracias a una descarga de adrenocorticotropina, una hormona del estrés que se libera justo antes de despertar.</p>
+    </div>
+  </div>
+  <h5>🔍Fichas de Aprendizaje de la Ingesta</h5>
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">🪄Sistema nervioso entérico</h6>
+      <p class="card-text">🧠 El intestino tiene su propio grupo de nervios que ayudan a mover la comida y hacer la digestión. Es tan importante que a veces lo llaman el "segundo cerebro", porque puede hablar con el cerebro de la cabeza.</p>
     </div>
   </div>
 
-  <h5>Fichas de Aprendizaje de la Ingesta</h5>
   <div class="card">
     <div class="card-body">
-      <h6 class="card-title">Sustancias en Ingesta</h6>
-      <p class="card-text">Roles de grelina, leptina, insulina y otros en el control del apetito y saciedad.</p>
+      <h6 class="card-title">🪄Hipotálamo: Centro principal de regulación.</h6>
+      <p class="card-text">💡Núcleo arqueado: Detecta señales de hambre y saciedad.</p>
+      <p class="card-text">💡Núcleo ventromedial: Relacionado con la saciedad.</p>
+      <p class="card-text">💡Núcleo lateral: Estimula el apetito.</p>
     </div>
   </div>
 
   <div class="card">
     <div class="card-body">
-      <h6 class="card-title">Hipotálamo: Centro principal de regulación.</h6>
-      <p class="card-text">Núcleo arqueado: Detecta señales de hambre y saciedad.</p>
-      <p class="card-text">Núcleo ventromedial: Relacionado con la saciedad.</p>
-      <p class="card-text">Núcleo lateral: Estimula el apetito.</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-body">
-      <h6 class="card-title">Hormonas clave:</h6>
-      <p class="card-text">Grelina: Estimula el hambre (secretada por el estómago).</p>
-      <p class="card-text">Leptina: Inhibe el apetito (secretada por tejido adiposo).</p>
+      <h6 class="card-title">🪄La grelina aumenta antes de ver comida deliciosa</h6>
+      <p class="card-text">💡Esta hormona del hambre se eleva anticipadamente cuando el cuerpo espera comer, especialmente ante alimentos ricos en grasa o azúcar.</p>
+      <p class="card-text">💡El cerebro tarda unos 20 minutos en recibir señales de saciedad. Comer lentamente permite que estas señales lleguen antes de que se consuma en exceso.</p>
       <p class="card-text">Insulina: Regula niveles de glucosa y tiene efecto sobre el apetito.</p>
     </div>
   </div>
 
   <div class="card">
     <div class="card-body">
-      <h6 class="card-title">Neurotransmisores</h6>
+      <h6 class="card-title">🪄Neurotransmisores</h6>
       <p class="card-text">Dopamina: Asociada al placer de comer.</p>
       <p class="card-text">Serotonina: Relacionada con la saciedad y el estado de ánimo.</p>
     </div>
@@ -1491,19 +1539,25 @@
 
   <div class="card">
     <div class="card-body">
-      <h6 class="card-title">Factores que influyen</h6>
-      <p class="card-text">Ambientales (disponibilidad de comida, cultura).</p>
-      <p class="card-text">Emocionales (estrés, ansiedad).</p>
-      <p class="card-text">Genéticos (predisposición a obesidad o trastornos alimentarios).</p>
+      <h6 class="card-title">🪄Factores que influyen</h6>
+      <p class="card-text">💡Ambientales (disponibilidad de comida, cultura).</p>
+      <p class="card-text">💡Emocionales (estrés, ansiedad).</p>
+      <p class="card-text">💡Genéticos (predisposición a obesidad o trastornos alimentarios).</p>
     </div>
   </div>
 
-  <h5>Fichas de Aprendizaje de la Conducta Sexual</h5>
+  <h5>🔍Fichas de Aprendizaje de la Conducta Sexual</h5>
   <div class="card">
     <div class="card-body">
-      <h6 class="card-title">Hormonas Sexuales</h6>
-      <p class="card-text">Efectos de estrógenos, progesterona y testosterona en maduración y sistema nervioso.</p>
+      <h6 class="card-title">🪄Hormonas Sexuales</h6>
+      <p class="card-text">💡La testosterona, oxitocina y estrógenos influyen en el deseo, apego y respuesta sexual.</p>
       </p>
+    </div>
+  </div>
+   <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">🪄Microbiota</h6>
+      <p class="card-text">💡La flora intestinal puede modular el comportamiento sexual mediante el eje microbiota-cerebro.</p>
     </div>
   </div>
 </aside>
@@ -1577,80 +1631,45 @@
     });
   });
 
-  // === Línea entre nodo central y nodos secundarios ===
-  function drawLines() {
-    const svg = document.querySelector('.map-lines');
-    if (!svg) return;
-    svg.innerHTML = '';
+ function drawMindMapLines() {
+      const svg = document.querySelector('.map-lines');
+      const central = document.querySelector('.central-node');
+      const nodes = document.querySelectorAll('.node');
 
-    const central = document.querySelector('.central-node');
-    const nodes = document.querySelectorAll('.node');
+      // Limpia líneas previas
+      svg.innerHTML = '';
 
-    const centralRect = central.getBoundingClientRect();
-    const centerX = centralRect.left + centralRect.width / 2 + window.scrollX;
-    const centerY = centralRect.top + centralRect.height / 2 + window.scrollY;
+      const svgRect = svg.getBoundingClientRect();
+      const cRect = central.getBoundingClientRect();
+      const cx = cRect.left + cRect.width / 2 - svgRect.left;
+      const cy = cRect.top + cRect.height / 2 - svgRect.top;
 
-    nodes.forEach(node => {
-      const rect = node.getBoundingClientRect();
-      const nodeX = rect.left + rect.width / 2 + window.scrollX;
-      const nodeY = rect.top + rect.height / 2 + window.scrollY;
+      nodes.forEach(node => {
+        const nRect = node.getBoundingClientRect();
+        const nx = nRect.left + nRect.width / 2 - svgRect.left;
+        const ny = nRect.top + nRect.height / 2 - svgRect.top;
 
-      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      line.setAttribute('x1', centerX);
-      line.setAttribute('y1', centerY);
-      line.setAttribute('x2', nodeX);
-      line.setAttribute('y2', nodeY);
-      line.setAttribute('stroke', '#25adfc');
-      line.setAttribute('stroke-width', '2');
-      svg.appendChild(line);
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', cx);
+        line.setAttribute('y1', cy);
+        line.setAttribute('x2', nx);
+        line.setAttribute('y2', ny);
+        line.setAttribute('stroke', '#5a4af4');
+        line.setAttribute('stroke-width', '2');
+        line.setAttribute('stroke-opacity', '0.4');
+        line.setAttribute('vector-effect', 'non-scaling-stroke');
+
+        svg.appendChild(line);
+      });
+    }
+
+    // Dibuja al cargar y al cambiar tamaño
+    window.addEventListener('load', drawMindMapLines);
+    window.addEventListener('resize', () => {
+      // Recalcular tras un pequeño retraso (para evitar parpadeos)
+      clearTimeout(window._mapTimeout);
+      window._mapTimeout = setTimeout(drawMindMapLines, 150);
     });
-  }
-
-  window.addEventListener('load', drawLines);
-  window.addEventListener('resize', drawLines);
-
-  // === Línea de tiempo expandible con accesibilidad ===
-  document.querySelectorAll('.timeline-item').forEach(item => {
-    item.addEventListener('click', () => toggleExpand(item));
-    item.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleExpand(item);
-      }
-    });
-  });
-
-  function toggleExpand(item) {
-    const expanded = item.classList.contains('expanded');
-    item.classList.toggle('expanded', !expanded);
-    item.setAttribute('aria-expanded', String(!expanded));
-  }
-
-  // === Mapa conceptual: mostrar descripción del nodo ===
-  const conceptNodes = document.querySelectorAll('.concept-node');
-  const conceptDesc = document.getElementById('concept-desc');
-
-  conceptNodes.forEach(node => {
-    node.setAttribute('tabindex', '0');
-
-    node.addEventListener('click', () => {
-      conceptNodes.forEach(n => n.classList.remove('active-node'));
-      node.classList.add('active-node');
-
-      conceptDesc.style.opacity = '0';
-      setTimeout(() => {
-        conceptDesc.textContent = node.getAttribute('data-desc');
-        conceptDesc.style.opacity = '1';
-      }, 200);
-    });
-
-    node.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        node.click();
-      }
-    });
-  });
 
   // === Cards de hormonas sexuales ===
   const hormoneCards = document.querySelectorAll('.hormone-card');
